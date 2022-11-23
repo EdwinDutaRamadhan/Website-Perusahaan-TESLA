@@ -1,14 +1,18 @@
+body{
+    background-color: aliceblue;
+}
 .section1{
-    background-image: url("../img/M3-Homepage-Desktop-LHD.png");
+    
     background-position: center;
-    margin-top: -75px;
+    background-size: cover;
+    background-repeat: no-repeat;
     width:100%;
-    background-repeat: none;
     height: auto;
 }
 .section2{
-    background-image: url("../img/M3-Homepage-Desktop-LHD.png");
+    
     background-position: center;
+    background-size: cover;
     width:100%;
     background-repeat: none;
     height: auto;

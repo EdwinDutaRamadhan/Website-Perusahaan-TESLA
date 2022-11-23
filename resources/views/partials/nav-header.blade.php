@@ -7,22 +7,22 @@
         <div class="collapse navbar-collapse justify-content-center" id="collapsibleNavbar">
             <ul class="navbar-nav">
                 <li class="nav-item ms-2 me-2">
-                    <a class="nav-link" href="#">Model S</a>
+                    <a class="nav-link" href="#3">Model S</a>
                 </li>
                 <li class="nav-item ms-2 me-2">
-                    <a class="nav-link" href="#">Model 3</a>
+                    <a class="nav-link" href="#1">Model 3</a>
                 </li>
                 <li class="nav-item ms-2 me-2">
-                    <a class="nav-link" href="#">Model X</a>
+                    <a class="nav-link" href="#4">Model X</a>
                 </li>
                 <li class="nav-item ms-2 me-2">
-                    <a class="nav-link" href="#">Model Y</a>
+                    <a class="nav-link" href="#2">Model Y</a>
                 </li>
                 <li class="nav-item ms-2 me-2">
-                    <a class="nav-link" href="#">Solar Roof</a>
+                    <a class="nav-link" href="#6">Solar Roof</a>
                 </li>
                 <li class="nav-item ms-2 me-2">
-                    <a class="nav-link" href="#">Solar Panels</a>
+                    <a class="nav-link" href="#5">Solar Panels</a>
                 </li>
             </ul>
         </div>

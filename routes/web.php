@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopModelController;
+use App\Http\Controllers\LandingModelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,7 @@ use App\Http\Controllers\ShopModelController;
 |
 */
 
-Route::get('/', function () {
-    return view('public.home');
-});
+Route::get('/', [LandingModelController::class, 'index']);
 Route::get('/shop', [ShopModelController::class, 'show']);
 Route::get('/shop/details/{nama}', [ShopModelController::class, 'single']);
 
