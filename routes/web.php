@@ -19,3 +19,6 @@ Route::get('/', function () {
 });
 Route::get('/shop', [ShopModelController::class, 'show']);
 Route::get('/shop/details/{nama}', [ShopModelController::class, 'single']);
+
+//Sort
+Route::post('/shop/sort', [ShopModelController::class, 'sort']);

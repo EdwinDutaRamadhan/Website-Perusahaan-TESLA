@@ -27,10 +27,32 @@ class ShopModelController extends Controller
         //
     }
 
-   public function show(){
-    return view('public.shop', ['data'=> ShopModel::all()]);
-   }
-   public function single(Request $req){
-return view('public.shop-details', ['data' => ShopModel::where('nama', $req->nama)->get()] );
-   }
+    public function show()
+    {
+        return view('public.shop', ['data' => ShopModel::orderBy('harga')->get()]);
+    }
+    public function single(Request $req)
+    {
+        return view('public.shop-details', ['data' => ShopModel::where('nama', $req->nama)->get()]);
+    }
+    public function sort(Request $req){
+        switch ($req->sort) {
+            case 'price-low':
+                return view('public.shop', ['data' => ShopModel::orderBy('harga','asc')->get()]);
+                break;
+            case 'price-high':
+                return view('public.shop', ['data' => ShopModel::orderBy('harga', 'desc')->get()]);
+                break;
+            case 'sold-low':
+                # code...
+                break;
+            case 'sold-low':
+                # code...
+                break;
+            
+            default:
+                # code...
+                break;
+        }
+    }
 }
