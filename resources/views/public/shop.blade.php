@@ -1,8 +1,7 @@
 @extends('layout.tesla-shop')
 @section('container')
-    <h1>shop</h1>
     <div class="row">
-        <form action="/shop/sort" method="post">
+        {{-- <form action="/shop/sort" method="post">
             @csrf
             <label for="sort">Sort By</label>
             <select name="sort" id="sort" >
@@ -12,8 +11,9 @@
                 <option value="sold-high">Sold : Highest->Lowest</option>
             </select>
             <input type="submit" value="Sort">
-        </form>
-        @foreach ($data as $d)
+        </form> --}}
+        @include('partials.section-shop')
+        {{-- @foreach ($data as $d)
             <div class="col-sm-4">
                 <div class="card">
                     <div class="card-body">
@@ -23,6 +23,9 @@
                     </div>
                 </div>
             </div>
+        @endforeach --}}
+        @foreach ($data as $d)
+            @include('partials.section-2-shop')
         @endforeach
     </div>
 @endsection()

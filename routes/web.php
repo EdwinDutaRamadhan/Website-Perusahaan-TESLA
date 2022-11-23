@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopModelController;
 use App\Http\Controllers\LandingModelController;
+use App\Http\Controllers\LandingShopModelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,7 @@ use App\Http\Controllers\LandingModelController;
 */
 
 Route::get('/', [LandingModelController::class, 'index']);
-Route::get('/shop', [ShopModelController::class, 'show']);
+Route::get('/shop', [LandingShopModelController::class, 'index']);
 Route::get('/shop/details/{nama}', [ShopModelController::class, 'single']);
 
 //Sort
