@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ShopModelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('public.home');
 });
-Route::get('/shop', function(){
-    return view('public.shop');
-});
+Route::get('/shop', [ShopModelController::class, 'show']);

@@ -13,12 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tb_shop_tesla', function (Blueprint $table) {
+        Schema::create('shop_models', function (Blueprint $table) {
             $table->id();
-            $table->string('nama')->unique();
-            $table->string('harga');
-            $table->text('deskripsi');
-            $table->text('guide');
             $table->timestamps();
         });
     }
@@ -30,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_shop_tesla');
+        Schema::dropIfExists('shop_models');
     }
 };

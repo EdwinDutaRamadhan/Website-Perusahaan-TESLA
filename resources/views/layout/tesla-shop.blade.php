@@ -10,6 +10,8 @@
 </head>
 <body>
     @include('partials.nav-shop-header')
-    @yield('container')
+    <div class="container-fluid">
+        @yield('container')
+    </div>
 </body>
 </html>
