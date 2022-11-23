@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ShopModel;
-use App\Http\Requests\StoreShopModelRequest;
-use App\Http\Requests\UpdateShopModelRequest;
+use Illuminate\Http\Request;
 
 class ShopModelController extends Controller
 {
@@ -30,5 +29,8 @@ class ShopModelController extends Controller
 
    public function show(){
     return view('public.shop', ['data'=> ShopModel::all()]);
+   }
+   public function single(Request $req){
+return view('public.shop-details', ['data' => ShopModel::where('nama', $req->nama)->get()] );
    }
 }

@@ -8,7 +8,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $d->nama }}</h5>
                     <p class="card-text">{{ $d->harga }}</p>
-                    <a href="#" class="btn btn-primary">Details</a>
+                    <a href="shop/details/{{ $d->nama }}" class="btn btn-primary">Details</a>
                 </div>
             </div>
         </div>

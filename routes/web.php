@@ -18,3 +18,4 @@ Route::get('/', function () {
     return view('public.home');
 });
 Route::get('/shop', [ShopModelController::class, 'show']);
+Route::get('/shop/details/{nama}', [ShopModelController::class, 'single']);
