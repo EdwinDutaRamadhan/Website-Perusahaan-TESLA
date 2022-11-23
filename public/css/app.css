@@ -1,0 +1,20 @@
+.section1{
+    background-image: url("../img/M3-Homepage-Desktop-LHD.png");
+    background-position: center;
+    margin-top: -75px;
+    width:100%;
+    background-repeat: none;
+    height: auto;
+}
+.section2{
+    background-image: url("../img/M3-Homepage-Desktop-LHD.png");
+    background-position: center;
+    width:100%;
+    background-repeat: none;
+    height: auto;
+}
+.navbars{
+    background-color: transparent;
+    background: transparent;
+    border-color: transparent;
+}

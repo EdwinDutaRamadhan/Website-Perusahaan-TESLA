@@ -1,17 +1,32 @@
 @extends('layout.tesla')
 @section('container')
-        {{-- <img src="{{ asset("img/M3-Homepage-Desktop-LHD.png") }}" class="img-fluid" alt="..."> --}}
-        <div class="bg-image p-5 text-center shadow-1-strong rounded mb-5 text-white" style="
-        background-image : url({{ asset("img/M3-Homepage-Desktop-LHD.png") }}); ">
-            <div class="container">
-                <h1 class="mb-4 h2">Jumbotron</h1>
-                <h2>test</h2>
-
-                <form action="" class="m-5">
-                    <button>tset</button>
-                    <button>test</button>
-                </form>
+        @include('partials.section1-main')
+        <section class="section2 img-fluid d-flex align-times-center text-center">
+            <div class="container mx-auto m-4">
+                <div class="d-flex justify-content-center m-2">
+                    <div class="row">
+                        <div class="row p-4 m-4">
+                            <div class="col-md-12">
+                                <h1>Model 3</h1>
+                                <h6>Schedule a Test Drive</h6>
+                            </div>
+                        </div>
+                        <div class="row p-4 m-4"></div>
+                        <div class="row p-5 m-5"></div>
+                        <div class="row p-5 m-4">
+                            <div class="col-md-6">
+                                <form action="">
+                                    <input type="submit" value="Custom Order">
+                                </form>
+                            </div>
+                            <div class="col-md-6">
+                                <form action="">
+                                    <input type="submit" value="Existing inventory">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-        </div>
+        </section>
 @endsection()
