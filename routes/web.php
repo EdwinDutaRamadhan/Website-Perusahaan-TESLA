@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CarModelController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopModelController;
 use App\Http\Controllers\LandingModelController;
@@ -22,3 +23,9 @@ Route::get('/shop/details/{nama}', [ShopModelController::class, 'single']);
 
 //Sort
 Route::post('/shop/sort', [ShopModelController::class, 'sort']);
+
+//Custom
+Route::post('/custom/', [CarModelController::class, 'custom']);
+
+//Inventory
+Route::post('/inventory/', [CarModelController::class, 'index']);

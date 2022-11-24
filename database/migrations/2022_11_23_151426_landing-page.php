@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('model_id')->unique();
             $table->string('model')->unique();
+            $table->string('note');
             $table->string('gambar');
             $table->timestamps();
         });

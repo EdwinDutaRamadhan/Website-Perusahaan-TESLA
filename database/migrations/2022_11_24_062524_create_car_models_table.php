@@ -13,15 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tb_model', function (Blueprint $table) {
+        Schema::create('car_models', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('pengiriman');
-            $table->string('jarak');
-            $table->string('topspeed');
-            $table->float('starter');
-            $table->string('jenis');
-            $table->string('harga');
             $table->timestamps();
         });
     }
@@ -33,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_model');
+        Schema::dropIfExists('car_models');
     }
 };
