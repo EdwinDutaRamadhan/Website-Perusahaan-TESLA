@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('tb_inventory', function (Blueprint $table) {
             $table->id();
             $table->string('model');
+            $table->string('name');
+            $table->string('delivery');
             $table->string('trim');
             $table->string('ekpaint');
             $table->string('inpaint');
