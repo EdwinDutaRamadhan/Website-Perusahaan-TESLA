@@ -7,15 +7,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/app.css">
-        <style>
-            body{
-                background-color: #EAEAEA;
-            }
-            .name-size{
-                font-size: 15px;
-            }
-        </style>
+    <link rel="stylesheet" href="css/app.css">
+    <style>
+        body{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .name-size {
+            font-size: 15px;
+        }
+
+        .section-image {
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: contain;
+        }
+    </style>
     <title>Tesla</title>
 </head>
 
@@ -26,8 +32,9 @@
 
 <script src="js/app.js"></script>
 <script type="text/javascript">
-    function submitform(){
+    function submitform() {
         document.myform.submit();
     }
 </script>
+
 </html>

@@ -8,9 +8,6 @@
         </div>
         <div class="navbar-brand justify-content-right" id="collapsibleNavbar">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="/shop">Shop</a>
-                </li>
             </ul>
         </div>
     </div>

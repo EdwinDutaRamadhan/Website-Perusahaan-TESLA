@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-2">
-                <h1>Inventory</h1>  
+                <h1>Inventory</h1>
                 <form name="myform" action="/inventory/" method="POST">
                     @csrf
                     <div class="row">
@@ -70,11 +70,7 @@
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center">
-                                <form action="" method="post">
-                                    @csrf
-                                    <input type="submit"class="btn btn-outline-dark"
-                                        value="&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;View Details&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;"></input>
-                                </form>
+                                <a href="/inventory/detail/{{ $d->id }}" class="btn btn-outline-dark">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;View Details&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</a>
                             </div>
                         </div>
                     @endforeach

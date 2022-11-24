@@ -22,6 +22,10 @@ class CarModelController extends Controller
     public function sort(Request $req){
         return view('public.landing-inventory', ['data' => CarModel::where('model', $req->sort)->get()]);
     }
+
+    public function single(Request $req){
+        return view('public.landing-detail', ['data' => CarModel::where('id', $req->id)->get()]);
+    }
     /**
      * Show the form for creating a new resource.
      *
