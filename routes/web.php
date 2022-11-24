@@ -28,4 +28,5 @@ Route::post('/shop/sort', [ShopModelController::class, 'sort']);
 Route::post('/custom/', [CarModelController::class, 'custom']);
 
 //Inventory
-Route::post('/inventory/', [CarModelController::class, 'index']);
+Route::get('/inventory/', [CarModelController::class, 'index']);
+Route::post('/inventory/', [CarModelController::class, 'sort']);

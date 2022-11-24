@@ -39,11 +39,7 @@
                             </form>
                         </div>
                         <div class="col-md-6">
-                            <form action="/inventory/" method="POST">
-                                @csrf
-                                <input type="hidden" name="model" value="{{ $d->model }}">
-                                <input type="submit" value="Existing inventory">
-                            </form>
+                            <a class="btn btn-outline-dark" href="/inventory/">Existing Inventory</a>
                         </div>
                     @endif()
                 </div>

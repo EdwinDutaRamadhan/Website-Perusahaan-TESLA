@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CarModel;
 use App\Http\Requests\StoreCarModelRequest;
 use App\Http\Requests\UpdateCarModelRequest;
+use Illuminate\Http\Request;
 
 class CarModelController extends Controller
 {
@@ -18,6 +19,9 @@ class CarModelController extends Controller
         return view('public.landing-inventory', ['data' => CarModel::all()]);
     }
 
+    public function sort(Request $req){
+        return view('public.landing-inventory', ['data' => CarModel::where('model', $req->sort)->get()]);
+    }
     /**
      * Show the form for creating a new resource.
      *

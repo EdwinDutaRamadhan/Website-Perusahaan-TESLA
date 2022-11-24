@@ -19,17 +19,18 @@ return new class extends Migration
             $table->string('name');
             $table->string('delivery');
             $table->string('trim');
-            $table->string('ekpaint');
-            $table->string('inpaint');
+            $table->string('color');
+            $table->string('internal');
             $table->string('wheels');
             $table->string('autopilot');
             $table->string('seatlayout');
             $table->string('additional');
             $table->float('startspeed');
-            $table->string('topspeed');
-            $table->string('range');
-            $table->float('fee');
+            $table->integer('topspeed');
+            $table->integer('range');
+            $table->integer('fee');
             $table->string('image');
+            $table->string('trial');
             $table->timestamps();
         });
     }

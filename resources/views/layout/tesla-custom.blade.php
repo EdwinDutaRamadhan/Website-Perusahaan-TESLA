@@ -12,6 +12,9 @@
             body{
                 background-color: #EAEAEA;
             }
+            .name-size{
+                font-size: 15px;
+            }
         </style>
     <title>Tesla</title>
 </head>
@@ -22,10 +25,9 @@
 </body>
 
 <script src="js/app.js"></script>
-<script>
-    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-      return new bootstrap.Tooltip(tooltipTriggerEl)
-    })
-    </script>
+<script type="text/javascript">
+    function submitform(){
+        document.myform.submit();
+    }
+</script>
 </html>
