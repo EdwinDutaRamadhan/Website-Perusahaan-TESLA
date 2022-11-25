@@ -40,7 +40,7 @@
           <div class="row">
             <div class="col-8">
                 <video width="100%"height="100%" autoplay muted loop >
-                    <source src="{{ asset('img/autopilot/navigate-on-autopilot.webm') }}" type="video/webm">
+                    <source src="{{ asset('img/autopilot/autopark.webm') }}" type="video/webm">
                 </video>
             </div>
             <div class="col-4">
@@ -92,7 +92,7 @@
           <div class="row">
             <div class="col-8">
                 <video width="100%"height="100%" autoplay muted loop >
-                    <source src="{{ asset('img/autopilot/navigate-on-autopilot.webm') }}" type="video/webm">
+                    <source src="{{ asset('img/autopilot/summon_v2.webm') }}" type="video/webm">
                 </video>
             </div>
             <div class="col-4">
