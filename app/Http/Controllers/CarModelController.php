@@ -19,12 +19,44 @@ class CarModelController extends Controller
         return view('public.landing-inventory', ['data' => CarModel::all()]);
     }
 
-    public function sort(Request $req){
-        return view('public.landing-inventory', ['data' => CarModel::where('model', $req->sort)->get()]);
+    public function sort(Request $req)
+    {
+        // switch ($req->sort) {
+        //     case 'fee-asc':
+        //         $data = CarModel::where('model', $req->sortModel)->orderBy('fee', 'ASC')->get();
+        //         break;
+        //     case 'fee-desc':
+        //         $data = CarModel::where('model', $req->sortModel)->orderBy('fee', 'DESC')->get();
+        //         break;
+        //     default:
+        //         $data = CarModel::where('model', $req->sortmodel)->get();
+        //         break;
+        // }
+        return view('public.landing-inventory', [
+            'data' => CarModel::where('model', $req->sortmodel)->get(),
+            'sortmodel' => $req->sortmodel,
+            'sort' => $req->sort
+        ]);
     }
-
-    public function single(Request $req){
+    public function inven(Request $req){
+        return view('public.landing-inventory', ['data' => CarModel::where('model', $req->sortmodel)->get(), 'sortmodel' => $req->sortmodel]);
+    }
+    public function single(Request $req)
+    {
         return view('public.landing-detail', ['data' => CarModel::where('id', $req->id)->get()]);
+    }
+    public function payments(Request $req){
+        $payments = $req->payments;
+        ($req->enhanced)? $enchanced = true : $enchanced = false;
+        ($req->capability)? $capability = true : $capability = false;
+        ($req->charging)? $charging = true : $charging = false;
+        return view('public.landing-detail', [
+            'data' => CarModel::where('id', $req->id)->get(),
+            'enchanced' => $enchanced,
+            'capability' => $capability,
+            'charging' => $charging,
+            'payments' => $payments
+        ]);
     }
     /**
      * Show the form for creating a new resource.

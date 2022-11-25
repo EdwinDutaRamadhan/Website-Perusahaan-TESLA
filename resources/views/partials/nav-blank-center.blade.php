@@ -1,6 +1,6 @@
 <nav class="navbars navbar navbar-expand-sm navbar-light sticky-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">T E S L A</a>
+        <a class="navbar-brand ms-2" href="/">T E S L A</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>

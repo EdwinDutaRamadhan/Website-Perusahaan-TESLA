@@ -30,6 +30,8 @@ Route::post('/custom/', [CarModelController::class, 'custom']);
 //Inventory
 Route::get('/inventory/', [CarModelController::class, 'index']);
 Route::post('/inventory/', [CarModelController::class, 'sort']);
-
+Route::post('/inventory',[CarModelController::class, 'inven']);
 //Detail
 Route::get('/inventory/detail/{id}', [CarModelController::class, 'single']);
+//Payments
+Route::post('/inventory/detail/payments', [CarModelController::class, 'payments']);

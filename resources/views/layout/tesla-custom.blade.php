@@ -11,6 +11,7 @@
     <style>
         body{
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: white;
         }
         .name-size {
             font-size: 15px;
@@ -32,8 +33,28 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript">
+var i = 0;
+var j = 0;
     function submitform() {
         document.myform.submit();
+    }
+    function repeaterEA(){
+        if(i % 2 == 0){
+            document.getElementById("EA").innerHTML = "Remove";
+            i++;
+        }else{
+            document.getElementById("EA").innerHTML = "Add";
+            i++;
+        }
+    }
+    function repeaterFS(){
+        if(j % 2 == 0){
+            document.getElementById("FS").innerHTML = "Remove";
+            j++;
+        }else{
+            document.getElementById("FS").innerHTML = "Add";
+            i++;
+        }
     }
 </script>
 

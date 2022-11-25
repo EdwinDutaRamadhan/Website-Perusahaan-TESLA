@@ -8,22 +8,29 @@
                     @csrf
                     <div class="row">
                         <div class="col-ms-12">
-                            <input onclick="submitform();" type="radio" name="sort" value="Model S" id="model-s">
+                            <input onclick="submitform();" type="radio" name="sortmodel" value="Model S" id="model-s" {{ (isset($sortmodel) && $sortmodel == 'Model S')? "checked" : ""; }}>
                             <label for="model-s">Model S</label>
                         </div>
                         <div class="col-ms-12">
-                            <input onclick="submitform();" type="radio" name="sort" value="Model 3" id="model-3">
+                            <input onclick="submitform();" type="radio" name="sortmodel" value="Model 3" id="model-3" {{ (isset($sortmodel) && $sortmodel == 'Model 3')? "checked" : ""; }}>
                             <label for="model-3">Model 3</label>
                         </div>
                         <div class="col-ms-12">
-                            <input onclick="submitform();" type="radio" name="sort" value="Model X" id="model-x">
+                            <input onclick="submitform();" type="radio" name="sortmodel" value="Model X" id="model-x" {{ (isset($sortmodel) && $sortmodel == 'Model X')? "checked" : ""; }}>
                             <label for="model-x">Model X</label>
                         </div>
                         <div class="col-ms-12">
-                            <input onclick="submitform();" type="radio" name="sort" value="Model Y" id="model-y">
+                            <input onclick="submitform();" type="radio" name="sortmodel" value="Model Y" id="model-y" {{ (isset($sortmodel) && $sortmodel == 'Model Y')? "checked" : ""; }}>
                             <label for="model-y">Model Y</label>
                         </div>
                     </div>
+                    {{-- <p>sortmodel {{ (isset($sortmodel))? $sortmodel : ""; }}</p>
+                    <p>sort {{ (isset($sort))? $sort : ""; }}</p>
+                    <select name="sort" id="sort">
+                        <option value="null">Relevance</option>
+                        <option value="fee-desc">Price : low to high</option>
+                        <option value="fee-asc">Price : high to low</option>
+                      </select> --}}
                 </form>
             </div>
             <div class="col-sm-10">
