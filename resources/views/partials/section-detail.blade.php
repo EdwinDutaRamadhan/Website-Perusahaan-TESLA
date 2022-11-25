@@ -34,3 +34,23 @@
             </ul>
         </div>
     </div>
+    <div class="mt-5">
+        <h2 align="center">Enhanced Autopilot</h2>
+        <p align="center" class="text-muted">$6000</p>
+        <div class="m-4 p-2">
+            <ul>
+                <li>Navigate on Autopilot</li>
+                <li>Auto Lane Change</li>
+                <li>Autopark</li>
+                <li>Summon</li>
+                <li>Smart Summon</li>
+            </ul>
+            @include('partials.section-modal')
+            <div class="d-flex justify-content-center">
+                <button class="btn btn-primary ps-5 pe-5">Add</button>
+                <a href=""></a>
+                <a class="btn btn-light" data-bs-toggle="modal" href="#modal1" role="button">Feature Details</a>
+            </div>
+            
+        </div>
+    </div>

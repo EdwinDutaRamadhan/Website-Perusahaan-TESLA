@@ -30,7 +30,7 @@
     @yield('container')
 </body>
 
-<script src="js/app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript">
     function submitform() {
         document.myform.submit();
