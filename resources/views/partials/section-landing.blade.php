@@ -1,5 +1,5 @@
 <section id="{{ $d->model_id }}" class="section1 img-fluid d-flex align-times-center text-center"
-    style="background-image: url('../img/{{ $d->gambar }}');{{ $d->model_id == 1 ? 'margin-top: -75px;' : '' }}">
+    style="background-image: url('{{ asset('storage/'.$d->image) }}');{{ $d->model_id == 1 ? 'margin-top: -75px;' : '' }}">
     <div class="container mx-auto">
         <div class="d-flex justify-content-center m-2">
             <div class="row">

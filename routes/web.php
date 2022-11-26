@@ -17,6 +17,13 @@ use App\Http\Controllers\LandingShopModelController;
 |
 */
 
+Route::get('/admin/landing/', function(){
+    return view('public.admin.dashboard-landing');
+})->name('admin-landing');
+Route::get('/admin/inventory/', function(){
+    return view('public.admin.dashboard-inventory');
+})->name('admin-inventory');
+Route::post('/admin/landing', [LandingModelController::class, 'store']);
 Route::get('/', [LandingModelController::class, 'index']);
 Route::get('/shop', [LandingShopModelController::class, 'index']);
 Route::get('/shop/details/{nama}', [ShopModelController::class, 'single']);
