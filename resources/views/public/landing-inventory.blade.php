@@ -24,13 +24,6 @@
                             <label for="model-y">Model Y</label>
                         </div>
                     </div>
-                    {{-- <p>sortmodel {{ (isset($sortmodel))? $sortmodel : ""; }}</p>
-                    <p>sort {{ (isset($sort))? $sort : ""; }}</p>
-                    <select name="sort" id="sort">
-                        <option value="null">Relevance</option>
-                        <option value="fee-desc">Price : low to high</option>
-                        <option value="fee-asc">Price : high to low</option>
-                      </select> --}}
                 </form>
             </div>
             <div class="col-sm-10">

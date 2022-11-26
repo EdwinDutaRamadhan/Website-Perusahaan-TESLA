@@ -7,10 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        
     <link rel="stylesheet" href="css/app.css">
     <style>
         body{
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             background-color: white;
         }
         .name-size {
@@ -33,8 +34,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript">
-var i = 0;
-var j = 0;
+var i = 0, j = 0, k = 0;
     function submitform() {
         document.myform.submit();
     }
@@ -53,7 +53,16 @@ var j = 0;
             j++;
         }else{
             document.getElementById("FS").innerHTML = "Add";
-            i++;
+            j++;
+        }
+    }
+    function detail(){
+        if(k % 2 == 0){
+            document.getElementById("detail").innerHTML = "&#8210; Detail payment";
+            k++;
+        }else{
+            document.getElementById("detail").innerHTML = "&#10011; Detail payment";
+            k++;
         }
     }
 </script>

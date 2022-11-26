@@ -31,21 +31,26 @@
                             </form>
                         </div>
                     @else()
-                        <div class="col-md-6">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-2">
                             <form action="/custom/" method="POST">
                                 @csrf
                                 <input type="hidden" name="model" value="{{ $d->model }}">
                                 <input type="submit" value="Custom Order">
                             </form>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-2">
+
+                        </div>
+                        <div class="col-md-2">
                             {{-- <a class="btn btn-outline-dark" href="/inventory/">Existing Inventory</a> --}}
                             <form action="/inventory" method="POST">
                                 @csrf
                                 <input type="hidden" name="sortmodel" value="{{ $d->model }}">
-                                <input type="submit" value="Existing Inventory">
+                                <input class="btn btn-dark" type="submit" value="Existing Inventory">
                             </form>
                         </div>
+                        <div class="col-md-3"></div>
                     @endif()
                 </div>
             </div>
