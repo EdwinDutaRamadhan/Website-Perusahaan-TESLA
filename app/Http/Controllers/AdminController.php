@@ -5,74 +5,85 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\LandingModel;
 use App\Models\CarModel;
+
 class AdminController extends Controller
 {
-    public function index(Request $req){
+    public function index(Request $req)
+    {
         switch ($req->section) {
             case 'Home ':
-                return view('public.admin.dashboard-main',[
+                return view('public.admin.dashboard-main', [
                     'section' => 'Home'
                 ]);
                 break;
             case 'Landing':
-                return view('public.admin.dashboard-main',[
+                return view('public.admin.dashboard-main', [
                     'section' => 'Landing',
                     'data' => LandingModel::all()
                 ]);
                 break;
             case 'Inventory':
-                return view('public.admin.dashboard-main',[
+                return view('public.admin.dashboard-main', [
                     'section' => 'Inventory',
                     'data' => CarModel::all()
                 ]);
                 break;
             case 'Shop':
-                return view('public.admin.dashboard-main',[
+                return view('public.admin.dashboard-main', [
                     'section' => 'Shop'
                 ]);
                 break;
-            
+
             default:
                 # code...
                 break;
         }
     }
-    public function landingUpdate(Request $req){
-        LandingModel::where('model_id',$req->model_id)->update([
-            'note' => $req->note,
-            'image' => $req->image
-        ]);
-        return redirect('/admin/dashboard/');
-    }
-    //Admin Inventory
-    public function action(Request $req){
-
+    //Admin
+    public function action(Request $req)
+    {
+        $result = null;
         switch ($req->section) {
-            case 'Home All' :
-                $section = 'Home';
-                $data = null;
+            case 'Home All':
+                $section = 'Home';//key route
+                $data = null;//Obj 
                 break;
-            case 'Landing All' :
-                $section = 'Landing';
-                $data = LandingModel::all();
+
+            case 'Landing All':
+                $section = 'Landing';//key route
+                $data = LandingModel::all();//Obj 
                 break;
-            case 'Inventory All' :
-                $section = 'Inventory';
-                $data = CarModel::all();
+            case 'Landing Update':
+                ($req->image == null) ? $image = $req->image_kw : $image = $req->image;
+                $result = LandingModel::where('id', $req->id)->update([
+                    'note' => $req->note,
+                    'image' => $image
+                ]);
+                $section = 'Landing';//key route
+                $data = LandingModel::all();//Obj 
                 break;
-            case 'Shop All' :
-                $section = 'Shop';
+
+            case 'Inventory All':
+                $section = 'Inventory';//key route
+                $data = CarModel::all();//Obj 
                 break;
             case 'Inventory Delete':
-                CarModel::where('id', $req->id)->delete();
-                $data = CarModel::all();
+                $result = CarModel::where('id', $req->id)->delete();
+                $section = 'Inventory';//key route
+                $data = CarModel::all();//Obj 
                 break;
-            
+
+            case 'Shop All':
+                $section = 'Shop';//key route
+                $data = null;//Obj 
+                break;
+
             default:
-            $data = CarModel::all();
+                $data = null;//Obj 
+                $section = null;//key route
                 break;
         }
 
-        return view('public.admin.dashboard-main', ['section' => $section, 'data' => $data]);
+        return view('public.admin.dashboard-main', ['section' => $section, 'data' => $data, 'result' => $result]);
     }
 }

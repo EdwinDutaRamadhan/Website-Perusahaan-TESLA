@@ -53,7 +53,5 @@ Route::post('/admin/inventory/', [CarModelController::class, 'store']);
 Route::get('/admin/dashboard', function(){
     return view('public.admin.dashboard-main', ['section'=> 'Home']);
 })->name('admin-dashboard');
-Route::post('/admin/dashboard/', [AdminController::class, 'action']);
 
-    //Landing
-    Route::post('/admin/dashboard/landing', [AdminController::class, 'landingUpdate']);
+Route::post('/admin/dashboard/', [AdminController::class, 'action']);

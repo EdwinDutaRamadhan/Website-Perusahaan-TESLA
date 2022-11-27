@@ -84,24 +84,28 @@
                                     </div>
                                     <div class="col-md-6">
 
-                                        <div class="d-grid gap-2 ms-4">
-                                            <form action="/admin/dashboard/" method="post">
-                                                @csrf
-                                                <input type="hidden" name="id" value="{{ $d->id }}">
-                                                <input type="hidden" name="section" value="Inventory Update">
-                                                <button class="btn btn-outline-dark" type="submit">Update</button>
-                                            </form>
-                                            <form action="/admin/dashboard/" method="post">
-                                                @csrf
-                                                <input type="hidden" name="id" value="{{ $d->id }}">
-                                                <input type="hidden" name="section" value="Inventory Delete">
-                                                
-                                                <button class="btn btn-outline-dark"
-                                                    onclick="return confirm('Apakah anda yakin ingin menghapus {{ $d->name }}');"type="submit">Delete</button>
-                                            </form>
-                                            
+                                        <div class="d-flex justify-content-between">
+                                            <div class="ms-2">
+                                                <form action="/admin/dashboard/" method="post">
+                                                    @csrf
+                                                    <input type="hidden" name="id" value="{{ $d->id }}">
+                                                    <input type="hidden" name="section" value="Inventory Update">
+                                                    <button class="btn btn-outline-dark ps-5 pe-5" type="submit">Update</button>
+                                                </form>
+                                            </div>
+                                            <div>
+                                                <a href="/inventory/detail/{{ $d->id }}" class="btn btn-outline-dark ps-5 pe-5">Details</a>
+                                            </div>
+                                            <div class="">
+                                                <form action="/admin/dashboard/" method="post">
+                                                    @csrf
+                                                    <input type="hidden" name="id" value="{{ $d->id }}">
+                                                    <input type="hidden" name="section" value="Inventory Delete">  
+                                                    <button class="btn btn-outline-dark ps-5 pe-5"
+                                                        onclick="return confirm('Apakah anda yakin ingin menghapus {{ $d->name }}');"type="submit">Delete</button>
+                                                </form>
+                                            </div>          
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
