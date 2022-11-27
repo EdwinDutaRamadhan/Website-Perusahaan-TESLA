@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\LandingModel;
-
+use App\Models\CarModel;
 class AdminController extends Controller
 {
     public function index(Request $req){
@@ -22,7 +22,8 @@ class AdminController extends Controller
                 break;
             case 'Inventory':
                 return view('public.admin.dashboard-main',[
-                    'section' => 'Inventory'
+                    'section' => 'Inventory',
+                    'data' => CarModel::all()
                 ]);
                 break;
             case 'Shop':
@@ -35,5 +36,12 @@ class AdminController extends Controller
                 # code...
                 break;
         }
+    }
+    public function landingUpdate(Request $req){
+        LandingModel::where('model_id',$req->model_id)->update([
+            'note' => $req->note,
+            'image' => $req->image
+        ]);
+        return redirect('/admin/dashboard/');
     }
 }

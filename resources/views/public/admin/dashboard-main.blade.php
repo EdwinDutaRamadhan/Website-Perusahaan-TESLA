@@ -19,6 +19,7 @@
 
                     @case('Inventory')
                         <h2>Inventory</h2>
+                        @include('public.admin.section-inventory')
                     @break
 
                     @case('Shop')

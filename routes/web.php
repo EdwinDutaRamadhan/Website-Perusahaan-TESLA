@@ -55,3 +55,5 @@ Route::get('/admin/dashboard', function(){
 })->name('admin-dashboard');
 
 Route::post('/admin/dashboard', [AdminController::class, 'index']);
+    //Landing
+    Route::post('/admin/dashboard/landing', [AdminController::class, 'landingUpdate']);
