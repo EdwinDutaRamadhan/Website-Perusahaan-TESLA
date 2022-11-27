@@ -42,8 +42,8 @@
                                     Available for local delivery in {{ $d->delivery }}
                                 </p>
                                 <p></p>
-                                <p>${{ round($d->fee / 72) }} /mo <span class="text-muted" data-bs-toggle="tooltip"
-                                        title="${{ round(($d->fee * 5) / 100) }} down | 72 mo | 5% APR">&#128712;</span></p>
+                                <p>${{ round((1.05 * $d->fee)/72) }} /mo <span class="text-muted" data-bs-toggle="tooltip"
+                                        title="${{ round((1.05 * $d->fee)-($d->fee)) }} down | 72 mo | 5% APR">&#128712;</span></p>
                             </div>
 
                             <img src="{{ asset('storage/' . $d->image) }}" class="card-img-top" alt="...">

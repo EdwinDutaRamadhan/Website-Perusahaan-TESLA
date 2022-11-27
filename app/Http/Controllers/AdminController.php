@@ -9,7 +9,7 @@ class AdminController extends Controller
 {
     public function index(Request $req){
         switch ($req->section) {
-            case 'Home':
+            case 'Home ':
                 return view('public.admin.dashboard-main',[
                     'section' => 'Home'
                 ]);
@@ -43,5 +43,36 @@ class AdminController extends Controller
             'image' => $req->image
         ]);
         return redirect('/admin/dashboard/');
+    }
+    //Admin Inventory
+    public function action(Request $req){
+
+        switch ($req->section) {
+            case 'Home All' :
+                $section = 'Home';
+                $data = null;
+                break;
+            case 'Landing All' :
+                $section = 'Landing';
+                $data = LandingModel::all();
+                break;
+            case 'Inventory All' :
+                $section = 'Inventory';
+                $data = CarModel::all();
+                break;
+            case 'Shop All' :
+                $section = 'Shop';
+                break;
+            case 'Inventory Delete':
+                CarModel::where('id', $req->id)->delete();
+                $data = CarModel::all();
+                break;
+            
+            default:
+            $data = CarModel::all();
+                break;
+        }
+
+        return view('public.admin.dashboard-main', ['section' => $section, 'data' => $data]);
     }
 }

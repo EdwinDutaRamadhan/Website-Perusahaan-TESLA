@@ -1,12 +1,13 @@
 <!-- Tambah Inventory -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
-        
-            <div class="modal-content">
+
+        <div class="modal-content">
+            <form action="/admin/inventory/" method="post" enctype="multipart/form-data">
+                @csrf
                 <div class="modal-header">
-                    <form action="/admin/inventory/" method="post" enctype="multipart/form-data">
-                        @csrf
-                    <h5 class="modal-title" id="exampleModalLabel">Insert New Car Data | T E S L A</h5>
+
+                    <h5 class="modal-title" id="exampleModalLabel">T E S L A | Insert Data</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -15,8 +16,14 @@
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <label for="model" class="form-label">Tesla Model</label>
-                                <input required type="text" class="form-control" id="model" name="model"
-                                    placeholder="Model">
+                                <select required class="form-select" id="model" name="model"
+                                    aria-label="Default select example">
+                                    <option selected>Select Model</option>
+                                    <option value="Model S">Model S</option>
+                                    <option value="Model 3">Model 3</option>
+                                    <option value="Model X">Model X</option>
+                                    <option value="Model Y">Model Y</option>
+                                </select>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -29,9 +36,11 @@
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <label class="mb-3" for="">Type</label><br>
-                                <input class="form-check-input" type="radio" name="type"id="newId" value="New" checked>
+                                <input class="form-check-input" type="radio" name="type"id="newId"
+                                    value="New" checked>
                                 <label class="form-check-label" for="newId">New</label>
-                                <input class="form-check-input" type="radio" name="type"id="usedId" value="Used">
+                                <input class="form-check-input" type="radio" name="type"id="usedId"
+                                    value="Used">
                                 <label class="form-check-label" for="usedId">Used</label>
                             </div>
                         </div>
@@ -55,8 +64,19 @@
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <label for="trim" class="form-label">Trim</label>
-                                <input required type="text" class="form-control" id="trim"
-                                    name="trim"placeholder="Trim">
+                                <select required class="form-select" id="trim" name="trim"
+                                    aria-label="Default select example">
+                                    <option selected>Select Trim</option>
+                                    <option value="Model S Plaid">Model S Plaid</option>
+                                    <option value="Model S">Plaid</option>
+                                    <option value="Performance All-Wheel Drive">Performance All-Wheel Drive</option>
+                                    <option value="Long Range All-Wheel Drive">Long Range All-Wheel Drive</option>
+                                    <option value="Model 3 Rear-Wheel Drive">Model 3 Rear-Wheel Drive</option>
+                                    <option value="Model X Plaid">Model X Plaid</option>
+                                    <option value="Model X">Model X</option>
+                                    <option value="Performance All-Wheel Drive">Performance All-Wheel Drive</option>
+                                    <option value="Long Range All-Wheel Drive">Long Range All-Wheel Drive</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -65,15 +85,42 @@
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <label for="color" class="form-label">Car Color</label>
-                                <input required type="text" class="form-control" id="color"
-                                    name="color"placeholder="External Color">
+                                <select required class="form-select" id="color" name="color"
+                                    aria-label="Default select example">
+                                    <option selected>Select Exterior Color</option>
+                                    <option value="Pearl White Multi-Coat">Pearl White Multi-Coat</option>
+                                    <option value="Pearl White Paint">Pearl White Paint</option>
+                                    <option value="Pearl White Multi-Coat Paint">Pearl White Multi-Coat Paint</option>
+                                    <option value="Solid Black">Solid Black</option>
+                                    <option value="Solid Black Paint">Solid Black Paint</option>
+                                    <option value="Deep Blue Metallic">Deep Blue Metallic</option>
+                                    <option value="Deep Blue Metallic Paint">Deep Blue Metallic Paint</option>
+                                    <option value="Midnight Silver Metallic Paint">Midnight Silver Metallic Paint
+                                    </option>
+                                    <option value="Silver Metallic Paint">Silver Metallic Paint</option>
+                                    <option value="Red Multi-Coat">Red Multi-Coat</option>
+                                    <option value="Red Multi-Coat Paint">Red Multi-Coat Paint</option>
+                                </select>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <label for="internal" class="form-label">Interior Color</label>
-                                <input required type="text" class="form-control" id="internal"
-                                    name="internal"placeholder="Internal Color">
+                                <select required class="form-select" id="internal" name="internal"
+                                    aria-label="Default select example">
+                                    <option selected>Select Interior Color</option>
+                                    <option value="All Black Premium Interior">All Black Premium Interior</option>
+                                    <option value="All Black Premium Interior with Carbon Fiber Décor">All Black Premium Interior with Carbon Fiber Décor</option>
+                                    <option value="All Black Premium Interior with Ebony Décor">All Black Premium
+                                        Interior with Ebony Décor</option>
+                                    <option value="Black and White Premium Interior">Black and White Premium Interior
+                                    </option>
+                                    <option value="Black and White Premium Interior with Walnut Décor">Black and White
+                                        Premium Interior with Walnut Décor</option>
+                                    <option value="Black and White Premium Interior with Carbon Fiber Décor">Black and White Premium Interior with Carbon Fiber Décor</option>
+                                    <option value="Cream Interior with Carbon Fiber Decor">Cream Interior with Carbon
+                                        Fiber Decor</option>
+                                </select>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -89,8 +136,13 @@
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <label for="autopilot" class="form-label">Autopilot</label>
-                                <input type="text" class="form-control" id="autopilot"
-                                    name="autopilot"placeholder="Autopilot">
+                                <select class="form-select" id="autopilot" name="autopilot"
+                                    aria-label="Default select example">
+                                    <option selected>Select Autopilot</option>
+                                    <option value="Autopilot">Autopilot</option>
+                                    <option value="Enhanced Autopilot">Enhanced Autopilot</option>
+                                    <option value="Full Self Driving">Full Self Driving</option>
+                                </select>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -101,11 +153,14 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="mb-3">
-                                <label for="additional" class="form-label">Car Additional</label>
-                                <input type="text" class="form-control" id="additional"
-                                    name="additional"placeholder="Additional">
-                            </div>
+                            <label for="additional" class="form-label">Additional</label>
+                                <select class="form-select" id="additional" name="additional"
+                                    aria-label="Default select example">
+                                    <option selected>Select Additional</option>
+                                    <option value="Performance Upgrade">Performance Upgrade</option>
+                                    <option value="Rear Heated Seats">Rear Heated Seats</option>
+                                    <option value="Tow Hitch">Tow Hitch</option>
+                                </select>
                         </div>
                     </div>
                     {{-- Row Five --}}
@@ -151,8 +206,13 @@
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <label for="trial" class="form-label">Trial Time</label>
-                                <input required type="text" class="form-control" id="trial"
-                                    name="trial"placeholder="Trial">
+                                <select class="form-select" id="trial" name="trial"
+                                    aria-label="Default select example">
+                                    <option selected>Select Trial</option>
+                                    <option value="30-Day">30-Day</option>
+                                    <option value="6-Month">6-Month</option>
+                                    <option value="1-Year">1-Year</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -161,7 +221,7 @@
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Insert Car</button>
                 </div>
-            </div>
+        </div>
         </form>
     </div>
 </div>

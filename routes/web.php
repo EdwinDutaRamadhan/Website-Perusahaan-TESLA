@@ -19,10 +19,10 @@ use App\Http\Controllers\LandingShopModelController;
 */
 
 Route::get('/admin/landing/', function(){
-    return view('public.admin.dashboard-landing');
+    return view('public.admin.dashboard-main', ['section' => 'landing']);
 })->name('admin-landing');
 Route::get('/admin/inventory/', function(){
-    return view('public.admin.dashboard-inventory');
+    return view('public.admin.dashboard-main',['section' => 'inventory']);
 })->name('admin-inventory');
 
 Route::post('/admin/landing', [LandingModelController::class, 'store']);
@@ -53,7 +53,7 @@ Route::post('/admin/inventory/', [CarModelController::class, 'store']);
 Route::get('/admin/dashboard', function(){
     return view('public.admin.dashboard-main', ['section'=> 'Home']);
 })->name('admin-dashboard');
+Route::post('/admin/dashboard/', [AdminController::class, 'action']);
 
-Route::post('/admin/dashboard', [AdminController::class, 'index']);
     //Landing
     Route::post('/admin/dashboard/landing', [AdminController::class, 'landingUpdate']);

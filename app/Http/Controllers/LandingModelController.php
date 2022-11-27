@@ -23,7 +23,7 @@ class LandingModelController extends Controller
             'note' => $req->note,
             'image'=> $req->file('image')->store('landing-images')
         ]);
-        return redirect('/admin/landing');
+        return redirect('/admin/dashboard');
     }
     
 }
