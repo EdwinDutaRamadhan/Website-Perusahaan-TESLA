@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\CarModelController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CarModelController;
 use App\Http\Controllers\ShopModelController;
 use App\Http\Controllers\LandingModelController;
 use App\Http\Controllers\LandingShopModelController;
@@ -23,6 +24,7 @@ Route::get('/admin/landing/', function(){
 Route::get('/admin/inventory/', function(){
     return view('public.admin.dashboard-inventory');
 })->name('admin-inventory');
+
 Route::post('/admin/landing', [LandingModelController::class, 'store']);
 Route::get('/', [LandingModelController::class, 'index']);
 Route::get('/shop', [LandingShopModelController::class, 'index']);
@@ -42,3 +44,14 @@ Route::post('/inventory',[CarModelController::class, 'inven']);
 Route::get('/inventory/detail/{id}', [CarModelController::class, 'single']);
 //Payments
 Route::post('/inventory/detail/payments', [CarModelController::class, 'payments']);
+
+
+
+//ADMIN
+Route::post('/admin/inventory/', [CarModelController::class, 'store']);
+
+Route::get('/admin/dashboard', function(){
+    return view('public.admin.dashboard-main', ['section'=> 'Home']);
+})->name('admin-dashboard');
+
+Route::post('/admin/dashboard', [AdminController::class, 'index']);

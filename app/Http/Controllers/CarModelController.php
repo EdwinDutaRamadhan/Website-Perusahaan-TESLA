@@ -74,9 +74,29 @@ class CarModelController extends Controller
      * @param  \App\Http\Requests\StoreCarModelRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCarModelRequest $request)
+    public function store(Request $request)
     {
-        //
+        CarModel::create([
+            'model' => $request->model,
+            'name' => $request->name,
+            'type' => $request->type,
+            'milage' => $request->milage,
+            'delivery' => $request->delivery,
+            'trim' => $request->trim,
+            'color' => $request->color,
+            'internal' => $request->internal,
+            'wheels' => $request->wheels,
+            'autopilot' => $request->autopilot,
+            'seatlayout' => $request->seatlayout,
+            'additional' => $request->additional,
+            'startspeed' => $request->startspeed,
+            'topspeed' => $request->topspeed,
+            'range' => $request->range,
+            'fee' => $request->fee,
+            'image' => $request->file('image')->store('inventory-images'),
+            'trial' => $request->trial
+        ]);
+        return redirect('/admin/inventory');
     }
 
     /**

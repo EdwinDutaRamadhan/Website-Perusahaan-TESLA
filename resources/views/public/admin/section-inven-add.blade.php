@@ -1,10 +1,11 @@
 <!-- Tambah Inventory -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
-        <form action="" method="post" enctype="multipart/form-data">
-            @csrf
+        
             <div class="modal-content">
                 <div class="modal-header">
+                    <form action="/admin/inventory/" method="post" enctype="multipart/form-data">
+                        @csrf
                     <h5 class="modal-title" id="exampleModalLabel">Insert New Car Data | T E S L A</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -28,9 +29,9 @@
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <label class="mb-3" for="">Type</label><br>
-                                <input class="form-check-input" type="radio" name="tipe"id="newId" checked>
+                                <input class="form-check-input" type="radio" name="type"id="newId" value="New" checked>
                                 <label class="form-check-label" for="newId">New</label>
-                                <input class="form-check-input" type="radio" name="tipe"id="usedId">
+                                <input class="form-check-input" type="radio" name="type"id="usedId" value="Used">
                                 <label class="form-check-label" for="usedId">Used</label>
                             </div>
                         </div>

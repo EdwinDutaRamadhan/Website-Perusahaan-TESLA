@@ -46,7 +46,7 @@
                                         title="${{ round(($d->fee * 5) / 100) }} down | 72 mo | 5% APR">&#128712;</span></p>
                             </div>
 
-                            <img src="{{ asset('img/cars/' . $d->image) }}" class="card-img-top" alt="...">
+                            <img src="{{ asset('storage/' . $d->image) }}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <div class="d-flex justify-content-evenly">
                                     <p><b>{{ $d->startspeed }}</b>s</p>

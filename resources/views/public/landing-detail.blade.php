@@ -3,7 +3,7 @@
     <div class="row">
         @foreach ($data as $d)
             <div class="col-md-8 section-image"
-                style="background-image: url('{{ asset('../img/cars/' . $d->image) }}');min-height:60rem;">
+                style="background-image: url('{{ asset('storage/' . $d->image) }}');min-height:60rem;">
                 <nav class="navbar fixed-bottom navbar-light bg-light" style="width: 66%;">
                     <div class="d-flex justify-content-center" style="width: 100%;">
                         <p><b>${{ $d->fee }} Purchase price</b></p>
