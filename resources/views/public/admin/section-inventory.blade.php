@@ -2,13 +2,34 @@
     @include('public.admin.section-inven-add')
     <!-- Button trigger modal -->
     <div class="row m-2">
-        <div class="col-md-4">
+        <div class="col-md-2">
             <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Insert Inventory Car
             </button>
         </div>
-        <div class="col-md-4"></div>
-        <div class="col-md-4"></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <form action="/admin/dashboard/" method="post">
+                @csrf
+            <div class="row">               
+                    <input type="hidden" name="section" value="Sort">
+                    <div class="col-4">
+                        <select class="form-select form-select-sm" name="sortModel" aria-label=".form-select-sm example">
+                            <option value="null" selected>Sort By Model</option>
+                            <option value="All Model">All Model</option>
+                            <option value="Model S">Model S</option>
+                            <option value="Model 3">Model 3</option>
+                            <option value="Model X">Model X</option>
+                            <option value="Model Y">Model Y</option>
+                          </select>
+                    </div>
+                    <div class="col-4"></div>
+                    <div class="col-4">
+                        <input type="submit" class="btn btn-outline-dark btn-sm">
+                    </div> 
+            </div>
+        </form>
+        </div>
     </div>
     <div class="row m-2">
         @foreach ($data as $d)

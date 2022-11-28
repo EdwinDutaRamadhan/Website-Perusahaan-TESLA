@@ -44,6 +44,14 @@ class AdminController extends Controller
     {
         $result = null;
         switch ($req->section) {
+            case 'Sort' :
+                $section = 'Inventory';
+                if($req->sortModel == "All Model" || $req->sortModel == 'null'){
+                    $data = CarModel::all();
+                }else{
+                    $data = CarModel::where('model', $req->sortModel)->get();
+                }
+                break;
             case 'Home All':
                 $section = 'Home';//key route
                 $data = null;//Obj 
