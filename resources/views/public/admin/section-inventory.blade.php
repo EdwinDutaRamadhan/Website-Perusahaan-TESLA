@@ -25,7 +25,7 @@
                     </div>
                     <div class="col-4"></div>
                     <div class="col-4">
-                        <input type="submit" class="btn btn-outline-dark btn-sm">
+                        <input type="submit" class="btn btn-outline-dark btn-sm" value="See Result">
                     </div> 
             </div>
         </form>
@@ -45,7 +45,7 @@
                                     <div class="d-flex align-items-start flex-column bd-highlight mb-3">
                                         <div class="p-2 bd-highlight">
                                             <h5>{{ $d->name }}</h5>
-                                            <p style="margin-top: -10px;">{{ $d->model }} {{ $d->trim }}</p>
+                                            <p style="margin-top: -10px;"> {{ $d->trim }}</p>
                                             <p style="margin-top: -15px;font-size:15px;">{{ $d->wheels }} |
                                                 {{ $d->internal }}<br>
                                                 {{ $d->milage }} mile odometer<br>
@@ -104,14 +104,17 @@
                                             {{ $d->trial }} Premium Connectrivity Trial</p>
                                     </div>
                                     <div class="col-md-6">
-
+                                        
                                         <div class="d-flex justify-content-between">
                                             <div class="ms-2">
                                                 <form action="/admin/dashboard/" method="post">
                                                     @csrf
                                                     <input type="hidden" name="id" value="{{ $d->id }}">
+                                                    <input type="hidden" name="image_kw" value="{{ $d->image }}">
                                                     <input type="hidden" name="section" value="Inventory Update">
-                                                    <button class="btn btn-outline-dark ps-5 pe-5" type="submit">Update</button>
+                                                    @include('public.admin.section-inventory-update')
+                                                    
+                                                    <button class="btn btn-outline-dark ps-5 pe-5" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $d->id }}">Update</button>
                                                 </form>
                                             </div>
                                             <div>
