@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-lg">
 
         <div class="modal-content">
-            <form action="/admin/inventory/" method="post" enctype="multipart/form-data">
+            <form action="/admin/dashboard/" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header">
 
@@ -68,14 +68,15 @@
                                     aria-label="Default select example">
                                     <option selected>Select Trim</option>
                                     <option value="Model S Plaid">Model S Plaid</option>
-                                    <option value="Model S">Plaid</option>
-                                    <option value="Performance All-Wheel Drive">Performance All-Wheel Drive</option>
-                                    <option value="Long Range All-Wheel Drive">Long Range All-Wheel Drive</option>
-                                    <option value="Model 3 Rear-Wheel Drive">Model 3 Rear-Wheel Drive</option>
+                                    <option value="Model S Dual Motor All-Wheel Drive">Model S Dual Motor All-Wheel Drive</option>
+                                    <option value="Model 3 Performance Dual Motor All-Wheel Drive">Model 3 Performance Dual Motor All-Wheel Drive</option>
+                                    <option value="Model 3 Long Range Dual Motor All-Wheel Drive">Model 3 Long Range Dual Motor All-Wheel Drive</option>
+                                    <option value="Model 3 Standard Range Plus Rear-Wheel Drive">Model 3 Standard Range Plus Rear-Wheel Drive</option>
                                     <option value="Model X Plaid">Model X Plaid</option>
-                                    <option value="Model X">Model X</option>
-                                    <option value="Performance All-Wheel Drive">Performance All-Wheel Drive</option>
-                                    <option value="Long Range All-Wheel Drive">Long Range All-Wheel Drive</option>
+                                    <option value="Model X Long Range Plus All-Wheel Drive">Model X Long Range Plus All-Wheel Drive</option>
+                                    <option value="Model X Performance All-Wheel Drive">Model X Performance All-Wheel Drive</option>
+                                    <option value="Model Y Long Range All-Wheel Drive Performance">Model Y Long Range All-Wheel Drive Performance</option>
+                                    <option value="Model Y Performance Dual Motor All-Wheel Drive">Model Y Performance Dual Motor All-Wheel Drive</option>
                                 </select>
                             </div>
                         </div>
@@ -218,6 +219,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
+                    <input type="hidden" name="section" value="Inventory Insert">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Insert Car</button>
                 </div>

@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    @include('public.admin.section-inven-add')
+    @include('public.admin.section-inventory-add')
     <!-- Button trigger modal -->
     <div class="row m-2">
         <div class="col-md-2">
@@ -113,7 +113,6 @@
                                                     <input type="hidden" name="image_kw" value="{{ $d->image }}">
                                                     <input type="hidden" name="section" value="Inventory Update">
                                                     @include('public.admin.section-inventory-update')
-                                                    
                                                     <button class="btn btn-outline-dark ps-5 pe-5" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $d->id }}">Update</button>
                                                 </form>
                                             </div>

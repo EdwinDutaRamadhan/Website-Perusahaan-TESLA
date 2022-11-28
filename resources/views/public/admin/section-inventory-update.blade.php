@@ -66,12 +66,15 @@
                                 <select required class="form-select" id="trim" name="trim"
                                     aria-label="Default select example">
                                     <option {{ ($d->trim == "Model S Plaid")? "selected" : ""; }} value="Model S Plaid">Model S Plaid</option>
-                                    <option {{ ($d->trim == "Model S")? "selected" : ""; }} value="Model S">Plaid</option>
-                                    <option {{ ($d->trim == "Performance All-Wheel Drive")? "selected" : ""; }} value="Performance All-Wheel Drive">Performance All-Wheel Drive</option>
-                                    <option {{ ($d->trim == "Long Range All-Wheel Drive")? "selected" : ""; }} value="Long Range All-Wheel Drive">Long Range All-Wheel Drive</option>
-                                    <option {{ ($d->trim == "Model 3 Rear-Wheel Drive")? "selected" : ""; }} value="Model 3 Rear-Wheel Drive">Model 3 Rear-Wheel Drive</option>
+                                    <option {{ ($d->trim == "Model S Dual Motor All-Wheel Drive")? "selected" : ""; }} value="Model S Dual Motor All-Wheel Drive">Model S Dual Motor All-Wheel Drive</option>
+                                    <option {{ ($d->trim == "Model 3 Performance Dual Motor All-Wheel Drive")? "selected" : ""; }} value="Model 3 Performance Dual Motor All-Wheel Drive">Model 3 Performance Dual Motor All-Wheel Drive</option>
+                                    <option {{ ($d->trim == "Model 3 Long Range Dual Motor All-Wheel Drive")? "selected" : ""; }} value="Model 3 Long Range Dual Motor All-Wheel Drive">Model 3 Long Range Dual Motor All-Wheel Drive</option>
+                                    <option {{ ($d->trim == "Model 3 Standard Range Plus Rear-Wheel Drive")? "selected" : ""; }} value="Model 3 Standard Range Plus Rear-Wheel Drive">Model 3 Standard Range Plus Rear-Wheel Drive</option>
                                     <option {{ ($d->trim == "Model X Plaid")? "selected" : ""; }} value="Model X Plaid">Model X Plaid</option>
-                                    <option {{ ($d->trim == "Model X")? "selected" : ""; }} value="Model X">Model X</option>
+                                    <option {{ ($d->trim == "Model X Long Range Plus All-Wheel Drive")? "selected" : ""; }} value="Model X Long Range Plus All-Wheel Drive">Model X Long Range Plus All-Wheel Drive</option>
+                                    <option {{ ($d->trim == "Model X Performance All-Wheel Drive")? "selected" : ""; }} value="Model X Performance All-Wheel Drive">Model X Performance All-Wheel Drive</option>
+                                    <option {{ ($d->trim == "Model Y Long Range All-Wheel Drive Performance")? "selected" : ""; }} value="Model Y Long Range All-Wheel Drive Performance">Model Y Long Range All-Wheel Drive Performance</option>
+                                    <option {{ ($d->trim == "Model Y Performance Dual Motor All-Wheel Drive")? "selected" : ""; }} value="Model Y Performance Dual Motor All-Wheel Drive">Model Y Performance Dual Motor All-Wheel Drive</option>
                                 </select>
                             </div>
                         </div>

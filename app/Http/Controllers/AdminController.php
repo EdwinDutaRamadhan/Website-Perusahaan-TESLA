@@ -87,6 +87,30 @@ class AdminController extends Controller
                 $section = 'Inventory'; //key route
                 $data = CarModel::all(); //Obj 
                 break;
+            case 'Inventory Insert':
+                CarModel::create([
+                    'model' => $req->model,
+                    'name' => $req->name,
+                    'type' => $req->type,
+                    'milage' => $req->milage,
+                    'delivery' => $req->delivery,
+                    'trim' => $req->trim,
+                    'color' => $req->color,
+                    'internal' => $req->internal,
+                    'wheels' => $req->wheels,
+                    'autopilot' => $req->autopilot,
+                    'seatlayout' => $req->seatlayout,
+                    'additional' => $req->additional,
+                    'startspeed' => $req->startspeed,
+                    'topspeed' => $req->topspeed,
+                    'range' => $req->range,
+                    'fee' => $req->fee,
+                    'image' => $req->file('image')->store('inventory-images'),
+                    'trial' => $req->trial
+                ]);
+                $section = 'Inventory'; //key route
+                $data = CarModel::all(); //Obj 
+                break;
             case 'Inventory Delete':
                 $result = CarModel::where('id', $req->id)->delete();
                 $section = 'Inventory'; //key route
