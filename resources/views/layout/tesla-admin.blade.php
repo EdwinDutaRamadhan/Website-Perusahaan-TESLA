@@ -8,7 +8,7 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <style>
             body{
-                background-color: rgb(244, 244, 244)
+                background-color: rgb(233, 233, 233);
             }
         </style>
     <title>Admin</title>
