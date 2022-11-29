@@ -1,6 +1,6 @@
 @extends('layout.tesla')
 @section('container')
     @foreach ($data as $d)
-        @include('partials.section-landing')
+        @include('partials.home.section-landing')
     @endforeach
 @endsection()

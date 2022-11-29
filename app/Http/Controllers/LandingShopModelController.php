@@ -15,7 +15,7 @@ class LandingShopModelController extends Controller
      */
     public function index()
     {
-        return view('public.shop',['data' => LandingShopModel::all()]);
+        return view('public.shop.shop',['data' => LandingShopModel::all()]);
     }
 
     /**

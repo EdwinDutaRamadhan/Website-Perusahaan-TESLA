@@ -1,5 +1,5 @@
 <div class="container">
-    @include('partials.landing-detail.section-modal')
+    @include('partials.home.section-modal')
     <form action="/inventory/detail/payments" method="POST">
         @csrf
         <input type="hidden" name="id" value="{{ $d->id }}">

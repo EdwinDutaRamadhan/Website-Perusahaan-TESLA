@@ -126,9 +126,24 @@
                         </div>
                         <div class="col-md-4">
                             <div class="mb-3">
-                                <label for="wheels" class="form-label">Wheels</label>
-                                <input required type="text" class="form-control" id="wheels"
-                                    name="wheels"placeholder="Wheels size (description)">
+                                <label for="wheels" class="form-label">Wheels Size</label>
+                                <select required class="form-select" id="wheels" name="wheels"
+                                    aria-label="Default select example">
+                                    <option selected>Select Wheels</option>
+                                    <option value="18'' Aero Wheels">18'' Aero Wheels</option>
+                                    <option value="19'' Gemini Wheels">19'' Gemini Wheels</option>
+                                    <option value="19'' Sport Wheels">19'' Sport Wheels</option>
+                                    <option value="19'' Silver Slipstream Wheels">19'' Silver Slipstream Wheels</option>
+                                    <option value="19'' Tempest Wheels">19'' Tempest Wheels</option>
+                                    <option value="20'' Cyberstream Wheels">20'' Cyberstream Wheels</option>
+                                    <option value="20'' Introduction Wheels">20'' Introduction Wheels</option>
+                                    <option value="20'' Silver Wheels">20'' Silver Wheels</option>
+                                    <option value="20'' Überturbine Wheels">20'' Überturbine Wheels</option>
+                                    <option value="21'' Arachnid Wheels">21'' Arachnid Wheels</option>
+                                    <option value="21'' Sonic Carbon Twin Turbine Wheels">21'' Sonic Carbon Twin Turbine Wheels</option>
+                                    <option value="21'' Überturbine Wheels ">21'' Überturbine Wheels </option>
+                                    <option value="22'' Turbine Wheels">22'' Turbine Wheels</option>
+                                </select>
                             </div>
                         </div>
                     </div>

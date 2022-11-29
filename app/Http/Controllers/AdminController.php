@@ -46,11 +46,11 @@ class AdminController extends Controller
         switch ($req->section) {
 
 
-            /**
-             * 
-             * Determine the route for Home Section
-             * 
-             */
+                /**
+                 * 
+                 * Determine the route for Home Section
+                 * 
+                 */
 
             case 'Home All':
                 $section = 'Home'; //key route

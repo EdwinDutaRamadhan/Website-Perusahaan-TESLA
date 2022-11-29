@@ -36,7 +36,7 @@
                                 <h5></h5>
                                 <h5>${{ $d->fee }}</h5>
                             </div>
-                            <div class="d-flex justify-content-between">
+                            {{-- <div class="d-flex justify-content-between">
                                 <p class="text-muted">
                                     {{ $d->trim }}<br>
                                     Available for local delivery in {{ $d->delivery }}
@@ -44,6 +44,19 @@
                                 <p></p>
                                 <p>${{ round((1.05 * $d->fee)/72) }} /mo <span class="text-muted" data-bs-toggle="tooltip"
                                         title="${{ round((1.05 * $d->fee)-($d->fee)) }} down | 72 mo | 5% APR">&#128712;</span></p>
+                            </div> --}}
+                            <div class="row">
+                                <div class="col-7">
+                                    <p class="text-muted">
+                                        {{ $d->trim }}<br>
+                                        Available for local delivery in {{ $d->delivery }}
+                                    </p>
+                                </div>
+                                <div class="col-1"></div>
+                                <div class="col-4">
+                                    <p style="margin-right: -5px;" align="right">${{ round((1.05 * $d->fee)/72) }} /mo <span class="text-muted" data-bs-toggle="tooltip"
+                                        title="${{ round((1.05 * $d->fee)-($d->fee)) }} down | 72 mo | 5% APR">&#128712;</p>
+                                </div>
                             </div>
 
                             <img src="{{ asset('storage/' . $d->image) }}" class="card-img-top" alt="...">

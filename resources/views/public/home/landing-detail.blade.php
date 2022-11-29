@@ -14,9 +14,9 @@
             </div>
             <div class="col-md-4">
                 @if(isset($payments))
-                    @include('partials.section-detail-payments')
+                    @include('partials.home.section-detail-payments')
                 @else
-                    @include('partials.section-detail')
+                    @include('partials.home.section-detail')
                 @endif
             </div>
         @endforeach

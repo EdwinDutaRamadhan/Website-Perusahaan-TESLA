@@ -16,7 +16,7 @@ class CarModelController extends Controller
      */
     public function index()
     {
-        return view('public.landing-inventory', ['data' => CarModel::all()]);
+        return view('public.home.landing-inventory', ['data' => CarModel::all()]);
     }
 
     public function sort(Request $req)
@@ -32,25 +32,25 @@ class CarModelController extends Controller
         //         $data = CarModel::where('model', $req->sortmodel)->get();
         //         break;
         // }
-        return view('public.landing-inventory', [
+        return view('public.home.landing-inventory', [
             'data' => CarModel::where('model', $req->sortmodel)->get(),
             'sortmodel' => $req->sortmodel,
             'sort' => $req->sort
         ]);
     }
     public function inven(Request $req){
-        return view('public.landing-inventory', ['data' => CarModel::where('model', $req->sortmodel)->get(), 'sortmodel' => $req->sortmodel]);
+        return view('public.home.landing-inventory', ['data' => CarModel::where('model', $req->sortmodel)->get(), 'sortmodel' => $req->sortmodel]);
     }
     public function single(Request $req)
     {
-        return view('public.landing-detail', ['data' => CarModel::where('id', $req->id)->get()]);
+        return view('public.home.landing-detail', ['data' => CarModel::where('id', $req->id)->get()]);
     }
     public function payments(Request $req){
         $payments = $req->payments;
         ($req->enhanced)? $enchanced = true : $enchanced = false;
         ($req->capability)? $capability = true : $capability = false;
         ($req->charging)? $charging = true : $charging = false;
-        return view('public.landing-detail', [
+        return view('public.home.landing-detail', [
             'data' => CarModel::where('id', $req->id)->get(),
             'enchanced' => $enchanced,
             'capability' => $capability,
