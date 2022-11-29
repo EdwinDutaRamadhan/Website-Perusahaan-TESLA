@@ -24,6 +24,7 @@
 
                     @case('Shop')
                         <h2>Shop</h2>
+                        @include('partials.admin.section-shop')
                     @break
 
                     @default

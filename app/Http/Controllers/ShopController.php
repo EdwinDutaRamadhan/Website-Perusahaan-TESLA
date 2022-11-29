@@ -17,13 +17,22 @@ class ShopController extends Controller
                 $data = $data->shop;//Relations
                 $data1 = $data->where('type', 'At Home');//sort
 
-                return view('public.shop.shop-category', ['data1'=> $data1]);
+
+                //Title
+                $title1 = "At Home";
+                $title2 = "On the Road";
+                $title3 = "Parts";
                 break;
             
             default:
                 # code...
                 break;
         }
-        
+        return view('public.shop.shop-category', [
+            'data1'=> $data1,
+            'title1' => $title1,
+            'title2' => $title2,
+            'title3' => $title3
+        ]);
     }
 }

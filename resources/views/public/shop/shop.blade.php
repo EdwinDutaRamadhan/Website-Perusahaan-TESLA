@@ -1,13 +1,13 @@
 @extends('layout.tesla-shop')
 @section('container')
     <div class="container-fluid">
-		<div class="row">
-			@include('partials.shop.section-shop') {{-- Banner --}}
-			@foreach ($data as $d)
-				@include('partials.shop.section-2-shop') {{-- Loop Section --}}
-			@endforeach
-		</div>
-	</div>
+        <div class="row">
+            @include('partials.shop.section-shop') {{-- Banner --}}
+            @foreach ($data as $d)
+                @include('partials.shop.section-2-shop') {{-- Loop Section --}}
+            @endforeach
+        </div>
+    </div>
 @endsection()
 {{-- 
     shop
@@ -31,7 +31,8 @@
 			---Hats
 			---Socks
 		----lifestyle				(id,category,tipe,model,judul,size,harga, jumlah, desc, image)
-			p	
+			---Bags
+			---Drinkware
 			---Mini Teslas
 			---Outdoor & Tech
 			Shop::create(['category_id' => 4,'type' => 'Mini Teslas', 'model' => '', 'title'=>'Mini Model S', 'size' =>'', 'price' =>'600', 'desc'=>'lorem ipsum tesla', 'image'=>'imagesourcetesla', 'slug'=>'mini-model-s'])

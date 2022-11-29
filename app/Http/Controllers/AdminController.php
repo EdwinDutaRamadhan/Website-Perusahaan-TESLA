@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\LandingModel;
 use App\Models\CarModel;
-
+use App\Models\Shop;
 class AdminController extends Controller
 {
     public function index(Request $req)
@@ -158,8 +158,21 @@ class AdminController extends Controller
                  */
 
             case 'Shop All':
+
                 $section = 'Shop'; //key route
-                $data = null; //Obj 
+                $data = Shop::all(); //Obj 
+                break;
+            case 'Shop Insert' :
+                Shop::create([
+                    'category_id' => $req->category_id,
+                    'type' => $req->type,
+                    'title' => $req->title,
+                    'price' => $req->price,
+                    'desc' => $req->desc,
+                    'image' => $req->file('image')->store('shop-images'),
+                ]);
+                $section = 'Shop'; //key route
+                $data = Shop::all(); //Obj 
                 break;
 
             default:
