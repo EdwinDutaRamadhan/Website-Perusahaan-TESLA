@@ -1,26 +1,28 @@
 @extends('layout.tesla-shop')
 @section('container')
-    <div class="row">
-        @include('partials.shop.section-shop')
-        @foreach ($data as $d)
-            @include('partials.shop.section-2-shop')
-        @endforeach
-    </div>
+    <div class="container-fluid">
+		<div class="row">
+			@include('partials.shop.section-shop') {{-- Banner --}}
+			@foreach ($data as $d)
+				@include('partials.shop.section-2-shop') {{-- Loop Section --}}
+			@endforeach
+		</div>
+	</div>
 @endsection()
 {{-- 
     shop
 -----category
-		----Charging(id,tipe,judul, harga, jumlah, desc, image)
+		----Charging				(id,category,tipe,model,judul,size harga, jumlah, desc, image)
 			---At Home
 			---On the Road
 			---Parts
-		----Vehicle Acc(where Model)(id,tipe,judul, harga, jumlah, desc, image)
+		----Vehicle Acc(where Model)(id,category,tipe,model,judul,size harga, jumlah, desc, image)
 			---Interior
 			---Eksterior
 			---Wheels and Tires
 			---Floor Mats
 			---Keys
-		----Apparel(where Gender)(id,tipe,judul,size, harga, jumlah, desc, image)
+		----Apparel(where Gender)	(id,category,tipe,model,judul,size, harga, jumlah, desc, image)
 			---tees
 			---sweathshirts and hoodies
 			---Onesies
@@ -28,9 +30,9 @@
 			---Joggers
 			---Hats
 			---Socks
-		----lifestyle(id,tipe,judul, harga, jumlah, desc, image)
-			---Bags
-			---Drinkware	
+		----lifestyle				(id,category,tipe,model,judul,size,harga, jumlah, desc, image)
+			p	
 			---Mini Teslas
 			---Outdoor & Tech
+			Shop::create(['category_id' => 4,'type' => 'Mini Teslas', 'model' => '', 'title'=>'Mini Model S', 'size' =>'', 'price' =>'600', 'desc'=>'lorem ipsum tesla', 'image'=>'imagesourcetesla', 'slug'=>'mini-model-s'])
  --}}

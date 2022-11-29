@@ -7,16 +7,16 @@
         <div class="collapse navbar-collapse justify-content-center" id="collapsibleNavbar">
             <ul class="navbar-nav">
                 <li class="nav-item ms-2 me-2">
-                    <a class="nav-link" href="#">Charging</a>
+                    <a class="nav-link" href="/shop/category/charging">Charging</a>
                 </li>
                 <li class="nav-item ms-2 me-2">
-                    <a class="nav-link" href="#">Vegucke Accessirues</a>
+                    <a class="nav-link" href="/shop/category/vehicle-accessories">Vehicle Accessories</a>
                 </li>
                 <li class="nav-item ms-2 me-2">
-                    <a class="nav-link" href="#">Apparek</a>
+                    <a class="nav-link" href="/shop/category/apparel">Apparel</a>
                 </li>
                 <li class="nav-item ms-2 me-2">
-                    <a class="nav-link" href="#">Lifestyle</a>
+                    <a class="nav-link" href="/shop/category/lifestyle">Lifestyle</a>
                 </li>
             </ul>
         </div>

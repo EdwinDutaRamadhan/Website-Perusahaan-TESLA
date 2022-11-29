@@ -1,11 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ShopController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CarModelController;
-use App\Http\Controllers\ShopModelController;
 use App\Http\Controllers\LandingModelController;
-use App\Http\Controllers\LandingShopModelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,21 +17,8 @@ use App\Http\Controllers\LandingShopModelController;
 |
 */
 
-Route::get('/admin/landing/', function(){
-    return view('public.admin.dashboard-main', ['section' => 'landing']);
-})->name('admin-landing');
-Route::get('/admin/inventory/', function(){
-    return view('public.admin.dashboard-main',['section' => 'inventory']);
-})->name('admin-inventory');
-
 Route::post('/admin/landing', [LandingModelController::class, 'store']);
 Route::get('/', [LandingModelController::class, 'index']);
-Route::get('/shop', [LandingShopModelController::class, 'index']);
-Route::get('/shop/details/{nama}', [ShopModelController::class, 'single']);
-
-//Sort
-Route::post('/shop/sort', [ShopModelController::class, 'sort']);
-
 //Custom
 Route::post('/custom/', [CarModelController::class, 'custom']);
 
@@ -55,3 +41,7 @@ Route::get('/admin/dashboard', function(){
 })->name('admin-dashboard');
 
 Route::post('/admin/dashboard/', [AdminController::class, 'action']);
+
+//Shop
+Route::get('/shop',[ShopController::class, 'index']);
+Route::get('/shop/category/{category}', [ShopController::class, 'category']);
