@@ -6,7 +6,7 @@
             <form action="/admin/dashboard/" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header">
-
+                    <input type="hidden" name="user_id" value="1">
                     <h5 class="modal-title" id="exampleModalLabel">T E S L A | Insert Data</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>

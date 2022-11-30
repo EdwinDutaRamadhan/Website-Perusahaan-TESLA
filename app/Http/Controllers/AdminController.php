@@ -165,7 +165,9 @@ class AdminController extends Controller
             case 'Shop Insert' :
                 Shop::create([
                     'category_id' => $req->category_id,
+                    'user_id' => 1,
                     'type' => $req->type,
+                    'model' => $req->model,
                     'title' => $req->title,
                     'price' => $req->price,
                     'desc' => $req->desc,

@@ -70,6 +70,9 @@
                                       <option value="Model 3">Model 3</option>
                                       <option value="Model X">Model X</option>
                                       <option value="Model Y">Model Y</option>
+                                      <option value="Men">Men</option>
+                                      <option value="Women">Women</option>
+                                      <option value="Kids">Kids</option>
                                   </select>
                               </div>
                           </div>

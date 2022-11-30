@@ -10,45 +10,76 @@ class ShopController extends Controller
         return view('public.shop.shop', ['data' => LandingShopModel::all()]);
     }
     public function category(Request $req){
-        $title1 = null;$title2 = null;$title3 = null;$title4 = null;
-        $title5 = null;$title6 = null;$title7 = null;
-        $data1 = null;$data2 = null;$data3 = null;$data4 = null;
-        $data5 = null;$data6 = null;$data7 = null;
-        $model = null;
+    $type = null;
+
         switch ($req->category) {
             case 'charging':
                 $data = Category::find(1);
                 $data = $data->shop;//Relations
-                $data1 = $data->where('type', 'At Home');//sort
-                $data2 = $data->where('type', 'On the Road');//sort
-                $data3 = $data->where('type', 'Parts');//sort
+                $type="Charging";//Section type
 
-                //Title
-                $title1 = "At Home";
-                $title2 = "On the Road";
-                $title3 = "Parts";
+                return view('public.shop.shop-category', [
+                    'data1'=> $data->where('type', 'At Home'),
+                    'data2'=> $data->where('type', 'On the Road'),
+                    'data3'=> $data->where('type', 'Parts'),
+                    'type' => $type
+                ]);
+                break;
+
+            case 'vehicle-accessories':
+                $data = Category::find(2);
+                $data = $data->shop;
+                $dataS = $data->where('model', 'Model S');
+                $data3 = $data->where('model', 'Model 3');
+                $dataX = $data->where('model', 'Model X');
+                $dataY = $data->where('model', 'Model Y');
+                return view('public.shop.shop-category', [
+                    'modelSInterior' => $dataS->where('type', 'Interior'),
+                    'modelSEksterior' => $dataS->where('type', 'Eksterior'),
+                    'modelSWheels' => $dataS->where('type', 'Wheels and Tires'),
+                    'modelSFloor' => $dataS->where('type', 'Floor Mats'),
+                    'modelSKeys' => $dataS->where('type', 'Keys'),
+                    'model3Interior' => $data3->where('type', 'Interior'),
+                    'model3Eksterior' => $data3->where('type', 'Eksterior'),
+                    'model3Wheels' => $data3->where('type', 'Wheels and Tires'),
+                    'model3Floor' => $data3->where('type', 'Floor Mats'),
+                    'model3Keys' => $data3->where('type', 'Keys'),
+                    'modelXInterior' => $dataX->where('type', 'Interior'),
+                    'modelXEksterior' => $dataX->where('type', 'Eksterior'),
+                    'modelXWheels' => $dataX->where('type', 'Wheels and Tires'),
+                    'modelXFloor' => $dataX->where('type', 'Floor Mats'),
+                    'modelXKeys' => $dataX->where('type', 'Keys'),
+                    'modelYInterior' => $dataY->where('type', 'Interior'),
+                    'modelYEksterior' => $dataY->where('type', 'Eksterior'),
+                    'modelYWheels' => $dataY->where('type', 'Wheels and Tires'),
+                    'modelYFloor' => $dataY->where('type', 'Floor Mats'),
+                    'modelYKeys' => $dataY->where('type', 'Keys'),
+                    'type' => 'Vehicle'
+                ]);
+                break;
+
+            case 'apparel':
+                $type = "Apparel";
+                break;
+
+            case 'lifestyle' :
+                $data = Category::find(4);
+                $data = $data->shop;//category_id
+                $type="Lifestyle";
+
+                return view('public.shop.shop-category', [
+                    'data1'=> $data->where('type','Bags'),
+                    'data2'=> $data->where('type','Drinkware'),
+                    'data3'=> $data->where('type','Mini Teslas'),
+                    'data4'=> $data->where('type','Outdoor and Tech'),
+                    'type' => $type
+                ]);
                 break;
             
             default:
                 # code...
                 break;
         }
-        return view('public.shop.shop-category', [
-            'data1'=> $data1,
-            'data2'=> $data2,
-            'data3'=> $data3,
-            'data4'=> $data4,
-            'data5'=> $data5,
-            'data6'=> $data6,
-            'data7'=> $data7,
-            'title1' => $title1,
-            'title2' => $title2,
-            'title3' => $title3,
-            'title4' => $title4,
-            'title5' => $title5,
-            'title6' => $title6,
-            'title7' => $title7,
-            'model' => $model
-        ]);
+        
     }
 }

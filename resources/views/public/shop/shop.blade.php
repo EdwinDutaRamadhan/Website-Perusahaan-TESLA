@@ -21,6 +21,7 @@
 			---Eksterior
 			---Wheels and Tires
 			---Floor Mats
+			---Parts
 			---Keys
 		----Apparel(where Gender)	(id,category,tipe,model,judul,size, harga, jumlah, desc, image)
 			---tees

@@ -4,7 +4,7 @@
             <!-- Insert Shop Item -->
             @include('partials.admin.section-shop-add')
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#insert">
-                Launch demo modal
+                Insert Item
             </button>
 
         </div>
