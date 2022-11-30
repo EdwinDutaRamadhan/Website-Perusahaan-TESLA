@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('shops', function (Blueprint $table) {
             $table->id();
             $table->foreignId('category_id');
+            $table->foreignId('user_id');
             $table->string('type');
             $table->string('model')->nullable();
             $table->string('title')->unique();

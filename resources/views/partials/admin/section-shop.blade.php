@@ -44,7 +44,7 @@
                                           </div>
                                     </div>
                                 </div>
-                                <p class="card-text"><small class="text-muted">Last update {{ $d->updated_at }}</small></p>
+                                <p class="card-text"><small class="text-muted">Last update {{ $d->updated_at }} by {{ $d->user->name }}</small></p>
                             </div>
                         </div>
                     </div>
