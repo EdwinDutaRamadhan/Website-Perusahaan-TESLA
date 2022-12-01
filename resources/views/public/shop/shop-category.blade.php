@@ -11,7 +11,9 @@
             @include('partials.shop.category-model-Y')
             @break
         @case('Apparel')
-            {{-- @include('partials.shop.category-apparel') --}}
+            @include('partials.shop.category-model-men')
+            @include('partials.shop.category-model-women')
+            @include('partials.shop.category-model-kids')
             @break
         @case('Lifestyle')
             @include('partials.shop.category-lifestyle')  

@@ -33,7 +33,7 @@
     </div>
     <div class="row m-2">
         @foreach ($data as $d)
-            <div class="card mb-3">
+            <div class="card mb-3 ">
                 <div class="row g-0" style="height: 160px;">
                     <div class="col-md-3">
                         <img src="{{ asset('storage/' . $d->image) }}" class="img-fluid rounded-start" alt="...">

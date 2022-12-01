@@ -59,7 +59,33 @@ class ShopController extends Controller
                 break;
 
             case 'apparel':
-                $type = "Apparel";
+                $data = Category::find(3);
+                $data = $data->shop;
+
+                return view('public.shop.shop-category', [
+                    'menTees'=> $data->where('type','Tees'),
+                    'menHoodies'=> $data->where('type','Sweathshirts and Hoodies'),
+                    'menOnesies'=> $data->where('type','Onesies'),
+                    'menOuterwear'=> $data->where('type','Outwear'),
+                    'menJoggers'=> $data->where('type','Joggers'),
+                    'menHats'=> $data->where('type','Hats'),
+                    'menSocks'=> $data->where('type','Socks'),
+                    'womenTees'=> $data->where('type','Tees'),
+                    'womenHoodies'=> $data->where('type','Sweathshirts and Hoodies'),
+                    'womenOnesies'=> $data->where('type','Onesies'),
+                    'womenOuterwear'=> $data->where('type','Outwear'),
+                    'womenJoggers'=> $data->where('type','Joggers'),
+                    'womenHats'=> $data->where('type','Hats'),
+                    'womenSocks'=> $data->where('type','Socks'),
+                    'kidsTees'=> $data->where('type','Tees'),
+                    'kidsHoodies'=> $data->where('type','Sweathshirts and Hoodies'),
+                    'kidsOnesies'=> $data->where('type','Onesies'),
+                    'kidsOuterwear'=> $data->where('type','Outwear'),
+                    'kidsJoggers'=> $data->where('type','Joggers'),
+                    'kidsHats'=> $data->where('type','Hats'),
+                    'kidsSocks'=> $data->where('type','Socks'),
+                    'type' => "Apparel"
+                ]);
                 break;
 
             case 'lifestyle' :
