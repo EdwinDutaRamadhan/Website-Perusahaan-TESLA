@@ -17,7 +17,7 @@ use App\Http\Controllers\LandingModelController;
 |
 */
 
-Route::post('/admin/landing', [LandingModelController::class, 'store']);
+
 Route::get('/', [LandingModelController::class, 'index']);
 //Custom
 Route::post('/custom/', [CarModelController::class, 'custom']);
@@ -40,7 +40,7 @@ Route::get('/admin/dashboard', function(){
     return view('public.admin.dashboard-main', ['section'=> 'Home']);
 })->name('admin-dashboard');
 
-Route::post('/admin/dashboard/', [AdminController::class, 'action']);
+Route::post('/admin/dashboard/', [AdminController::class, 'action'])->name('admin');
 
 //Shop
 Route::get('/shop',[ShopController::class, 'index']);

@@ -16,9 +16,7 @@
                         <h1 style="{{ ($d->id % 2 == 0 AND $d->id != 6)? "color: black" :"color: aliceblue" }}">{{ $d->nama }}</h1>
                     </div>
                     <div class="col-md-12">
-                        <form action="/shop/category/" method="POST">
-                            <input type="submit" value="Shop Now">
-                        </form>
+                        <a class="btn btn-outline-dark btn-sm" href="/shop/category/{{ str_replace(' ','-',$d->nama) }}">Shop Now</a>
                     </div>
                 </div>
             </div>

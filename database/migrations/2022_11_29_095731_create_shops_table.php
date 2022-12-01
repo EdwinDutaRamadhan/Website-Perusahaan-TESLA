@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('type');
             $table->string('model')->nullable();
             $table->string('title')->unique();
-            $table->string('size')->nullable();
             $table->string('price');
             $table->text('desc');
             $table->string('image');

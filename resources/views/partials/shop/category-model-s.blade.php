@@ -1,41 +1,56 @@
 <div class="container-fluid">
-    <h2>Model S</h2>
+    @if(App\Models\Shop::where('model', 'Model S')->first())
+    <h3  class="m-4 mt-5 mb-5">Model S</h3>
+    @endif
     <div class="m-2">
-        <h5>Interior</h5>
+        {{-- Interior --}}
+        @if(isset($modelSInterior) and count($modelSInterior)>0)
+        <p class="m-4" style="font-size: 24px;">Interior</p>
         <div class="row m-2">
             @foreach ($modelSInterior as $d)
                 @include('partials.shop.section-card')
             @endforeach
         </div>
-        <h5>Eksterior</h5>
+        @endif
+
+        {{-- Eksterior --}}
+        @if(isset($modelSEksterior) and count($modelSEksterior)>0)
+        <p class="m-4 mt-5 mb-5" style="font-size: 24px;">Eksterior</p>
         <div class="row m-2">
             @foreach ($modelSEksterior as $d)
                 @include('partials.shop.section-card')
             @endforeach
         </div>
-        <h5>Wheels and Tires</h5>
+        @endif
+
+        {{-- Wheels and Tires --}}
+        @if(isset($modelSWheels) and count($modelSWheels)>0)
+        <p class="m-4 mt-5 mb-5" style="font-size: 24px;">Wheels and Tires</p>
         <div class="row m-2">
-            @if (isset($modelSWheels))
                 @foreach ($modelSWheels as $d)
                     @include('partials.shop.section-card')
                 @endforeach
-            @endif
         </div>
-        <h5>Floor Mats</h5>
+        @endif
+
+        {{-- Floor Mats --}}
+        @if(isset($modelSFloor) and count($modelSFloor)>0)
+        <p class="m-4 mt-5 mb-5" style="font-size: 24px;">Floor Mats</p>
         <div class="row m-2">
-            @if (isset($modelSFloor))
                 @foreach ($modelSFloor as $d)
                     @include('partials.shop.section-card')
                 @endforeach
-            @endif
         </div>
-        <h5>Keys</h5>
+        @endif
+
+        {{-- Keys --}}
+        @if(isset($modelSKeys) and count($modelSKeys)>0)
+        <p class="m-4 mt-5 mb-5" style="font-size: 24px;">Keys</p>
         <div class="row m-2">
-            @if (isset($modelSKeys))
                 @foreach ($modelSKeys as $d)
                     @include('partials.shop.section-card')
                 @endforeach
-            @endif
         </div>
+        @endif
     </div>
 </div>

@@ -160,7 +160,7 @@ class AdminController extends Controller
             case 'Shop All':
 
                 $section = 'Shop'; //key route
-                $data = Shop::all(); //Obj 
+                $data = Shop::with(['user', 'category'])->paginate(10); //Obj 
                 break;
             case 'Shop Insert' :
                 Shop::create([
@@ -174,7 +174,13 @@ class AdminController extends Controller
                     'image' => $req->file('image')->store('shop-images'),
                 ]);
                 $section = 'Shop'; //key route
-                $data = Shop::all(); //Obj 
+                $data = Shop::with(['user', 'category'])->paginate(10); //Obj 
+                break;
+
+            case 'Shop Delete':
+                Shop::where('title', $req->name)->delete();
+                $section = 'Shop'; //key route
+                $data = Shop::with(['user', 'category'])->paginate(10); //Obj 
                 break;
 
             default:

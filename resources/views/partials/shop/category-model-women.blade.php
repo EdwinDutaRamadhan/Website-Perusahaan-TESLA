@@ -1,10 +1,12 @@
 <div class="container-fluid">
-    <h2>Women</h2>
+    @if(App\Models\Shop::where('model', 'Women')->first())
+    <h3 class="m-4 mt-5 mb-5">Women</h3>
+    @endif
     <div class="m-2">
         
         {{-- Tees --}}
         @if(isset($womenTees) and count($womenTees) > 0)
-        <h5>Tees</h5>
+        <p class="m-4 mt-5 mb-5" style="font-size: 24px;">Tees</p>
         <div class="row m-2">
             @foreach ($womenTees as $d)
                 @include('partials.shop.section-card')
@@ -14,7 +16,7 @@
 
         {{-- Sweathshirts and Hoodies --}}
         @if(isset($womenHoodies) and count($womenHoodies) > 0)
-        <h5>Sweathshirts and Hoodies</h5>
+        <p class="m-4 mt-5 mb-5" style="font-size: 24px;">Sweathshirts and Hoodies</p>
         <div class="row m-2">
             @foreach ($womenHoodies as $d)
                 @include('partials.shop.section-card')
@@ -24,7 +26,7 @@
 
         {{-- Onesies --}}
         @if (isset($womenOnesies) and count($womenOnesies) > 0)
-        <h5>Onesies</h5>
+        <p class="m-4 mt-5 mb-5" style="font-size: 24px;">Onesies</p>
         <div class="row m-2">
                 @foreach ($womenOnesies as $d)
                     @include('partials.shop.section-card')
@@ -34,7 +36,7 @@
 
         {{-- Outwear --}}
         @if (isset($womenOuterwear) and count($womenOuterwear) > 0)
-        <h5>Outerwear</h5>
+        <p class="m-4 mt-5 mb-5" style="font-size: 24px;">Outerwear</p>
         <div class="row m-2">
                 @foreach ($womenOuterwear as $d)
                     @include('partials.shop.section-card')
@@ -44,7 +46,7 @@
 
         {{-- Joggers --}}
         @if (isset($womenJoggers) and count($womenJoggers) > 0)
-        <h5>Joggers</h5>
+        <p class="m-4 mt-5 mb-5" style="font-size: 24px;">Joggers</p>
         <div class="row m-2">
                 @foreach ($womenJoggers as $d)
                     @include('partials.shop.section-card')
@@ -54,7 +56,7 @@
 
         {{-- Hats --}}
         @if (isset($womenHats) and count($womenHats) > 0)
-        <h5>Hats</h5>
+        <p class="m-4 mt-5 mb-5" style="font-size: 24px;">Hats</p>
         <div class="row m-2">
                 @foreach ($womenHats as $d)
                     @include('partials.shop.section-card')
@@ -64,7 +66,7 @@
         
         {{-- Socks --}}
         @if (isset($womenSocks) and count($womenSocks) > 0)
-        <h5>Socks</h5>
+        <p class="m-4 mt-5 mb-5" style="font-size: 24px;">Socks</p>
         <div class="row m-2">
                 @foreach ($womenSocks as $d)
                     @include('partials.shop.section-card')

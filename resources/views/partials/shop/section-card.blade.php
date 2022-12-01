@@ -1,4 +1,4 @@
-<div class="col-md-4">
+<div class="col-md-4 mb-4">
     <div class="card">
         <a href="/shop/product/{{ str_replace(' ','-',$d->title) }}"><img src="{{ asset("storage/".$d->image) }}" class="card-img-top" alt="..."></a>
         <div class="card-body">
