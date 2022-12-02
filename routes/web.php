@@ -45,3 +45,4 @@ Route::post('/admin/dashboard/', [AdminController::class, 'action'])->name('admi
 //Shop
 Route::get('/shop',[ShopController::class, 'index']);
 Route::get('/shop/category/{category}', [ShopController::class, 'category']);
+Route::get('/shop/product/{id}', [ShopController::class, 'product']);

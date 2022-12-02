@@ -176,6 +176,21 @@ class AdminController extends Controller
                 $section = 'Shop'; //key route
                 $data = Shop::with(['user', 'category'])->paginate(10); //Obj 
                 break;
+            case 'Shop Update':
+                ($req->image == null) ? $image = $req->image_kw : $image = $req->image;
+                $result = Shop::where('id', $req->id)->update([
+                    'category_id' => $req->category_id,
+                    'user_id' => 1,
+                    'type' => $req->type,
+                    'model' => $req->model,
+                    'title' => $req->title,
+                    'price' => $req->price,
+                    'desc' => $req->desc,
+                    'image' => $image
+                ]);
+                $section = 'Shop'; //key route
+                $data = Shop::with(['user', 'category'])->paginate(10); //Obj 
+                break;
 
             case 'Shop Delete':
                 Shop::where('title', $req->name)->delete();

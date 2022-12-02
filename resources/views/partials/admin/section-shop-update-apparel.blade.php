@@ -9,6 +9,7 @@
               <form action="{{ route('admin') }}" method="post" enctype="multipart/form-data">
                   @csrf
                   <input type="hidden" name="section" value="Shop Update">
+                  <input type="hidden" name="id" value="{{ $d->id }}">
                   <div class="modal-body">
                       <div class="row mb-3">
                           <input type="hidden" name="category_id" value="3">

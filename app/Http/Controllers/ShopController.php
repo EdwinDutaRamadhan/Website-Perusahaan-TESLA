@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\LandingShopModel;
-
+use App\Models\Shop;
+use Illuminate\Contracts\Encryption\DecryptException;
+use Illuminate\Support\Facades\Crypt;
+ 
 class ShopController extends Controller
 {
     public function index()
@@ -189,5 +192,12 @@ class ShopController extends Controller
                 # code...
                 break;
         }
+    }
+    public function product(Request $req){
+        //$title = str_replace('-',' ',$req->title);
+        $id = Crypt::decryptString($req->id);
+        return view('public.shop.shop-product',[
+            'data' => Shop::where('id',$id)->get()
+        ]);
     }
 }
