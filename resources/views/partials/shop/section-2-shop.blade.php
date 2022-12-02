@@ -1,4 +1,4 @@
-<section class="section-shop img-fluid d-flex align-times-center text-center" style="background-image: url('../img/{{ $d->image }}');">
+<section class="section-shop section-image img-fluid d-flex align-times-center text-center" style="background-image: url('../img/{{ $d->image }}');">
     <div class="container mx-auto">
         <div class="d-flex justify-content-center m-1">
             <div class="row">
