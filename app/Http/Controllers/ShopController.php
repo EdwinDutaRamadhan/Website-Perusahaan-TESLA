@@ -88,21 +88,21 @@ class ShopController extends Controller
                     'menTees' => $dataMen->where('type', 'Tees'),
                     'menHoodies' => $dataMen->where('type', 'Sweathshirts and Hoodies'),
                     'menOnesies' => $dataMen->where('type', 'Onesies'),
-                    'menOuterwear' => $dataMen->where('type', 'Outwear'),
+                    'menOuterwear' => $dataMen->where('type', 'Outerwear'),
                     'menJoggers' => $dataMen->where('type', 'Joggers'),
                     'menHats' => $dataMen->where('type', 'Hats'),
                     'menSocks' => $dataMen->where('type', 'Socks'),
                     'womenTees' => $dataWomen->where('type', 'Tees'),
                     'womenHoodies' => $dataWomen->where('type', 'Sweathshirts and Hoodies'),
                     'womenOnesies' => $dataWomen->where('type', 'Onesies'),
-                    'womenOuterwear' => $dataWomen->where('type', 'Outwear'),
+                    'womenOuterwear' => $dataWomen->where('type', 'Outerwear'),
                     'womenJoggers' => $dataWomen->where('type', 'Joggers'),
                     'womenHats' => $dataWomen->where('type', 'Hats'),
                     'womenSocks' => $dataWomen->where('type', 'Socks'),
                     'kidsTees' => $dataKids->where('type', 'Tees'),
                     'kidsHoodies' => $dataKids->where('type', 'Sweathshirts and Hoodies'),
                     'kidsOnesies' => $dataKids->where('type', 'Onesies'),
-                    'kidsOuterwear' => $dataKids->where('type', 'Outwear'),
+                    'kidsOuterwear' => $dataKids->where('type', 'Outerwear'),
                     'kidsJoggers' => $dataKids->where('type', 'Joggers'),
                     'kidsHats' => $dataKids->where('type', 'Hats'),
                     'kidsSocks' => $dataKids->where('type', 'Socks'),
@@ -196,8 +196,12 @@ class ShopController extends Controller
     public function product(Request $req){
         //$title = str_replace('-',' ',$req->title);
         $id = Crypt::decryptString($req->id);
+        //$category_id = Crypt::decryptString($req->category_id);
+        $data = Shop::where('id',$id)->get();
+        $dataRekomendasi = Shop::where('category_id', $req->category_id)->latest()->limit(3)->get();
         return view('public.shop.shop-product',[
-            'data' => Shop::where('id',$id)->get()
+            'data' => $data,
+            'dataRekomendasi' => $dataRekomendasi
         ]);
     }
 }

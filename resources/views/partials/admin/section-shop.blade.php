@@ -107,4 +107,5 @@
             @endforeach
         </div>
     </div>
+    {{ $data->links() }}
 </div>

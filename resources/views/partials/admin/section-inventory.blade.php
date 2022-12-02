@@ -1,38 +1,52 @@
 <div class="container-fluid">
     @include('partials.admin.section-inventory-add')
     <!-- Button trigger modal -->
-    <div class="row m-2">
-        <div class="col-md-2">
-            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Insert Inventory Car
-            </button>
-        </div>
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-            <form action="/admin/dashboard/" method="post">
-                @csrf
-            <div class="row">               
-                    <input type="hidden" name="section" value="Sort">
-                    <div class="col-4">
-                        <select class="form-select form-select-sm" name="sortModel" aria-label=".form-select-sm example">
-                            <option value="null" selected>Sort By Model</option>
-                            <option value="All Model">All Model</option>
-                            <option value="Model S">Model S</option>
-                            <option value="Model 3">Model 3</option>
-                            <option value="Model X">Model X</option>
-                            <option value="Model Y">Model Y</option>
-                          </select>
-                    </div>
-                    <div class="col-4"></div>
-                    <div class="col-4">
-                        <input type="submit" class="btn btn-outline-dark btn-sm" value="See Result">
-                    </div> 
+    <form action="{{ route('admin') }}" method="post">
+        @csrf
+        <input type="hidden" name="section" value="Inventory Search">
+        <div class="row m-2">
+            <div class="col-md-2">
+                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
+                    Insert Inventory
+                </button>
+            </div>
+            <div class="col-md-4">
+
+                <div class="input-group mb-3">
+                    <input type="text" name="search" class="form-control" placeholder="Search.." value="{{ request('search') }}">
+                    <button type="submit" class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+                </div>
+            </div>
+            <div class="col-md-2">
+            </div>
+    </form>
+    <div class="col-md-4">
+        <form action="/admin/dashboard/" method="post">
+            @csrf
+            <div class="row">
+                <input type="hidden" name="section" value="Sort">
+                <div class="col-4">
+                    <select class="form-select form-select-sm" name="sortModel" aria-label=".form-select-sm example">
+                        <option value="null" selected>Sort By Model</option>
+                        <option value="All Model">All Model</option>
+                        <option value="Model S">Model S</option>
+                        <option value="Model 3">Model 3</option>
+                        <option value="Model X">Model X</option>
+                        <option value="Model Y">Model Y</option>
+                    </select>
+                </div>
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <input type="submit" class="btn btn-outline-dark btn-sm" value="See Result">
+                </div>
             </div>
         </form>
-        </div>
     </div>
-    <div class="row m-2">
-        @foreach ($data as $d)
+</div>
+<div class="row m-2">
+    @foreach ($data as $d)
+        @if ($data)
             <div class="card mb-3 ">
                 <div class="row g-0" style="height: 160px;">
                     <div class="col-md-3">
@@ -104,30 +118,36 @@
                                             {{ $d->trial }} Premium Connectrivity Trial</p>
                                     </div>
                                     <div class="col-md-6">
-                                        
+
                                         <div class="d-flex justify-content-between">
                                             <div class="ms-2">
                                                 <form action="/admin/dashboard/" method="post">
                                                     @csrf
-                                                    <input type="hidden" name="id" value="{{ $d->id }}">
-                                                    <input type="hidden" name="image_kw" value="{{ $d->image }}">
+                                                    <input type="hidden" name="id"
+                                                        value="{{ $d->id }}">
+                                                    <input type="hidden" name="image_kw"
+                                                        value="{{ $d->image }}">
                                                     <input type="hidden" name="section" value="Inventory Update">
                                                     @include('partials.admin.section-inventory-update')
-                                                    <button class="btn btn-outline-dark ps-5 pe-5" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $d->id }}">Update</button>
+                                                    <button class="btn btn-outline-dark ps-5 pe-5"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModal{{ $d->id }}">Update</button>
                                                 </form>
                                             </div>
                                             <div>
-                                                <a href="/inventory/detail/{{ $d->id }}" class="btn btn-outline-dark ps-5 pe-5">Details</a>
+                                                <a href="/inventory/detail/{{ $d->id }}"
+                                                    class="btn btn-outline-dark ps-5 pe-5">Details</a>
                                             </div>
                                             <div class="">
                                                 <form action="/admin/dashboard/" method="post">
                                                     @csrf
-                                                    <input type="hidden" name="id" value="{{ $d->id }}">
-                                                    <input type="hidden" name="section" value="Inventory Delete">  
+                                                    <input type="hidden" name="id"
+                                                        value="{{ $d->id }}">
+                                                    <input type="hidden" name="section" value="Inventory Delete">
                                                     <button class="btn btn-outline-dark ps-5 pe-5"
                                                         onclick="return confirm('Apakah anda yakin ingin menghapus {{ $d->name }}');"type="submit">Delete</button>
                                                 </form>
-                                            </div>          
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -136,6 +156,11 @@
                     </div>
                 </div>
             </div>
-        @endforeach
-    </div>
+        @else
+            <div class="m-4">
+                <h5>Data tidak ditemukan</h5>
+            </div>
+        @endif
+    @endforeach
+</div>
 </div>

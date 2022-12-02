@@ -33,6 +33,12 @@
                     </div>
                 </div>
             </div>
+            <div class="row mt-4">
+                <h3 class="mb-5">Recommended Product</h3>
+                @foreach ($dataRekomendasi as $d)
+                        @include('partials.shop.section-card')
+                @endforeach
+            </div>
         </div>
     @endforeach
 @endsection

@@ -8,36 +8,12 @@ use App\Models\CarModel;
 use App\Models\Shop;
 class AdminController extends Controller
 {
-    public function index(Request $req)
+    public function index()
     {
-        switch ($req->section) {
-            case 'Home ':
-                return view('public.admin.dashboard-main', [
-                    'section' => 'Home'
-                ]);
-                break;
-            case 'Landing':
-                return view('public.admin.dashboard-main', [
-                    'section' => 'Landing',
-                    'data' => LandingModel::all()
-                ]);
-                break;
-            case 'Inventory':
-                return view('public.admin.dashboard-main', [
-                    'section' => 'Inventory',
-                    'data' => CarModel::all()
-                ]);
-                break;
-            case 'Shop':
-                return view('public.admin.dashboard-main', [
-                    'section' => 'Shop'
-                ]);
-                break;
-
-            default:
-                # code...
-                break;
-        }
+        return view('public.admin.dashboard-main',[
+            'section' => 'Shop',
+            'data' => Shop::with(['user', 'category'])->paginate(10)
+        ]);
     }
     //Admin
     public function action(Request $req)
@@ -142,6 +118,10 @@ class AdminController extends Controller
                 $section = 'Inventory'; //key route
                 $data = CarModel::all(); //Obj
                 break;
+            case 'Inventory Search':
+                $section = 'Inventory'; //key route
+                $data = CarModel::latest()->filter(request(['search']))->get(); //Obj
+                break;
             case 'Sort':
                 $section = 'Inventory';
                 if ($req->sortModel == "All Model" || $req->sortModel == 'null') {
@@ -203,7 +183,6 @@ class AdminController extends Controller
                 $section = null; //key route
                 break;
         }
-
         return view('public.admin.dashboard-main', ['section' => $section, 'data' => $data, 'result' => $result]);
     }
 }

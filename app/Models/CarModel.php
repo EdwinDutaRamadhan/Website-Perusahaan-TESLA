@@ -11,6 +11,13 @@ class CarModel extends Model
     protected $guarded = ['id'];
     protected $table = 'tb_inventory';
 
+    public function scopeFilter($query, array $filters){
+        $query->when($filters['search'] ?? false, function($query, $search){
+            return $query->where('name', 'like', '%'.$search.'%')
+                         ->orWhere('model', 'like', '%'.$search.'%');
+        });
+    }
+    
     protected $primaryKey = 'id';
     public $timestamp = false;
     //public $fillable = ['id', 'judul','penulis','tanggal','isi'];

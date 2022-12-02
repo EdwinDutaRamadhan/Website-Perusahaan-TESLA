@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Shop;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\AdminController;
@@ -36,13 +37,11 @@ Route::post('/inventory/detail/payments', [CarModelController::class, 'payments'
 //ADMIN
 Route::post('/admin/inventory/', [CarModelController::class, 'store']);
 
-Route::get('/admin/dashboard', function(){
-    return view('public.admin.dashboard-main', ['section'=> 'Home']);
-})->name('admin-dashboard');
+Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin-shop');
 
 Route::post('/admin/dashboard/', [AdminController::class, 'action'])->name('admin');
 
 //Shop
 Route::get('/shop',[ShopController::class, 'index']);
 Route::get('/shop/category/{category}', [ShopController::class, 'category']);
-Route::get('/shop/product/{id}', [ShopController::class, 'product']);
+Route::get('/shop/product/{category_id}/{id}', [ShopController::class, 'product']);
