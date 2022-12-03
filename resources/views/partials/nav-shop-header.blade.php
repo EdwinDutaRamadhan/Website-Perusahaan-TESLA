@@ -1,13 +1,14 @@
-<nav id="navbar-id" class="navbars navbar navbar-expand-sm bg-light navbar-light sticky-top">
+<nav id="navbar-id" class="navbars navbar navbar-expand-md bg-light navbar-light sticky-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">T E S L A </a>
-        <a class="navbar-brand" href="/"> | </a>
-        <a class="navbar-brand" href="/shop/"> Shop</a>
+        <div>
+            <a class="navbar-brand" href="/">T E S L A </a>
+            <a class="navbar-brand" href="/shop"> Shop </a>
+        </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-center" id="collapsibleNavbar">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav ms-auto">
                 <li class="nav-item ms-2 me-2">
                     <a class="nav-link" href="/shop/category/charging">Charging</a>
                 </li>
@@ -21,13 +22,13 @@
                     <a class="nav-link" href="/shop/category/lifestyle">Lifestyle</a>
                 </li>
             </ul>
-        </div>
-        <div class="navbar-brand justify-content-right" id="collapsibleNavbar">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Keranjang</a>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item ms-2 me-2">
+                    <a class="nav-link" href="{{ route('user-login') }}">login</a>
                 </li>
             </ul>
+            
         </div>
+
     </div>
 </nav>

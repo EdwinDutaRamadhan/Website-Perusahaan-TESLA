@@ -72,8 +72,7 @@
                                         <div class="p-2 bd-highlight">
                                             <h5 align="right">${{ $d->fee }}</h5>
                                             <a style="font-size: 15px;" data-bs-toggle="collapse"
-                                                href="#detail{{ $d->id }}" aria-expanded="false"
-                                                aria-controls="multiCollapseExample1">Show Details</a>
+                                                href="#detail{{ $d->id }}">Show Details</a>
                                         </div>
                                     </div>
                                 </div>
@@ -162,5 +161,6 @@
             </div>
         @endif
     @endforeach
+    {{ $data->links() }}
 </div>
 </div>

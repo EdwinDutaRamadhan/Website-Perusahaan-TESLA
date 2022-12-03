@@ -8,11 +8,31 @@ use App\Models\CarModel;
 use App\Models\Shop;
 class AdminController extends Controller
 {
-    public function index()
+    public function index(Request $req)
     {
-        return view('public.admin.dashboard-main',[
-            'section' => 'Shop',
-            'data' => Shop::with(['user', 'category'])->paginate(10)
+        switch ($req->section) {
+            case 'landing':
+                $active = "landing";
+                $data = LandingModel::all(); //Obj 
+                break;
+            case 'inventory':
+                $active = "inventory";
+                $data = CarModel::paginate(10)->withQueryString(); //Obj 
+                break;
+            case 'shop':
+                $active = "shop";
+                $data = Shop::with(['user', 'category'])->paginate(10); //Obj 
+                break;
+            default:
+                $active = "dashboard";
+                $data = null;
+                break;
+        }
+        return view('public.admin.dashboard', [
+            'section' => $req->section,
+            'active' => $active,
+            'result' => 0,
+            'data' => $data
         ]);
     }
     //Admin
