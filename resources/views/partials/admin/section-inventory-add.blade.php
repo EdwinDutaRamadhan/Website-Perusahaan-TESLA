@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-lg">
 
         <div class="modal-content">
-            <form action="/admin/dashboard/" method="post" enctype="multipart/form-data">
+            <form action="/admin/inventory/store" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header">
                     <input type="hidden" name="user_id" value="1">

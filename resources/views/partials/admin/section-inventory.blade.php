@@ -1,9 +1,39 @@
 <div class="container-fluid">
     @include('partials.admin.section-inventory-add')
     <!-- Button trigger modal -->
-    <form action="{{ route('admin') }}" method="post">
+    <form action="/admin/inventory/search" method="post">
         @csrf
         <input type="hidden" name="section" value="Inventory Search">
+        @if (session()->has('create'))
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('create') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+        @endif
+        @if (session()->has('delete'))
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                        {{ session('delete') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+        @endif
+        @if (session()->has('update'))
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        {{ session('update') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+        @endif
         <div class="row m-2">
             <div class="col-md-2">
                 <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
@@ -14,15 +44,17 @@
             <div class="col-md-4">
 
                 <div class="input-group mb-3">
-                    <input type="text" name="search" class="form-control" placeholder="Search.." value="{{ request('search') }}">
-                    <button type="submit" class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+                    <input type="text" name="search" class="form-control" placeholder="Search.."
+                        value="{{ request('search') }}">
+                    <button type="submit" class="btn btn-outline-secondary" type="button"
+                        id="button-addon2">Search</button>
                 </div>
             </div>
             <div class="col-md-2">
             </div>
     </form>
     <div class="col-md-4">
-        <form action="/admin/dashboard/" method="post">
+        {{-- <form action="/admin/dashboard/" method="post">
             @csrf
             <div class="row">
                 <input type="hidden" name="section" value="Sort">
@@ -41,7 +73,7 @@
                     <input type="submit" class="btn btn-outline-dark btn-sm" value="See Result">
                 </div>
             </div>
-        </form>
+        </form> --}}
     </div>
 </div>
 <div class="row m-2">
@@ -120,13 +152,12 @@
 
                                         <div class="d-flex justify-content-between">
                                             <div class="ms-2">
-                                                <form action="/admin/dashboard/" method="post">
+                                                <form action="/admin/inventory/update" method="post">
                                                     @csrf
                                                     <input type="hidden" name="id"
-                                                        value="{{ $d->id }}">
+                                                        value="{{ Crypt::encryptString($d->id) }}">
                                                     <input type="hidden" name="image_kw"
                                                         value="{{ $d->image }}">
-                                                    <input type="hidden" name="section" value="Inventory Update">
                                                     @include('partials.admin.section-inventory-update')
                                                     <button class="btn btn-outline-dark ps-5 pe-5"
                                                         data-bs-toggle="modal"
@@ -138,14 +169,8 @@
                                                     class="btn btn-outline-dark ps-5 pe-5">Details</a>
                                             </div>
                                             <div class="">
-                                                <form action="/admin/dashboard/" method="post">
-                                                    @csrf
-                                                    <input type="hidden" name="id"
-                                                        value="{{ $d->id }}">
-                                                    <input type="hidden" name="section" value="Inventory Delete">
-                                                    <button class="btn btn-outline-dark ps-5 pe-5"
-                                                        onclick="return confirm('Apakah anda yakin ingin menghapus {{ $d->name }}');"type="submit">Delete</button>
-                                                </form>
+                                                <a href="/admin/inventory/delete/{{ Crypt::encryptString($d->id) }}" class="btn btn-outline-dark ps-5 pe-5"
+                                                    onclick="return confirm('Apakah anda yakin ingin menghapus {{ $d->name }}');">Delete</a>
                                             </div>
                                         </div>
                                     </div>

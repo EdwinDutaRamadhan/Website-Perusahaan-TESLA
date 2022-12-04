@@ -3,15 +3,17 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
-use App\Models\LandingModel;
-use App\Models\Category;
-use App\Models\LandingShopModel;
-use App\Models\User;
-use App\Models\CarModel;
 use App\Models\Shop;
+use App\Models\User;
 
+use App\Models\Admin;
+use Illuminate\Database\Seeder;
+use Database\Seeders\ShopSeeder;
+use Database\Seeders\CarModelSeeder;
+use Database\Seeders\CategorySeeder;
+use Database\Seeders\LandingModelSeeder;
 use function Symfony\Component\String\b;
+use Database\Seeders\LandingShopModelSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -37,13 +39,20 @@ class DatabaseSeeder extends Seeder
 
         User::create([
             'name' => 'Edwin Duta Ramadhan',
+            'username' => 'edwinedwin',
             'email' => 'test@example.com',
             'password' => bcrypt('12345')
         ]);
         User::create([
             'name' => 'Admin Gabut',
+            'username' => 'adminadmin',
             'email' => 'gabut@example.com',
             'password' => bcrypt('123425')
+        ]);
+        Admin::create([
+            'name' => 'Admin Edwin',
+            'email' => 'Edwin@example.com',
+            'password' => 'edwin123'
         ]);
         //User::factory(5)->create();
         

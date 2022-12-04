@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\LandingModel;
 use App\Models\CarModel;
 use App\Models\Shop;
+use Illuminate\Support\Facades\Crypt;
 class AdminController extends Controller
 {
     public function index(Request $req)
@@ -34,6 +35,75 @@ class AdminController extends Controller
             'result' => 0,
             'data' => $data
         ]);
+    }
+    //Admin Baru
+    public function inventory(Request $req){
+        switch ($req->action) {
+            case 'store':
+                CarModel::create([
+                    'model' => $req->model,
+                    'name' => $req->name,
+                    'type' => $req->type,
+                    'milage' => $req->milage,
+                    'delivery' => $req->delivery,
+                    'trim' => $req->trim,
+                    'color' => $req->color,
+                    'internal' => $req->internal,
+                    'wheels' => $req->wheels,
+                    'autopilot' => $req->autopilot,
+                    'seatlayout' => $req->seatlayout,
+                    'additional' => $req->additional,
+                    'startspeed' => $req->startspeed,
+                    'topspeed' => $req->topspeed,
+                    'range' => $req->range,
+                    'fee' => $req->fee,
+                    'image' => $req->file('image')->store('inventory-images'),
+                    'trial' => $req->trial
+                ]);
+                return redirect('/admin/inventory')->with('create', 'Insert data '.$req->name.' successfully');
+                break;
+            case 'delete':
+                $id = Crypt::decryptString($req->id);
+                CarModel::where('id', $id)->delete();
+                return redirect('/admin/inventory')->with('delete', 'Delete data successfully');
+                break;
+            case 'update':
+                ($req->image == null) ? $image = $req->image_kw : $image = $req->image;
+                $id = Crypt::decryptString($req->id);
+                CarModel::where('id', $id)->update([
+                    'model' => $req->model,
+                    'name' => $req->name,
+                    'type' => $req->type,
+                    'milage' => $req->milage,
+                    'delivery' => $req->delivery,
+                    'trim' => $req->trim,
+                    'color' => $req->color,
+                    'internal' => $req->internal,
+                    'wheels' => $req->wheels,
+                    'autopilot' => $req->autopilot,
+                    'seatlayout' => $req->seatlayout,
+                    'additional' => $req->additional,
+                    'startspeed' => $req->startspeed,
+                    'topspeed' => $req->topspeed,
+                    'range' => $req->range,
+                    'fee' => $req->fee,
+                    'image' => $image,
+                    'trial' => $req->trial
+                ]);
+                return redirect('/admin/inventory')->with('update', 'Update data '.$req->name.' successfully');
+                break;
+            case 'search':
+                return view('public.admin.dashboard', [
+                    'section' => 'inventory',
+                    'active' => 'inventory',
+                    'data' => CarModel::latest()->filter(request(['search']))->paginate(10)->withQueryString() //Obj
+                ]);
+                break;
+            default:
+                # code...
+                break;
+        }
+        
     }
     //Admin
     public function action(Request $req)

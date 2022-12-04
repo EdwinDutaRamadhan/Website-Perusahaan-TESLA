@@ -43,7 +43,9 @@ Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin-s
 
 //Admin Baru
 Route::get('/admin/{section}', [AdminController::class, 'index'])->name('admin-dashboard');
-
+    //Inventory
+    Route::post('/admin/inventory/{action}', [AdminController::class, 'inventory']);
+    Route::get('/admin/inventory/{action}/{id}', [AdminController::class, 'inventory']);
 
 Route::post('/admin/dashboard/', [AdminController::class, 'action'])->name('admin');
 
@@ -57,3 +59,6 @@ Route::get('/shop/register', [RegisterController::class, 'index'])->name('user-r
 Route::get('/shop',[ShopController::class, 'index']);
 Route::get('/shop/category/{category}', [ShopController::class, 'category']);
 Route::get('/shop/product/{category_id}/{id}', [ShopController::class, 'product']);
+
+//User
+Route::post('/shop/registration', [RegisterController::class, 'store']);

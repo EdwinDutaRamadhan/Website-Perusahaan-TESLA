@@ -198,7 +198,7 @@ class ShopController extends Controller
         $id = Crypt::decryptString($req->id);
         //$category_id = Crypt::decryptString($req->category_id);
         $data = Shop::where('id',$id)->get();
-        $dataRekomendasi = Shop::where('category_id', $req->category_id)->latest()->limit(3)->get();
+        $dataRekomendasi = Shop::where('category_id', $req->category_id)->inRandomOrder()->limit(3)->get();
         return view('public.shop.shop-product',[
             'data' => $data,
             'dataRekomendasi' => $dataRekomendasi

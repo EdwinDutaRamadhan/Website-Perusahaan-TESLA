@@ -1,4 +1,4 @@
-<section id="banner" class="section1 img-fluid d-flex align-times-center text-center" style="min-height:580px;">
+<section id="banner" class="section1 img-fluid d-flex align-times-center text-center mt-5" style="min-height:580px;">
     {{-- Carousel --}}
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
