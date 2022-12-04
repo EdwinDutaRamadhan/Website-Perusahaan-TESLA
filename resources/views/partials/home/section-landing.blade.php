@@ -15,9 +15,7 @@
 
                     @if ($d->model_id == 7)
                         <div class="col-md-12">
-                            <form action="">
-                                <input type="submit" value="Shop Now">
-                            </form>
+                            <a class="btn btn-outline-dark" href="/shop" style="margin-right: 10%;">Shop Now</a>
                         </div>
                     @elseif($d->model_id == 5 or $d->model_id == 6)
                         <div class="col-md-6">
