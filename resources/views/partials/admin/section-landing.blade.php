@@ -1,9 +1,13 @@
 <div class="container-fluid">
     <table class="table">
-        @if ($result == 1)
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>Update data berhasil!</strong> 
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        @if (session()->has('update'))
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        {{ session('update') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
             </div>
         @endif
         @foreach ($data as $d)
@@ -31,11 +35,12 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <form action="/admin/dashboard/" method="post">
+                    <form action="/admin/landing/update" method="post">
                         @csrf
                         <input type="hidden" name="image_kw" value="{{ $d->image }}">
                         <input type="hidden" name="id" value="{{ $d->id }}">
-                        <input type="hidden" name="section" value="Landing Update">
+                        <input type="hidden" name="model_id" value="{{ $d->model_id }}">
+                        <input type="hidden" name="model" value="{{ $d->model }}">
                         <div class="row p-4">
                             <div class="col-2 mt-1">
                                 <label style="font-size: 18px;" for="note" class="form-label mb-3">Note : </label>

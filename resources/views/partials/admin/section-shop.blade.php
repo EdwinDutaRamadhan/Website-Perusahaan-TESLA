@@ -1,4 +1,34 @@
 <div class="container-fluid">
+    @if (session()->has('create'))
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('create') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    @endif
+    @if (session()->has('update'))
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    {{ session('update') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    @endif
+    @if (session()->has('delete'))
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                    {{ session('delete') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    @endif
     <div class="row mb-2">
         @include('partials.admin.section-shop-add-charging')
         @include('partials.admin.section-shop-add-vehicle-accessories')
@@ -69,33 +99,41 @@
                                             @switch($d->category_id)
                                                 @case(1)
                                                     <div class="p-1 bd-highlight">
-                                                        <button type="button" class="btn btn-outline-dark btn-sm"style="width:100%;" data-bs-toggle="modal"data-bs-target="#update-charging{{ $d->id }}">Update</button>
+                                                        <button type="button"
+                                                            class="btn btn-outline-dark btn-sm"style="width:100%;"
+                                                            data-bs-toggle="modal"data-bs-target="#update-charging{{ $d->id }}">Update</button>
                                                     </div>
                                                 @break
+
                                                 @case(2)
                                                     <div class="p-1 bd-highlight">
-                                                        <button type="button" class="btn btn-outline-dark btn-sm" style="width: 100%;" data-bs-toggle="modal" data-bs-target="#update-vehicle{{ $d->id }}">Update</button>
+                                                        <button type="button" class="btn btn-outline-dark btn-sm"
+                                                            style="width: 100%;" data-bs-toggle="modal"
+                                                            data-bs-target="#update-vehicle{{ $d->id }}">Update</button>
                                                     </div>
                                                 @break
+
                                                 @case(3)
                                                     <div class="p-1 bd-highlight">
-                                                        <button type="button" class="btn btn-outline-dark btn-sm" style="width: 100%;" data-bs-toggle="modal" data-bs-target="#update-apparel{{ $d->id }}">Update</button>
+                                                        <button type="button" class="btn btn-outline-dark btn-sm"
+                                                            style="width: 100%;" data-bs-toggle="modal"
+                                                            data-bs-target="#update-apparel{{ $d->id }}">Update</button>
                                                     </div>
                                                 @break
+
                                                 @case(4)
                                                     <div class="p-1 bd-highlight">
-                                                        <button type="button" class="btn btn-outline-dark btn-sm" style="width: 100%;" data-bs-toggle="modal" data-bs-target="#update-lifestyle{{ $d->id }}">Update</button>
+                                                        <button type="button" class="btn btn-outline-dark btn-sm"
+                                                            style="width: 100%;" data-bs-toggle="modal"
+                                                            data-bs-target="#update-lifestyle{{ $d->id }}">Update</button>
                                                     </div>
                                                 @break
+
                                                 @default
                                             @endswitch
                                             <div class="p-1 bd-highlight">
-                                                <form action="{{ route('admin') }}" method="post">
-                                                    @csrf
-                                                    <input type="hidden" name="name" value="{{ $d->title }}">
-                                                    <input type="hidden" name="section" value="Shop Delete">
-                                                    <button type="submit" class="btn btn-outline-dark btn-sm" style="width: 100%;" onclick="return confirm('apakah anda yakin ingin menghapus?');">Delete</button>
-                                                </form>
+                                                <a href="/admin/shop/delete/{{ Crypt::encryptString($d->id) }}}" class="btn btn-outline-dark btn-sm" style="width: 100%;"
+                                                        onclick="return confirm('apakah anda yakin ingin menghapus {{ $d->title }}?');">Delete</a>
                                             </div>
                                         </div>
                                     </div>

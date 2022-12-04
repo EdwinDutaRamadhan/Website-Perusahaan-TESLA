@@ -60,12 +60,12 @@ class AdminController extends Controller
                     'image' => $req->file('image')->store('inventory-images'),
                     'trial' => $req->trial
                 ]);
-                return redirect('/admin/inventory')->with('create', 'Insert data '.$req->name.' successfully');
+                return redirect('/admin/inventory')->with('create', 'Insert data '.$req->name.' successfully!');
                 break;
             case 'delete':
                 $id = Crypt::decryptString($req->id);
                 CarModel::where('id', $id)->delete();
-                return redirect('/admin/inventory')->with('delete', 'Delete data successfully');
+                return redirect('/admin/inventory')->with('delete', 'Delete data successfully!');
                 break;
             case 'update':
                 ($req->image == null) ? $image = $req->image_kw : $image = $req->image;
@@ -90,7 +90,7 @@ class AdminController extends Controller
                     'image' => $image,
                     'trial' => $req->trial
                 ]);
-                return redirect('/admin/inventory')->with('update', 'Update data '.$req->name.' successfully');
+                return redirect('/admin/inventory')->with('update', 'Update data '.$req->name.' successfully!');
                 break;
             case 'search':
                 return view('public.admin.dashboard', [
@@ -105,50 +105,62 @@ class AdminController extends Controller
         }
         
     }
+    public function shop(Request $req){
+        switch ($req->action) {
+            case 'store':
+                Shop::create([
+                    'category_id' => $req->category_id,
+                    'user_id' => 1,
+                    'type' => $req->type,
+                    'model' => $req->model,
+                    'title' => $req->title,
+                    'price' => $req->price,
+                    'desc' => $req->desc,
+                    'image' => $req->file('image')->store('shop-images'),
+                ]);
+                return redirect('/admin/shop')->with('create', 'Insert data '.$req->title.' successfully!');
+                break;
+            case 'update':
+                ($req->image == null) ? $image = $req->image_kw : $image = $req->image;
+                Shop::where('id', $req->id)->update([
+                    'category_id' => $req->category_id,
+                    'user_id' => 1,
+                    'type' => $req->type,
+                    'model' => $req->model,
+                    'title' => $req->title,
+                    'price' => $req->price,
+                    'desc' => $req->desc,
+                    'image' => $image
+                ]);
+                return redirect('/admin/shop')->with('update', 'Update data '.$req->title.' successfully!');
+                break;
+            case 'delete':
+                $id = Crypt::decryptString($req->id);
+                Shop::where('id', $id)->delete();
+                return redirect('/admin/shop')->with('delete', 'Delete data successfully!');
+                break;
+            default:
+                # code...
+                break;
+        }
+    }
+    public function landing(Request $req){
+        ($req->image == null) ? $image = $req->image_kw : $image = $req->image;
+        LandingModel::where('id', $req->id)->update([
+            'model_id' => $req->model_id,
+            'model' => $req->model,
+            'note' => $req->note,
+            'image' => $image
+        ]);
+        return redirect('/admin/landing')->with('update', 'Update data successfully!');
+    }
+
+
     //Admin
     public function action(Request $req)
     {
         $result = null;
         switch ($req->section) {
-
-
-                /**
-                 * 
-                 * Determine the route for Home Section
-                 * 
-                 */
-
-            case 'Home All':
-                $section = 'Home'; //key route
-                $data = null; //Obj 
-                break;
-
-                /**
-                 * 
-                 * Determine the route for Landing Section
-                 * 
-                 */
-
-            case 'Landing All':
-                $section = 'Landing'; //key route
-                $data = LandingModel::all(); //Obj 
-                break;
-            case 'Landing Update':
-                ($req->image == null) ? $image = $req->image_kw : $image = $req->image;
-                $result = LandingModel::where('id', $req->id)->update([
-                    'note' => $req->note,
-                    'image' => $image
-                ]);
-                $section = 'Landing'; //key route
-                $data = LandingModel::all(); //Obj 
-                break;
-
-                /**
-                 * 
-                 * Determine the route for Inventory Section
-                 * 
-                 */
-
             case 'Inventory All':
                 $section = 'Inventory'; //key route
                 $data = CarModel::all(); //Obj 
@@ -275,4 +287,7 @@ class AdminController extends Controller
         }
         return view('public.admin.dashboard-main', ['section' => $section, 'data' => $data, 'result' => $result]);
     }
+    
 }
+
+

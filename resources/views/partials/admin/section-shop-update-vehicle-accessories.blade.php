@@ -6,9 +6,8 @@
                   <h5 class="modal-title" id="exampleModalLabel">T E S L A | Update Vehicle Accessories</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <form action="{{ route('admin') }}" method="post" enctype="multipart/form-data">
+              <form action="/admin/shop/update" method="post" enctype="multipart/form-data">
                   @csrf
-                  <input type="hidden" name="section" value="Shop Update">
                   <input type="hidden" name="id" value="{{ $d->id }}">
                   <div class="modal-body">
                       <div class="row mb-3">
