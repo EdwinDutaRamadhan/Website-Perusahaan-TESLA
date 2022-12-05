@@ -12,6 +12,10 @@ class AdminController extends Controller
     public function index(Request $req)
     {
         switch ($req->section) {
+            case 'dashboard':
+                $active = "dashboard";
+                $data = LandingModel::all();
+                break;
             case 'landing':
                 $active = "landing";
                 $data = LandingModel::all(); //Obj 
@@ -25,7 +29,7 @@ class AdminController extends Controller
                 $data = Shop::with(['user', 'category'])->paginate(10); //Obj 
                 break;
             default:
-                $active = "dashboard";
+                
                 $data = null;
                 break;
         }
@@ -110,7 +114,7 @@ class AdminController extends Controller
             case 'store':
                 Shop::create([
                     'category_id' => $req->category_id,
-                    'user_id' => 1,
+                    'user_id' => auth()->user()->id,
                     'type' => $req->type,
                     'model' => $req->model,
                     'title' => $req->title,
@@ -124,7 +128,7 @@ class AdminController extends Controller
                 ($req->image == null) ? $image = $req->image_kw : $image = $req->image;
                 Shop::where('id', $req->id)->update([
                     'category_id' => $req->category_id,
-                    'user_id' => 1,
+                    'user_id' => auth()->user()->id,
                     'type' => $req->type,
                     'model' => $req->model,
                     'title' => $req->title,

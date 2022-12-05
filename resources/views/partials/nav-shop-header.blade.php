@@ -22,13 +22,12 @@
                     <a class="nav-link" href="/shop/category/lifestyle">Lifestyle</a>
                 </li>
             </ul>
-            <ul class="navbar-nav ms-auto">
+            <ul class="navbar-nav ms-auto"> 
                 <li class="nav-item ms-2 me-2">
-                    <a class="nav-link" href="{{ route('user-login') }}">login</a>
-                </li>
+                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Keranjang
+                    </a>
             </ul>
-            
         </div>
-
     </div>
 </nav>

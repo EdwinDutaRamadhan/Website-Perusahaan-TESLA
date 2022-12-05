@@ -20,7 +20,7 @@ use App\Http\Controllers\LandingModelController;
 */
 
 
-Route::get('/', [LandingModelController::class, 'index']);
+Route::get('/', [LandingModelController::class, 'index'])->name('home');
 //Custom
 Route::post('/custom/', [CarModelController::class, 'custom']);
 
@@ -35,26 +35,34 @@ Route::post('/inventory/detail/payments', [CarModelController::class, 'payments'
 
 
 
-//ADMIN
-Route::get('/admin', [LoginController::class, 'indexAdmin'])->name('admin-login');
 //Admin Baru
-Route::get('/admin/{section}', [AdminController::class, 'index'])->name('admin-dashboard');
+Route::get('/admin/{section}', [AdminController::class, 'index'])->middleware('auth');
     //Inventory
-    Route::post('/admin/inventory/{action}', [AdminController::class, 'inventory']);
-    Route::get('/admin/inventory/{action}/{id}', [AdminController::class, 'inventory']);
+    Route::post('/admin/inventory/{action}', [AdminController::class, 'inventory'])->middleware('auth');
+    Route::get('/admin/inventory/{action}/{id}', [AdminController::class, 'inventory'])->middleware('auth');
     //Shop
-    Route::post('/admin/shop/{action}', [AdminController::class, 'shop']);
-    Route::get('/admin/shop/{action}/{id}', [AdminController::class, 'shop']);
+    Route::post('/admin/shop/{action}', [AdminController::class, 'shop'])->middleware('auth');
+    Route::get('/admin/shop/{action}/{id}', [AdminController::class, 'shop'])->middleware('auth');
     //Inventory
-    Route::post('/admin/landing/update', [AdminController::class, 'landing']);
+    Route::post('/admin/landing/update', [AdminController::class, 'landing'])->middleware('auth');
 
 //Shop
-
 Route::get('/shop',[ShopController::class, 'index']);
 Route::get('/shop/category/{category}', [ShopController::class, 'category']);
 Route::get('/shop/product/{category_id}/{id}', [ShopController::class, 'product']);
 
 //User
-Route::get('/shop/login', [LoginController::class, 'indexUser'])->name('user-login');
-Route::get('/shop/register', [RegisterController::class, 'index'])->name('user-register');
-Route::post('/shop/registration', [RegisterController::class, 'store']);
+// Route::get('/login', [LoginController::class, 'indexUser'])->name('user-login')->middleware('guest');
+// Route::post('/login', [LoginController::class, 'authenticate']);
+
+// Route::post('/logout', [LoginController::class, 'logout']);
+Route::post('/admin/logout', [LoginController::class, 'logoutAdmin']);
+
+// Route::get('/register', [RegisterController::class, 'index'])->name('user-register');
+Route::post('/registration', [RegisterController::class, 'store']);
+
+//Admin Auth
+Route::get('/admin/login/{password}', [LoginController::class, 'adminLogin']);
+Route::get('/admin/register/{password}', [LoginController::class, 'adminRegister']);
+Route::post('/admin/login/', [LoginController::class, 'authAdmin']);
+Route::post('/admin/register/', [RegisterController::class, 'storeAdmin']);
