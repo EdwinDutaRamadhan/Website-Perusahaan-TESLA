@@ -15,7 +15,7 @@
                 </div>
             @endif
             <main class="form-signin">
-                <form action="/login" method="POST">
+                <form action="/shop/login" method="POST">
                     @csrf
                     <h1 class="h3 mb-3 fw-normal text-center">User Login</h1>        
                     <div class="form-floating">

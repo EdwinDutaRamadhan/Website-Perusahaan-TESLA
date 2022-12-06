@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
@@ -36,7 +37,7 @@ Route::post('/inventory/detail/payments', [CarModelController::class, 'payments'
 
 
 //Admin Baru
-Route::get('/admin/{section}', [AdminController::class, 'index'])->middleware('auth');
+Route::get('/admin/{section}', [AdminController::class, 'index']);
     //Inventory
     Route::post('/admin/inventory/{action}', [AdminController::class, 'inventory'])->middleware('auth');
     Route::get('/admin/inventory/{action}/{id}', [AdminController::class, 'inventory'])->middleware('auth');
@@ -52,17 +53,19 @@ Route::get('/shop/category/{category}', [ShopController::class, 'category']);
 Route::get('/shop/product/{category_id}/{id}', [ShopController::class, 'product']);
 
 //User
-// Route::get('/login', [LoginController::class, 'indexUser'])->name('user-login')->middleware('guest');
-// Route::post('/login', [LoginController::class, 'authenticate']);
+Route::get('/shop/login', [LoginController::class, 'index'])->name('user-login');
+Route::post('/shop/login', [LoginController::class, 'userAuthenticate']);
 
-// Route::post('/logout', [LoginController::class, 'logout']);
-Route::post('/admin/logout', [LoginController::class, 'logoutAdmin']);
+Route::post('/logout', [LoginController::class, 'logout']);
+Route::post('/admin/logout', [LoginController::class, 'logout']);
 
-// Route::get('/register', [RegisterController::class, 'index'])->name('user-register');
-Route::post('/registration', [RegisterController::class, 'store']);
+Route::get('/shop/register', [RegisterController::class, 'index'])->name('user-register');
+Route::post('/shop/registration', [RegisterController::class, 'store']);
+    //Cart
+    Route::get('/shop/cart/{id}', [CartController::class, 'index']);
 
 //Admin Auth
 Route::get('/admin/login/{password}', [LoginController::class, 'adminLogin']);
 Route::get('/admin/register/{password}', [LoginController::class, 'adminRegister']);
-Route::post('/admin/login/', [LoginController::class, 'authAdmin']);
+Route::post('/admin/login/', [LoginController::class, 'adminAuthenticate']);
 Route::post('/admin/register/', [RegisterController::class, 'storeAdmin']);

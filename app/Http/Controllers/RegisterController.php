@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Admin;
@@ -13,10 +12,11 @@ class RegisterController extends Controller
     }
 
     public function store(Request $request){
-
+        $request->role = 'User';
         $validatedData = $request->validate([
             'name' => 'required|unique:users|max:255',
             'username' => 'required|unique:users|max:255',
+            'role' => 'required',
             'email' => 'required|unique:users|email:dns',
             'password' => 'required|min:3|max:255'
         ]);
@@ -30,6 +30,7 @@ class RegisterController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|unique:users|max:255',
             'username' => 'required|unique:users|max:255',
+            'role' => 'required',
             'email' => 'required|unique:users|email:dns',
             'password' => 'required|min:3|max:255'
         ]);

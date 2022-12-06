@@ -5,14 +5,24 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+
 class LoginController extends Controller
 {
-    public function indexUser()
+    public function index()
     {
-        return view('public.auth.user-login');
+        if (Auth::user()) {
+            return redirect('/shop');
+        } else {
+            return view('public.auth.user-login');
+        }
     }
-    public function authenticate(Request $request)
+    public function userAuthenticate(Request $request)
     {
+        if (Auth::user()) {
+            Auth::logout();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+        }
         $credentials = $request->validate([
             'email' => 'required|email:dns',
             'password' => 'required',
@@ -20,13 +30,25 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-
-            return redirect()->intended('/shop');
+            if (Auth::user()->role == "User") {
+                return redirect()->intended('/shop');
+            } else {
+                Auth::logout();
+                $request->session()->invalidate();
+                $request->session()->regenerateToken();
+                return redirect('/shop/login')->with('loginError', 'Login failed!');
+            }
         }
 
         return back()->with('loginError', 'Login failed!');
     }
-    public function authAdmin(Request $request){
+    public function adminAuthenticate(Request $request)
+    {
+        if (Auth::user()) {
+            Auth::logout();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+        }
         $credentials = $request->validate([
             'email' => 'required|email:dns',
             'password' => 'required',
@@ -34,44 +56,47 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-
-            return redirect()->intended('/admin/landing');
+            if (Auth::user()->role == "Admin") {
+                return redirect()->intended('/admin/dashboard');
+            } else {
+                Auth::logout();
+                $request->session()->invalidate();
+                $request->session()->regenerateToken();
+                return redirect('/admin/login/edwin123')->with('loginError', 'Login failed!');
+            }
         }
 
         return back()->with('loginError', 'Login failed!');
     }
-
     public function logout(Request $request)
     {
-        Auth::logout();
-
-        $request->session()->invalidate();
-
-        $request->session()->regenerateToken();
-
-        return redirect('/shop');
+        if (Auth::user()->role == 'User') {
+            Auth::logout();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+            return redirect('/shop');
+        } else {
+            Auth::logout();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+            return redirect('/admin/login/edwin123');
+        }
     }
-    public function logoutAdmin(Request $request)
+
+    //Secret Code
+    public function adminLogin(Request $request)
     {
-        Auth::logout();
-
-        $request->session()->invalidate();
-
-        $request->session()->regenerateToken();
-
-        return redirect('/admin/login/edwin123');
-    }
-    public function adminLogin(Request $request){
-        if($request->password == "edwin123"){
+        if ($request->password == "edwin123") {
             return view('public.auth.admin-login');
-        }else{
+        } else {
             return redirect('/');
         }
     }
-    public function adminRegister(Request $request){
-        if($request->password == "edwin123"){
+    public function adminRegister(Request $request)
+    {
+        if ($request->password == "edwin123") {
             return view('public.auth.admin-register');
-        }else{
+        } else {
             return redirect('/');
         }
     }

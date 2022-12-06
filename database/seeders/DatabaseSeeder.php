@@ -3,16 +3,14 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Models\Shop;
 use App\Models\User;
 
-use App\Models\Admin;
+use App\Models\Cart;
 use Illuminate\Database\Seeder;
 use Database\Seeders\ShopSeeder;
 use Database\Seeders\CarModelSeeder;
 use Database\Seeders\CategorySeeder;
 use Database\Seeders\LandingModelSeeder;
-use function Symfony\Component\String\b;
 use Database\Seeders\LandingShopModelSeeder;
 
 class DatabaseSeeder extends Seeder
@@ -37,26 +35,47 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
+        
+        User::create([
+            'name' => 'User Gabut',
+            'username' => 'User Gabut',
+            'cart_id' => 1,
+            'email' => 'user@gmail.com',
+            'role' => 'User',
+            'password' => '$2y$10$atmwna9KBumUiK5.Cm8nS.HyeZTxwYP5SAEFQ48QpMpCQn1mm4/sS'
+        ]);
         User::create([
             'name' => 'Edwin Duta Ramadhan',
-            'username' => 'edwinedwin',
-            'email' => 'test@example.com',
-            'password' => bcrypt('12345')
+            'username' => 'Admin Edwin',
+            'cart_id' => 2,
+            'email' => 'admin@gmail.com',
+            'role' => 'Admin',
+            'password' => '$2y$10$atmwna9KBumUiK5.Cm8nS.HyeZTxwYP5SAEFQ48QpMpCQn1mm4/sS'
         ]);
         User::create([
-            'name' => 'Admin Gabut',
-            'username' => 'adminadmin',
-            'email' => 'gabut@example.com',
-            'password' => bcrypt('123425')
-        ]);
-        Admin::create([
-            'name' => 'Admin Edwin',
-            'email' => 'Edwin@example.com',
-            'password' => 'edwin123'
+            'name' => 'User Gabut 2',
+            'username' => 'User Gabut 2',
+            'cart_id' => 3,
+            'email' => 'user2@gmail.com',
+            'role' => 'User',
+            'password' => '$2y$10$atmwna9KBumUiK5.Cm8nS.HyeZTxwYP5SAEFQ48QpMpCQn1mm4/sS'
         ]);
         //User::factory(5)->create();
         
-
+        Cart::create([
+            'user_id' => 1,
+            'title' => 'J1772 Wall Connector',
+            'type' => 'At Home',
+            'price' => '550',
+            'quantity' => '1',
+        ]);
+        Cart::create([
+            'user_id' => 3,
+            'title' => 'J1772 Wall Connector 2',
+            'type' => 'At Home',
+            'price' => '550',
+            'quantity' => '1',
+        ]);
 
         //Shop::factory(20)->create();
         // Shop::create([

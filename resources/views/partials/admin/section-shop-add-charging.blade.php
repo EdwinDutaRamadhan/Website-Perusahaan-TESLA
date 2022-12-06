@@ -40,7 +40,8 @@
                           </div>
                           <div class="col-md-4">
                               <label for="image" class="form-label">Default file input example</label>
-                              <input name="image" class="form-control" type="file" id="image">
+                              <input name="image" class="form-control" type="file" id="image" onchange="previewImage()">
+                              <img class="img-preview img-fluid">
                           </div>
                       </div>
                   </div>

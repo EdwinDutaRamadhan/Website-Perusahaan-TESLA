@@ -28,7 +28,7 @@
                   </li>
                 @else
                     <li class="nav-item ms-2 me-2">
-                        <a class="nav-link" href="{{ route('user-login') }}">login</a>
+                        <a class="nav-link" href="/admin/login/edwin123">login</a>
                     </li>
                 @endauth
             </ul>

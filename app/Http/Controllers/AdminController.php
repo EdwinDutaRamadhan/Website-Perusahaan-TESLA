@@ -7,38 +7,43 @@ use App\Models\LandingModel;
 use App\Models\CarModel;
 use App\Models\Shop;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Auth;
 class AdminController extends Controller
 {
     public function index(Request $req)
     {
-        switch ($req->section) {
-            case 'dashboard':
-                $active = "dashboard";
-                $data = LandingModel::all();
-                break;
-            case 'landing':
-                $active = "landing";
-                $data = LandingModel::all(); //Obj 
-                break;
-            case 'inventory':
-                $active = "inventory";
-                $data = CarModel::paginate(10)->withQueryString(); //Obj 
-                break;
-            case 'shop':
-                $active = "shop";
-                $data = Shop::with(['user', 'category'])->paginate(10); //Obj 
-                break;
-            default:
-                
-                $data = null;
-                break;
+            if(isset(Auth::user()->role) and Auth::user()->role == 'Admin'){
+                switch ($req->section) {
+                    case 'dashboard':
+                        $active = "dashboard";
+                        $data = LandingModel::all();
+                        break;
+                    case 'landing':
+                        $active = "landing";
+                        $data = LandingModel::all(); //Obj 
+                        break;
+                    case 'inventory':
+                        $active = "inventory";
+                        $data = CarModel::paginate(10)->withQueryString(); //Obj 
+                        break;
+                    case 'shop':
+                        $active = "shop";
+                        $data = Shop::with(['user', 'category'])->paginate(10); //Obj 
+                        break;
+                    default:
+                        
+                        $data = null;
+                        break;
+                }
+                return view('public.admin.dashboard', [
+                    'section' => $req->section,
+                    'active' => $active,
+                    'result' => 0,
+                    'data' => $data
+                ]);
+            }else{
+            return abort(404);
         }
-        return view('public.admin.dashboard', [
-            'section' => $req->section,
-            'active' => $active,
-            'result' => 0,
-            'data' => $data
-        ]);
     }
     //Admin Baru
     public function inventory(Request $req){

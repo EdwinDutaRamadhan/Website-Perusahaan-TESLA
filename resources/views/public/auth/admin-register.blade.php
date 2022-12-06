@@ -6,6 +6,7 @@
             <main class="form-registration">
                 <form action="/admin/register" method="POST">
                     @csrf
+                    <input type="hidden" name="role" value="Admin">
                     <h1 class="h3 mb-3 fw-normal text-center">Admin Registration</h1>
                     <div class="form-floating">
                         <input type="text" name="name"

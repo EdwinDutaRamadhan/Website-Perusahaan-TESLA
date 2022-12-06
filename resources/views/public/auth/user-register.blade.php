@@ -7,6 +7,7 @@
                 <form action="/shop/registration" method="POST">
                     @csrf
                     <h1 class="h3 mb-3 fw-normal text-center">Registration</h1>
+                    <input type="hidden" name="role" value="apa hayo">
                     <div class="form-floating">
                         <input type="text" name="name"
                             class="form-control rounded-top @error('name') is-invalid  @enderror" id="name"
@@ -51,7 +52,7 @@
                     </div>
 
                     <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">Register</button>
-                    <small class="d-block text-center mt-3">Already registered? <a href="{{ route('user-login') }}">Login
+                    <small class="d-block text-center mt-3">Already registered? <a href="/shop/login">Login
                             Now!</a></small>
                     {{-- <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p> --}}
                 </form>
