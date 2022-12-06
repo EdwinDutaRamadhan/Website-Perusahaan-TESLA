@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Crypt;
 class RegisterController extends Controller
 {
     public function index(){
@@ -12,13 +13,12 @@ class RegisterController extends Controller
     }
 
     public function store(Request $request){
-        $request->role = 'User';
         $validatedData = $request->validate([
             'name' => 'required|unique:users|max:255',
             'username' => 'required|unique:users|max:255',
             'role' => 'required',
             'email' => 'required|unique:users|email:dns',
-            'password' => 'required|min:3|max:255'
+            'password' => 'required',
         ]);
         $validatedData['password'] = Hash::make($validatedData['password']);
         User::create($validatedData);
@@ -26,13 +26,12 @@ class RegisterController extends Controller
         return redirect('/shop/login')->with('register', 'Registration Successfull');
     }
     public function storeAdmin(Request $request){
-
         $validatedData = $request->validate([
             'name' => 'required|unique:users|max:255',
             'username' => 'required|unique:users|max:255',
             'role' => 'required',
             'email' => 'required|unique:users|email:dns',
-            'password' => 'required|min:3|max:255'
+            'password' => 'required',
         ]);
         $validatedData['password'] = Hash::make($validatedData['password']);
         User::create($validatedData);

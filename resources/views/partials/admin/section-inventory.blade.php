@@ -54,26 +54,6 @@
             </div>
     </form>
     <div class="col-md-4">
-        {{-- <form action="/admin/dashboard/" method="post">
-            @csrf
-            <div class="row">
-                <input type="hidden" name="section" value="Sort">
-                <div class="col-4">
-                    <select class="form-select form-select-sm" name="sortModel" aria-label=".form-select-sm example">
-                        <option value="null" selected>Sort By Model</option>
-                        <option value="All Model">All Model</option>
-                        <option value="Model S">Model S</option>
-                        <option value="Model 3">Model 3</option>
-                        <option value="Model X">Model X</option>
-                        <option value="Model Y">Model Y</option>
-                    </select>
-                </div>
-                <div class="col-4"></div>
-                <div class="col-4">
-                    <input type="submit" class="btn btn-outline-dark btn-sm" value="See Result">
-                </div>
-            </div>
-        </form> --}}
     </div>
 </div>
 <div class="row m-2">
@@ -87,26 +67,26 @@
                     <div class="col-md-9">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-10">
-                                    <div class="d-flex align-items-start flex-column bd-highlight mb-3">
-                                        <div class="p-2 bd-highlight">
-                                            <h5>{{ $d->name }}</h5>
-                                            <p style="margin-top: -10px;"> {{ $d->trim }}</p>
-                                            <p style="margin-top: -15px;font-size:15px;">{{ $d->wheels }} |
-                                                {{ $d->internal }}<br>
-                                                {{ $d->milage }} mile odometer<br>
-                                                Available for local delivery in {{ $d->delivery }}</p>
-                                        </div>
-                                    </div>
+                                <div class="d-flex justify-content-between">
+                                    <h5>{{ $d->name }}</h5>
+                                    <h5></h5>
+                                    <h5>${{ strlen($d->fee) == 6 ? substr($d->fee, 0, 3) . ',' . substr($d->fee, 3) : substr($d->fee, 0, 2) . ',' . substr($d->fee, 2) }}.00
+                                    </h5>
                                 </div>
-                                <div class="col-md-2">
-                                    <div class="d-flex align-items-end flex-column bd-highlight mb-3">
-                                        <div class="p-2 bd-highlight">
-                                            <h5 align="right">${{ $d->fee }}</h5>
-                                            <a style="font-size: 15px;" data-bs-toggle="collapse"
-                                                href="#detail{{ $d->id }}">Show Details</a>
-                                        </div>
-                                    </div>
+                                <div class="d-flex justify-content-between">
+                                    <p class="">{{ $d->trim }}</p>
+                                    <p class="text-muted"></p>
+                                    <a align="right" style="font-size: 15px;" data-bs-toggle="collapse"
+                                        href="#detail{{ $d->id }}">Show Details</a>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <p class="text-muted" style="margin-top: -2%;">
+                                        {{ $d->wheels }} | {{ $d->internal }} <br>
+                                        {{ $d->milage }} mile odometer<br>
+                                        Available for local delivery in {{ $d->delivery }}
+                                    </p>
+                                    <p class="text-muted"></p>
+                                    <p class="text-muted"></p>
                                 </div>
                             </div>
                         </div>
@@ -169,7 +149,8 @@
                                                     class="btn btn-outline-dark ps-5 pe-5">Details</a>
                                             </div>
                                             <div class="">
-                                                <a href="/admin/inventory/delete/{{ Crypt::encryptString($d->id) }}" class="btn btn-outline-dark ps-5 pe-5"
+                                                <a href="/admin/inventory/delete/{{ Crypt::encryptString($d->id) }}"
+                                                    class="btn btn-outline-dark ps-5 pe-5"
                                                     onclick="return confirm('Apakah anda yakin ingin menghapus {{ $d->name }}');">Delete</a>
                                             </div>
                                         </div>

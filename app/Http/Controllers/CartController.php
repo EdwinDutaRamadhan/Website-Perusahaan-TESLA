@@ -53,11 +53,12 @@ class CartController extends Controller
     {
         if(isset(Auth::user()->role) and Auth::user()->role == 'User'){
             $idBarang = Crypt::decryptString($request->id);
+            $imageBarang = Crypt::decryptString($request->image);
             $title = Shop::find($idBarang)->title;
             $id = Auth::user()->id;
-            
+            ($request->quantity == null)? $request->quantity = 0 : $request->quantity;
             //ID Cart Rules
-            $idRules = "100".$id."00".$idBarang;
+            $idRules = "1".$id.$idBarang;
             if(Cart::find($idRules)){
                 Cart::find($idRules)->update([
                     'id' => $idRules,
@@ -66,6 +67,7 @@ class CartController extends Controller
                     'type' => Shop::find($idBarang)->type,
                     'price' => Shop::find($idBarang)->price,
                     'quantity' => (Cart::find($idRules)->quantity+$request->quantity),
+                    'image' => $imageBarang
                 ]);
             }else{
                 Cart::create([
@@ -75,19 +77,10 @@ class CartController extends Controller
                     'type' => Shop::find($idBarang)->type,
                     'price' => Shop::find($idBarang)->price,
                     'quantity' => $request->quantity,
+                    'image' => $imageBarang
                 ]);
             }
-            $user = User::find($id);
-            $data = $user->carts;
-            $total = 0;
-            foreach($data as $d){
-                $total += ($d->price*$d->quantity);
-            }
-
-            return view('public.shop.shop-cart', [
-                'data' => $data,
-                'total' => $total,
-            ]);
+            return redirect('/shop');
         }else{
             return redirect()->route('user-login')->with('checkout', 'Login first! ');
         }

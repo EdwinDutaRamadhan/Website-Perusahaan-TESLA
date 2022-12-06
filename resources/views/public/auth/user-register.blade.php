@@ -6,8 +6,8 @@
             <main class="form-registration">
                 <form action="/shop/registration" method="POST">
                     @csrf
+                    <input type="hidden" name="role" value="User">
                     <h1 class="h3 mb-3 fw-normal text-center">Registration</h1>
-                    <input type="hidden" name="role" value="apa hayo">
                     <div class="form-floating">
                         <input type="text" name="name"
                             class="form-control rounded-top @error('name') is-invalid  @enderror" id="name"

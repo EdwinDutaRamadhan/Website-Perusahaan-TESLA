@@ -17,18 +17,19 @@
                         <form action="/shop/cart/" method="post">
                             @csrf
                             <input type="hidden" name="id" value="{{ Crypt::encryptString($d->id) }}">
+                            <input type="hidden" name="image" value="{{ Crypt::encryptString($d->image) }}">
                             <div class="col-md-12">
                                 <div class="order-option">
                                     <label for="quantity">Quantity</label><br>
                                     <span id="quantity-field">
-                                        <button class="btn btn-light" id="down" onclick="setQuantity('down');"><b>-</b></button>
+                                        <button type="button" class="btn btn-light" id="down" onclick="setQuantityProduct('down');"><b>-</b></button>
                                         <input type="text" name="quantity" id="quantity" value="1" style="width: 40px;text-align: center;border: aliceblue;">
-                                        <button class="btn btn-light" id="up" onclick="setQuantity('up');"><b>+</b></button>
+                                        <button type="button" class="btn btn-light" id="up" onclick="setQuantityProduct('up');"><b>+</b></button>
                                     </span>
                                 </div>
                             </div>
                             <div class="col-md-12 mt-3 mb-4">
-                                <button class="btn btn-primary mb-3" style="width: 100%;" type="submit">Add to Cart</button>
+                                <button  type="submit" class="btn btn-primary mb-3" style="width: 100%;">Add to Cart</button>
                                 <p class="text-muted"><b>Description</b></p>
                                 <p class="text-muted">
                                     {{ $d->desc }}

@@ -27,11 +27,11 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            Welcome, {{ auth()->user()->name }}
+                            {{ auth()->user()->name }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">My Account</a></li>
-                            <li><a class="dropdown-item" href="/shop/cart/{{ Crypt::encryptString(auth()->user()->id) }}">Cart</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-person"> </i>My Account</a></li>
+                            <li><a class="dropdown-item" href="/shop/cart/{{ Crypt::encryptString(auth()->user()->id) }}"><i class="bi bi-cart">  </i>Cart</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -39,7 +39,7 @@
                                 <form action="/admin/logout" method="post">
                                     @csrf
                                     <button type="submit" class="dropdown-item">
-                                        <i class="bi bi-box-arrow-right"></i>Logout
+                                        <i class="bi bi-box-arrow-right"> </i>Logout
                                     </button>
                                 </form>
                             </li>
