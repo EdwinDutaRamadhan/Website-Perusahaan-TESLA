@@ -14,6 +14,12 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             @endif
+            @if (session()->has('checkout'))
+                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                    {{ session('checkout') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
             <main class="form-signin">
                 <form action="/shop/login" method="POST">
                     @csrf

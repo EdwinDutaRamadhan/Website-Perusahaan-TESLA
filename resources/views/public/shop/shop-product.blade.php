@@ -14,22 +14,27 @@
                             <h2>{{ $d->title }}</h2>
                             <h4>${{ $d->price }}</h4>
                         </div>
-                        <div class="col-md-12">
-                            <div class="order-option">
-                                <label for="quantity">Quantity</label><br>
-                                <span id="quantity-field">
-                                    <button class="btn btn-light" id="down" onclick="setQuantity('down');"><b>-</b></button>
-                                    <input type="text" id="quantity" value="1" style="width: 40px;text-align: center;border: aliceblue;">
-                                    <button class="btn btn-light" id="up" onclick="setQuantity('up');"><b>+</b></button>
-                                </span>
-                        </div>
-                        <div class="col-md-12 mt-3 mb-4">
-                            <button class="btn btn-primary mb-3" style="width: 100%;">Add to Cart</button>
-                            <p class="text-muted"><b>Description</b></p>
-                            <p class="text-muted">
-                                {{ $d->desc }}
-                            </p>
-                        </div>
+                        <form action="/shop/cart/" method="post">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ Crypt::encryptString($d->id) }}">
+                            <div class="col-md-12">
+                                <div class="order-option">
+                                    <label for="quantity">Quantity</label><br>
+                                    <span id="quantity-field">
+                                        <button class="btn btn-light" id="down" onclick="setQuantity('down');"><b>-</b></button>
+                                        <input type="text" name="quantity" id="quantity" value="1" style="width: 40px;text-align: center;border: aliceblue;">
+                                        <button class="btn btn-light" id="up" onclick="setQuantity('up');"><b>+</b></button>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-12 mt-3 mb-4">
+                                <button class="btn btn-primary mb-3" style="width: 100%;" type="submit">Add to Cart</button>
+                                <p class="text-muted"><b>Description</b></p>
+                                <p class="text-muted">
+                                    {{ $d->desc }}
+                                </p>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

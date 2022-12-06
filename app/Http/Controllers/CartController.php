@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Shop;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,8 +21,14 @@ class CartController extends Controller
             $id = Crypt::decryptString($request->id);
             $user = User::find($id);
             $data = $user->carts;
+            $total = 0;
+            foreach($data as $d){
+                $total += ($d->price*$d->quantity);
+            }
+
             return view('public.shop.shop-cart', [
-                'data' => $data
+                'data' => $data,
+                'total' => $total,
             ]);
         }
     }
@@ -44,7 +51,46 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if(isset(Auth::user()->role) and Auth::user()->role == 'User'){
+            $idBarang = Crypt::decryptString($request->id);
+            $title = Shop::find($idBarang)->title;
+            $id = Auth::user()->id;
+            
+            //ID Cart Rules
+            $idRules = "100".$id."00".$idBarang;
+            if(Cart::find($idRules)){
+                Cart::find($idRules)->update([
+                    'id' => $idRules,
+                    'user_id' => $id,
+                    'title' =>  $title,
+                    'type' => Shop::find($idBarang)->type,
+                    'price' => Shop::find($idBarang)->price,
+                    'quantity' => (Cart::find($idRules)->quantity+$request->quantity),
+                ]);
+            }else{
+                Cart::create([
+                    'id' => $idRules,
+                    'user_id' => $id,
+                    'title' =>  $title,
+                    'type' => Shop::find($idBarang)->type,
+                    'price' => Shop::find($idBarang)->price,
+                    'quantity' => $request->quantity,
+                ]);
+            }
+            $user = User::find($id);
+            $data = $user->carts;
+            $total = 0;
+            foreach($data as $d){
+                $total += ($d->price*$d->quantity);
+            }
+
+            return view('public.shop.shop-cart', [
+                'data' => $data,
+                'total' => $total,
+            ]);
+        }else{
+            return redirect()->route('user-login')->with('checkout', 'Login first! ');
+        }
     }
 
     /**

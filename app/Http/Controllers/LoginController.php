@@ -31,7 +31,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             if (Auth::user()->role == "User") {
-                return redirect()->intended('/shop');
+                return back();
             } else {
                 Auth::logout();
                 $request->session()->invalidate();

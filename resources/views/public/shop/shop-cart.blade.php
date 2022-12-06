@@ -22,13 +22,16 @@
                                         <h6 class="card-title">${{ $d->price }}.00</h6>
                                     </div>
                                     <p class="card-text">{{ $d->type }}</p>
-                                    <select name="quantity">
-                                        <option {{ ($d->quantity == "1")? "selected" : ""; }} value="1">1</option>
-                                        <option {{ ($d->quantity == "2")? "selected" : ""; }}  value="2">2</option>
-                                        <option {{ ($d->quantity == "3")? "selected" : ""; }}  value="3">3</option>
-                                        <option {{ ($d->quantity == "4")? "selected" : ""; }}  value="4">4</option>
-                                        <option {{ ($d->quantity == "5")? "selected" : ""; }}  value="5">5</option>
-                                    </select>
+                                    <div class="col-md-12">
+                                        <div class="order-option">
+                                            <label for="quantity">Quantity</label><br>
+                                            <span id="quantity-field">
+                                                <button class="btn btn-light" id="down" onclick="setQuantity('down');"><b>-</b></button>
+                                                <input type="text" name="quantity" id="quantity" value="{{ $d->quantity }}" style="width: 40px;text-align: center;border: aliceblue;">
+                                                <button class="btn btn-light" id="up" onclick="setQuantity('up');"><b>+</b></button>
+                                            </span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -52,7 +55,7 @@
                         <div class="d-flex justify-content-between mt-3 mb-4">
                             <h4>Subtotal</h4>
                             <h4></h4>
-                            <h4>$850.00</h4>
+                            <h4>${{ $total }}.00</h4>
                         </div>
                         <button type="submit" class="btn btn-primary" style="width: 100%;">Checkout</button>
                     </div>
