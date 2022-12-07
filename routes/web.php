@@ -65,6 +65,7 @@ Route::post('/shop/registration', [RegisterController::class, 'store']);
     Route::get('/shop/cart/{id}', [CartController::class, 'index'])->name('cart');
     Route::get('/shop/cart/remove/{id}', [CartController::class, 'remove']);
     Route::post('/shop/cart/', [CartController::class, 'store']);
+    Route::post('/shop/checkout', [CartController::class, 'checkout']);
 
 //Admin Auth
 Route::get('/admin/login/edwin123', [LoginController::class, 'adminLogin']);

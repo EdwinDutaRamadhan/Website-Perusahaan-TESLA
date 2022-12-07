@@ -32,7 +32,8 @@
                                             <input type="text" name="quantity" id="cart-quantity"
                                                 value="{{ $d->quantity }}"
                                                 style="width: 40px;text-align: center;border: aliceblue;" readonly>
-                                            <a class="ms-4" href="/shop/cart/remove/{{ Crypt::encryptString($d->id) }}">Remove</a>
+                                            <a class="ms-4"
+                                                href="/shop/cart/remove/{{ Crypt::encryptString($d->id) }}">Remove</a>
                                         </div>
                                     </div>
                                 </div>
@@ -42,27 +43,31 @@
                 @endforeach
             </div>
             <div class="col-md-5">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title mb-3">Order Summary</h4>
-                        <div class="d-flex justify-content-between">
-                            <p class="text-muted">Shipping</p>
-                            <p class="text-muted"></p>
-                            <p class="text-muted">Free</p>
+                <form action="/shop/checkout" method="post">
+                    @csrf
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title mb-3">Order Summary</h4>
+                            <div class="d-flex justify-content-between">
+                                <p class="text-muted">Shipping</p>
+                                <p class="text-muted"></p>
+                                <p class="text-muted">Free</p>
+                            </div>
+                            <div class="d-flex justify-content-between" style="margin-top: -3%;">
+                                <p class="text-muted">Sales Tax</p>
+                                <p class="text-muted"></p>
+                                <p class="text-muted">Calculated at checkout</p>
+                            </div>
+                            <div class="d-flex justify-content-between mt-3 mb-4">
+                                <h4>Subtotal</h4>
+                                <h4></h4>
+                                <input type="hidden" name="total" value="{{ $total }}">
+                                <h4 id="cart-total">${{ $total }}.00</h4>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Checkout</button>
                         </div>
-                        <div class="d-flex justify-content-between" style="margin-top: -3%;">
-                            <p class="text-muted">Sales Tax</p>
-                            <p class="text-muted"></p>
-                            <p class="text-muted">Calculated at checkout</p>
-                        </div>
-                        <div class="d-flex justify-content-between mt-3 mb-4">
-                            <h4>Subtotal</h4>
-                            <h4></h4>
-                            <h4 id="cart-total">${{ $total }}.00</h4>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Checkout</button>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>

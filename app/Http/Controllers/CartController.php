@@ -104,6 +104,21 @@ class CartController extends Controller
         return redirect()->route('cart', ['id' => $pathId]);
     }
 
+    public function checkout(Request $request){
+        if(Auth::user()){
+            if(Auth::user()->role == 'User'){
+                return view('public.shop.shop-checkout',[
+                    'data' => Auth::user()->carts,
+                    'total' => $request->total,
+                ]);
+            }else{
+                abort(404);
+            }
+        }else{
+            return redirect()->back();
+        }
+    }
+    
     /**
      * Display the specified resource.
      *
