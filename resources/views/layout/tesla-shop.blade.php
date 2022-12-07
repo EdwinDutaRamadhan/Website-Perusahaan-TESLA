@@ -52,13 +52,13 @@
         function setQuantityProduct(upordown) {
             var quantity = document.getElementById('quantity');
 
-            if (quantity.value > 1) {
+            if (quantity.value > 1 && quantity.value < 5) {
                 if (upordown == 'up') {
                     ++document.getElementById('quantity').value;
                 } else if (upordown == 'down') {
                     --document.getElementById('quantity').value;
                 }
-            } else if (quantity.value == 1) {
+            } else if (quantity.value == 1 && quantity.value < 5) {
                 if (upordown == 'up') {
                     ++document.getElementById('quantity').value;
                 }

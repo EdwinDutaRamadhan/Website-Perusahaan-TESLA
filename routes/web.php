@@ -63,10 +63,11 @@ Route::get('/shop/register', [RegisterController::class, 'index'])->name('user-r
 Route::post('/shop/registration', [RegisterController::class, 'store']);
     //Cart
     Route::get('/shop/cart/{id}', [CartController::class, 'index'])->name('cart');
+    Route::get('/shop/cart/remove/{id}', [CartController::class, 'remove']);
     Route::post('/shop/cart/', [CartController::class, 'store']);
 
 //Admin Auth
-Route::get('/admin/login/{password}', [LoginController::class, 'adminLogin']);
-Route::get('/admin/register/{password}', [LoginController::class, 'adminRegister']);
+Route::get('/admin/login/edwin123', [LoginController::class, 'adminLogin']);
+Route::get('/admin/register/edwin123', [LoginController::class, 'adminRegister']);
 Route::post('/admin/login/', [LoginController::class, 'adminAuthenticate']);
 Route::post('/admin/register/', [RegisterController::class, 'storeAdmin']);

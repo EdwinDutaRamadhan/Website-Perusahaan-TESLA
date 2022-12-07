@@ -10,15 +10,19 @@ class LoginController extends Controller
 {
     public function index()
     {
-        if (Auth::user()) {
-            return redirect('/shop');
+        if(Auth::user()){
+            if (Auth::user()->role == 'Admin') {
+                return view('public.auth.user-login');
+            }else{
+                return redirect('/shop');
+            }
         } else {
             return view('public.auth.user-login');
         }
     }
     public function userAuthenticate(Request $request)
     {
-        if (Auth::user()) {
+        if (Auth::user() and Auth::user()->role == 'User') {
             Auth::logout();
             $request->session()->invalidate();
             $request->session()->regenerateToken();
@@ -44,7 +48,7 @@ class LoginController extends Controller
     }
     public function adminAuthenticate(Request $request)
     {
-        if (Auth::user()) {
+        if (Auth::user() and Auth::user()->role == 'Admin') {
             Auth::logout();
             $request->session()->invalidate();
             $request->session()->regenerateToken();
@@ -84,20 +88,12 @@ class LoginController extends Controller
     }
 
     //Secret Code
-    public function adminLogin(Request $request)
+    public function adminLogin()
     {
-        if ($request->password == "edwin123") {
-            return view('public.auth.admin-login');
-        } else {
-            return redirect('/');
-        }
+        return view('public.auth.admin-login');
     }
-    public function adminRegister(Request $request)
+    public function adminRegister()
     {
-        if ($request->password == "edwin123") {
-            return view('public.auth.admin-register');
-        } else {
-            return redirect('/');
-        }
+        return view('public.auth.admin-register');
     }
 }

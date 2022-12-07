@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
+
 class CartController extends Controller
 {
     /**
@@ -17,13 +18,13 @@ class CartController extends Controller
      */
     public function index(Request $request)
     {
-        if(Auth::user()){
+        if (Auth::user()) {
             $id = Crypt::decryptString($request->id);
             $user = User::find($id);
             $data = $user->carts;
             $total = 0;
-            foreach($data as $d){
-                $total += ($d->price*$d->quantity);
+            foreach ($data as $d) {
+                $total += ($d->price * $d->quantity);
             }
 
             return view('public.shop.shop-cart', [
@@ -51,39 +52,56 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        if(isset(Auth::user()->role) and Auth::user()->role == 'User'){
+        if (isset(Auth::user()->role) and Auth::user()->role == 'User') {
             $idBarang = Crypt::decryptString($request->id);
-            $imageBarang = Crypt::decryptString($request->image);
-            $title = Shop::find($idBarang)->title;
             $id = Auth::user()->id;
-            ($request->quantity == null)? $request->quantity = 0 : $request->quantity;
+            ($request->quantity == null) ? $request->quantity = 0 : $request->quantity;
+
             //ID Cart Rules
-            $idRules = "1".$id.$idBarang;
-            if(Cart::find($idRules)){
+            $idRules = "1" . $id . $idBarang;
+
+            if (Cart::find($idRules)) {
+                if (Cart::find($idRules)->quantity + $request->quantity > 5) {
+                    return redirect()->back()->with('quantity', "You've exceeded the maximum quantity allowed per order");
+                }
                 Cart::find($idRules)->update([
                     'id' => $idRules,
                     'user_id' => $id,
-                    'title' =>  $title,
+                    'title' =>  Shop::find($idBarang)->title,
                     'type' => Shop::find($idBarang)->type,
                     'price' => Shop::find($idBarang)->price,
-                    'quantity' => (Cart::find($idRules)->quantity+$request->quantity),
-                    'image' => $imageBarang
+                    'quantity' => (Cart::find($idRules)->quantity + $request->quantity),
+                    'image' => Crypt::decryptString($request->image)
                 ]);
-            }else{
+            } else {
+
                 Cart::create([
                     'id' => $idRules,
                     'user_id' => $id,
-                    'title' =>  $title,
+                    'title' =>  Shop::find($idBarang)->title,
                     'type' => Shop::find($idBarang)->type,
                     'price' => Shop::find($idBarang)->price,
                     'quantity' => $request->quantity,
-                    'image' => $imageBarang
+                    'image' => Crypt::decryptString($request->image)
                 ]);
+                if (Cart::find($idRules)->quantity > 5) {
+                    Cart::where('id', $idRules)->delete();
+                    return redirect()->back()->with('quantity', "You've exceeded the maximum quantity allowed per order");
+                }
             }
-            return redirect('/shop');
-        }else{
+            $pathId = Crypt::encryptString(Auth::user()->id);
+            return redirect()->route('cart', ['id' => $pathId]);
+        } else {
+
             return redirect()->route('user-login')->with('checkout', 'Login first! ');
         }
+    }
+    public function remove(Request $request)
+    {
+        $id = Crypt::decryptString($request->id);
+        Cart::where('id', $id)->delete();
+        $pathId = Crypt::encryptString(Auth::user()->id);
+        return redirect()->route('cart', ['id' => $pathId]);
     }
 
     /**

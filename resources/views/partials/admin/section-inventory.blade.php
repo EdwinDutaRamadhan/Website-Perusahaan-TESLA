@@ -57,8 +57,8 @@
     </div>
 </div>
 <div class="row m-2">
-    @foreach ($data as $d)
-        @if ($data)
+    @if (count($data) > 0)
+        @foreach ($data as $d)
             <div class="card mb-3 ">
                 <div class="row g-0" style="height: 160px;">
                     <div class="col-md-3">
@@ -161,12 +161,17 @@
                     </div>
                 </div>
             </div>
-        @else
-            <div class="m-4">
-                <h5>Data tidak ditemukan</h5>
+        @endforeach
+    @else
+        <div class="m-4">
+            <div class="row">
+                <div class="col-md-12 m-5">
+                    <h2 class="text-center">Don't see the Tesla you're looking for?</h2>
+                    <h5 class="text-center text-muted">Change you're search key</h5>
+                </div>
             </div>
-        @endif
-    @endforeach
+        </div>
+    @endif
     {{ $data->links() }}
 </div>
 </div>

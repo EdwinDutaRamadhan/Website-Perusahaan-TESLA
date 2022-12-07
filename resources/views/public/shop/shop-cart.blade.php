@@ -15,7 +15,8 @@
                     <div class="card mb-3" style="width: 100%;">
                         <div class="row g-0">
                             <div class="col-md-3">
-                                <img src="{{ asset('storage/'.$d->image) }}" class="img-fluid rounded-start" style="max-height: 150px;" alt="">
+                                <img src="{{ asset('storage/' . $d->image) }}" class="img-fluid rounded-start"
+                                    style="max-height: 150px;" alt="">
                             </div>
                             <div class="col-md-9">
                                 <div class="card-body">
@@ -28,8 +29,10 @@
                                     <div class="col-md-12">
                                         <div class="order-option">
                                             <label for="quantity">Quantity</label><br>
-                                                <input type="text" name="quantity" id="cart-quantity" value="{{ $d->quantity }}" style="width: 40px;text-align: center;border: aliceblue;" readonly>
-                                            
+                                            <input type="text" name="quantity" id="cart-quantity"
+                                                value="{{ $d->quantity }}"
+                                                style="width: 40px;text-align: center;border: aliceblue;" readonly>
+                                            <a class="ms-4" href="/shop/cart/remove/{{ Crypt::encryptString($d->id) }}">Remove</a>
                                         </div>
                                     </div>
                                 </div>

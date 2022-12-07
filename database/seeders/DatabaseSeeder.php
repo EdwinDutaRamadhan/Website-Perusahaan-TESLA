@@ -57,26 +57,33 @@ class DatabaseSeeder extends Seeder
             'role' => 'User',
             'password' => '$2y$10$atmwna9KBumUiK5.Cm8nS.HyeZTxwYP5SAEFQ48QpMpCQn1mm4/sS'
         ]);
+        User::create([
+            'name' => 'Admin Gadungan',
+            'username' => 'Admin Gadungan',
+            'email' => 'admin2@gmail.com',
+            'role' => 'Admin',
+            'password' => '$2y$10$atmwna9KBumUiK5.Cm8nS.HyeZTxwYP5SAEFQ48QpMpCQn1mm4/sS'
+        ]);
         //User::factory(5)->create();
         
-        Cart::create([
-            'id' => 112,
-            'user_id' => 2,
-            'title' => 'Wall Connector',
-            'type' => 'At Home',
-            'price' => '400',
-            'quantity' => '3',
-            'image' => 'shop-images/YWPzF8mQCvqI4Vw8IfRSDXUCe8rJELNIwIglXNtV.avif'
-        ]);
-        Cart::create([
-            'id' => 1324,
-            'user_id' => 3,
-            'title' => 'Model 3 20" Überturbine Wheel and Winter Tire Package',
-            'type' => 'Wheels and Tires',
-            'price' => '4750',
-            'quantity' => '2',
-            'image' => 'shop-images/VWWGcuortUM34YpNAqCCq0ooqIcmNdKUEUhGCIZP.webp'
-        ]);
+        // Cart::create([
+        //     'id' => 112,
+        //     'user_id' => 2,
+        //     'title' => 'Wall Connector',
+        //     'type' => 'At Home',
+        //     'price' => '400',
+        //     'quantity' => '3',
+        //     'image' => 'shop-images/YWPzF8mQCvqI4Vw8IfRSDXUCe8rJELNIwIglXNtV.avif'
+        // ]);
+        // Cart::create([
+        //     'id' => 1324,
+        //     'user_id' => 3,
+        //     'title' => 'Model 3 20" Überturbine Wheel and Winter Tire Package',
+        //     'type' => 'Wheels and Tires',
+        //     'price' => '4750',
+        //     'quantity' => '2',
+        //     'image' => 'shop-images/VWWGcuortUM34YpNAqCCq0ooqIcmNdKUEUhGCIZP.webp'
+        // ]);
 
         //Shop::factory(20)->create();
         // Shop::create([

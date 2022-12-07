@@ -104,7 +104,6 @@
                                                             data-bs-toggle="modal"data-bs-target="#update-charging{{ $d->id }}">Update</button>
                                                     </div>
                                                 @break
-
                                                 @case(2)
                                                     <div class="p-1 bd-highlight">
                                                         <button type="button" class="btn btn-outline-dark btn-sm"
@@ -112,7 +111,6 @@
                                                             data-bs-target="#update-vehicle{{ $d->id }}">Update</button>
                                                     </div>
                                                 @break
-
                                                 @case(3)
                                                     <div class="p-1 bd-highlight">
                                                         <button type="button" class="btn btn-outline-dark btn-sm"
@@ -120,7 +118,6 @@
                                                             data-bs-target="#update-apparel{{ $d->id }}">Update</button>
                                                     </div>
                                                 @break
-
                                                 @case(4)
                                                     <div class="p-1 bd-highlight">
                                                         <button type="button" class="btn btn-outline-dark btn-sm"
@@ -128,7 +125,6 @@
                                                             data-bs-target="#update-lifestyle{{ $d->id }}">Update</button>
                                                     </div>
                                                 @break
-
                                                 @default
                                             @endswitch
                                             <div class="p-1 bd-highlight">
