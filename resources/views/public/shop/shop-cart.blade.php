@@ -53,25 +53,28 @@
                         </div>
                     </div>
                     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-                <div class="m-4">
-                    <div class="modal-header">
-                        <h2 class="modal-title" id="exampleModalLabel">Remove Item</h2>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-lg">
+                            <div class="modal-content">
+                                <div class="m-4">
+                                    <div class="modal-header">
+                                        <h2 class="modal-title" id="exampleModalLabel">Remove Item</h2>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p class="text-muted">Are you sure you want to remove this item from your cart?</p>
+                                    </div>
+                                    <div class="modal-footer justify-content-start">
+                                        <a class="btn btn-outline-dark p-2"
+                                            href="/shop/cart/remove/{{ Crypt::encryptString($d->id) }}">Yes, Remove</a>
+                                        {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="modal-body">
-                        <p class="text-muted">Are you sure you want to remove this item from your cart?</p>
-                    </div>
-                    <div class="modal-footer justify-content-start">
-                        <a class="btn btn-outline-dark p-2" href="/shop/cart/remove/{{ Crypt::encryptString($d->id) }}" >Yes, Remove</a>
-                        {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
                 @endforeach
             </div>
             {{-- <a class="btn btn-outline-dark p-2">
@@ -113,5 +116,4 @@
             @endif
         </div>
     </div>
-    
 @endsection

@@ -48,7 +48,7 @@ Route::get('/admin/{section}', [AdminController::class, 'index']);
     Route::post('/admin/landing/update', [AdminController::class, 'landing'])->middleware('auth');
 
 //Shop
-Route::get('/shop',[ShopController::class, 'index']);
+Route::get('/shop',[ShopController::class, 'index'])->name('shop');
 Route::get('/shop/category/{category}', [ShopController::class, 'category']);
 Route::get('/shop/product/{category_id}/{id}', [ShopController::class, 'product']);
 

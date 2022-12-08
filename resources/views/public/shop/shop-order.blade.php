@@ -1,11 +1,22 @@
 @extends('layout.tesla-shop')
 @section('container')
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 mb-3">
                 <h2 class="text-center">Orders</h2>
             </div>
         </div>
+        @if (count($data) == 0)
+            <div class="row justify-content-center mt-5">
+                <div class="col-md-6 ms-5 mt-4">
+                    <p class="text-muted text-center" style="font-size: 22px;">Your orders is empty.</p>
+                    <form class="text-center" action="/shop" method="get">
+                        <button type="submit" class="btn btn-primary mt-2 ms-2" style="width:50%;">Continue
+                            Shopping</button>
+                    </form>
+                </div>
+            </div>
+        @endif
         <div class="row justify-content-center">
             <div class="col-md-8">
                 @foreach ($data as $d)
@@ -24,11 +35,12 @@
                                     </div>
                                     <div class="d-flex justify-content-between">
                                         <p class="card-text">{{ $d->type }}</p>
-                                        
+
                                         <p class="card-text"></p>
                                         <h6 class="card-text">{{ $d->method }}</h6>
                                     </div>
-                                    <p class="card-text">Order at : {{ $d->created_at->toDateString() }}<br> Arrived at : {{ $d->created_at->addDays(3)->toDateString() }}</p>
+                                    <p class="card-text">Order at : {{ $d->created_at->toDateString() }}<br> Arrived at :
+                                        {{ $d->created_at->addDays(3)->toDateString() }}</p>
                                 </div>
                             </div>
                         </div>

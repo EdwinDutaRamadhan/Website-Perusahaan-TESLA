@@ -332,7 +332,7 @@ class ShopSeeder extends Seeder
             Shop::create([
                 'id' => $s['id'],
                 'category_id' => $s['category_id'],
-                'user_id' => 1,
+                'user_id' => $s['user_id'],
                 'type' => $s['type'],
                 'model' => $s['model'],
                 'title' => $s['title'],
