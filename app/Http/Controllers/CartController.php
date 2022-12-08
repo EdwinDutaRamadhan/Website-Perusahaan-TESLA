@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Shop;
+use App\Models\Order;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -104,21 +105,50 @@ class CartController extends Controller
         return redirect()->route('cart', ['id' => $pathId]);
     }
 
-    public function checkout(Request $request){
-        if(Auth::user()){
-            if(Auth::user()->role == 'User'){
-                return view('public.shop.shop-checkout',[
+    public function checkout(Request $request)
+    {
+        if (Auth::user()) {
+            if (Auth::user()->role == 'User') {
+                return view('public.shop.shop-checkout', [
                     'data' => Auth::user()->carts,
                     'total' => $request->total,
                 ]);
-            }else{
+            } else {
                 abort(404);
             }
-        }else{
+        } else {
             return redirect()->back();
         }
     }
-    
+    public function order(Request $request)
+    {
+        $paymentMethod = $request->paymentMethod;
+        $id =  Auth::user()->id;
+        //ID Order Rules
+
+        $cart = User::find($id)->carts;
+        foreach ($cart as $c) {
+            Order::create([
+                'user_id' => $c->user_id,
+                'title' =>  $c->title,
+                'type' => $c->type,
+                'price' => $c->price,
+                'quantity' => $c->quantity,
+                'method' => $paymentMethod,
+                'image' => $c->image
+            ]);
+            Cart::find($c->id)->delete();
+        }
+        $pathId = Crypt::encryptString(Auth::user()->id);
+        return redirect()->route('order', ['id' => $pathId]);
+    }
+
+    public function orderPage(Request $request){
+        $id = Crypt::decryptString($request->id);
+        return view('public.shop.shop-order',[
+            'data' => User::find($id)->orders
+        ]);
+    }
     /**
      * Display the specified resource.
      *

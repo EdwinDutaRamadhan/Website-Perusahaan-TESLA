@@ -35,7 +35,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             if (Auth::user()->role == "User") {
-                return back();
+                return redirect('/shop');
             } else {
                 Auth::logout();
                 $request->session()->invalidate();
@@ -78,7 +78,7 @@ class LoginController extends Controller
             Auth::logout();
             $request->session()->invalidate();
             $request->session()->regenerateToken();
-            return redirect('/shop');
+            return redirect()->back();
         } else {
             Auth::logout();
             $request->session()->invalidate();

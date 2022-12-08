@@ -2,9 +2,9 @@
 @section('container')
     @foreach ($data as $d)
         <div class="container-fluid">
-            <div class="row ms-4 me-4">
+            <div class="row ms-2 me-2 mt-4">
                 <div class="col-md-8">
-                    <div class="container p-5">
+                    <div class="container-fluid">
                         <img src="{{ asset('storage/' . $d->image) }}" alt="not found" class="img-fluid" style="width: 100%;">
                     </div>
                 </div>

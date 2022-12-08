@@ -32,6 +32,7 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="#"><i class="bi bi-person"> </i>My Account</a></li>
                             <li><a class="dropdown-item" href="/shop/cart/{{ Crypt::encryptString(auth()->user()->id) }}"><i class="bi bi-cart">  </i>Cart <span class="badge bg-primary rounded-pill ms-1">{{ (count(auth()->user()->carts) == 0)? "": count(auth()->user()->carts); }}</span></a></li>
+                            <li><a href="/shop/order/{{ Crypt::encryptString(auth()->user()->id) }}" class="dropdown-item"><i class="bi bi-bag"> </i>Order <span class="badge bg-primary rounded-pill ms-1">{{ (count(auth()->user()->orders) == 0)? "": count(auth()->user()->orders); }}</span></a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>

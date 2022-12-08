@@ -8,9 +8,6 @@
         </div>
         <div class="row">
             <div class="col-md-7">
-                <script>
-                    var total = 0;
-                </script>
                 @foreach ($data as $d)
                     <div class="card mb-3" style="width: 100%;">
                         <div class="row g-0">
