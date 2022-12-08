@@ -1,6 +1,6 @@
 @extends('layout.tesla-shop')
 @section('container')
-    <div class="container p-2">
+    <div class="container">
         <div class="row">
             <div class="col-md-12 mb-3">
                 <h2 class="text-center">Orders</h2>
@@ -28,7 +28,7 @@
                                         <p class="card-text"></p>
                                         <h6 class="card-text">{{ $d->method }}</h6>
                                     </div>
-                                    <p class="card-text">Order at : {{ $d->created_at->toDateString() }}<br> Arrive at : {{ $d->created_at->addDays(3)->toDateString() }}</p>
+                                    <p class="card-text">Order at : {{ $d->created_at->toDateString() }}<br> Arrived at : {{ $d->created_at->addDays(3)->toDateString() }}</p>
                                 </div>
                             </div>
                         </div>
