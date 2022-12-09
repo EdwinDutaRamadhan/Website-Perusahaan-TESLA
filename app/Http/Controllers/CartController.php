@@ -135,6 +135,7 @@ class CartController extends Controller
                 'price' => $c->price,
                 'quantity' => $c->quantity,
                 'method' => $paymentMethod,
+                'payment' => false,
                 'image' => $c->image
             ]);
             Cart::find($c->id)->delete();
@@ -146,8 +147,16 @@ class CartController extends Controller
     public function orderPage(Request $request){
         $id = Crypt::decryptString($request->id);
         return view('public.shop.shop-order',[
-            'data' => User::find($id)->orders
+            'dataOrder' => User::find($id)->orders->where('payment', false),
+            'dataOrderSuccess' => User::find($id)->orders->where('payment', true)
         ]);
+    }
+    public function updateOrder(Request $request){
+        $id = Crypt::decryptString($request->id);
+        Order::where('id', $id)->update([
+                'payment' => true,
+        ]);
+        return redirect()->back();
     }
     /**
      * Display the specified resource.

@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('quantity');
             $table->string('method');
             $table->string('image');
+            $table->boolean('payment');
             $table->timestamps();
         });
     }

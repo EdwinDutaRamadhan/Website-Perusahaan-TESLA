@@ -68,6 +68,7 @@ Route::post('/shop/registration', [RegisterController::class, 'store']);
     Route::post('/shop/cart/', [CartController::class, 'store']);
     Route::post('/shop/checkout', [CartController::class, 'checkout']);
     Route::post('/shop/order', [CartController::class, 'order']);
+    Route::get('/shop/order/update/{id}', [CartController::class, 'updateOrder']);
 
 //Admin Auth
 Route::get('/admin/login/edwin123', [LoginController::class, 'adminLogin']);
