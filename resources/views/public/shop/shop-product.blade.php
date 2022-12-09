@@ -3,12 +3,12 @@
     @foreach ($data as $d)
         <div class="container-fluid">
             <div class="row ms-2 me-2 mt-4">
-                <div class="col-md-8">
+                <div class="col-md-8 mt-4">
                     <div class="container-fluid">
                         <img src="{{ asset('storage/' . $d->image) }}" alt="not found" class="img-fluid" style="width: 100%;">
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 mt-4">
                     <div class="row">
                         <div class="col-md-12 mb-4">
                             <h2>{{ $d->title }}</h2>

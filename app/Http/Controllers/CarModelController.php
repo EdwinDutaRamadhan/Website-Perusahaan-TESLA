@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CarModel;
-use App\Http\Requests\StoreCarModelRequest;
+use Illuminate\Support\Facades\Crypt;
 use App\Http\Requests\UpdateCarModelRequest;
 use Illuminate\Http\Request;
 
@@ -43,7 +43,8 @@ class CarModelController extends Controller
     }
     public function single(Request $req)
     {
-        return view('public.home.landing-detail', ['data' => CarModel::where('id', $req->id)->get()]);
+        $id = Crypt::decryptString($req->id);
+        return view('public.home.landing-detail', ['data' => CarModel::where('id', $id)->get()]);
     }
     public function payments(Request $req){
         $payments = $req->payments;

@@ -1,7 +1,7 @@
 @extends('layout.tesla-admin')
 @section('container')
     <div class="row justify-content-center">
-        <div class="col-lg-4">
+        <div class="col-sm-4">
             @if (session()->has('register'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     {{ session('register') }}

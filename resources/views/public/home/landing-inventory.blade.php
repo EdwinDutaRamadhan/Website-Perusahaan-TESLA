@@ -83,7 +83,7 @@
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center">
-                                <a href="/inventory/detail/{{ $d->id }}" class="btn btn-outline-dark">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;View Details&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</a>
+                                <a href="/inventory/detail/{{ Crypt::encryptString($d->id) }}" class="btn btn-outline-dark">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;View Details&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</a>
                             </div>
                         </div>
                     @endforeach

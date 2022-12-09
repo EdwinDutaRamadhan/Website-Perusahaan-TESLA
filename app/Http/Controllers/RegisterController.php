@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Crypt;
+
 class RegisterController extends Controller
 {
     public function index(){
