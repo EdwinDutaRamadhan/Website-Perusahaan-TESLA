@@ -1,6 +1,6 @@
 <p class="text-muted">{{ Auth::user()->name }}</p>
 <hr class="my-2">
-<h4>Car Inventory Edit Logs</h4>
+<h4>Car Inventory Edit Logs ({{ count($dataInventory) }})</h4>
 <div class="table-responsive mt-3">
     <table class="table table-striped table-sm">
         <thead>
@@ -35,7 +35,7 @@
         </tbody>
     </table>
 </div>
-<h4>Shops Edit Logs</h4>
+<h4>Shops Edit Logs ({{ count($dataShop) }})</h4>
 <div class="table-responsive">
     <table class="table table-striped table-sm">
         <thead>

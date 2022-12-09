@@ -89,6 +89,7 @@ class AdminController extends Controller
                 ($req->image == null) ? $image = $req->image_kw : $image = $req->image;
                 $id = Crypt::decryptString($req->id);
                 CarModel::where('id', $id)->update([
+                    'user_id' => Auth::user()->id,
                     'model' => $req->model,
                     'name' => $req->name,
                     'type' => $req->type,
@@ -142,7 +143,7 @@ class AdminController extends Controller
                 ($req->image == null) ? $image = $req->image_kw : $image = $req->image;
                 Shop::where('id', $req->id)->update([
                     'category_id' => $req->category_id,
-                    'user_id' => auth()->user()->id,
+                    'user_id' => Auth::user()->id,
                     'type' => $req->type,
                     'model' => $req->model,
                     'title' => $req->title,
