@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('tb_inventory', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
             $table->string('model');
             $table->string('name');
             $table->string('type');

@@ -1,144 +1,72 @@
-<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Dashboard</h1>
-    <div class="btn-toolbar mb-2 mb-md-0">
-        <div class="btn-group me-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-        </div>
-        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-            <span data-feather="calendar"></span>
-            This week
-        </button>
-    </div>
+<p class="text-muted">{{ Auth::user()->name }}</p>
+<hr class="my-2">
+<h4>Car Inventory Edit Logs</h4>
+<div class="table-responsive mt-3">
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Model</th>
+                <th scope="col">Color</th>
+                <th scope="col">Price</th>
+                <th scope="col">Created at</th>
+                <th scope="col">Updated at</th>
+            </tr>
+        </thead>
+        <tbody>
+           @if (count($dataInventory) > 0)
+                @foreach ($dataInventory as $d)
+                    <tr>
+                        <td>{{ $d->name }}</td>
+                        <td>{{ $d->model }}</td>
+                        <td>{{ $d->color }}</td>
+                        <td>{{ $d->fee }}</td>
+                        <td>{{ $d->created_at }}</td>
+                        <td>{{ $d->updated_at }}</td>
+                    </tr>
+                 @endforeach
+           @else
+               <tr>
+                <td colspan="6" align="center">
+                    <b>Tidak ada data log</b>
+                </td>
+               </tr>
+           @endif
+        </tbody>
+    </table>
 </div>
-
-<canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
-
-<h2>Section title</h2>
+<h4>Shops Edit Logs</h4>
 <div class="table-responsive">
     <table class="table table-striped table-sm">
         <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Header</th>
-                <th scope="col">Header</th>
-                <th scope="col">Header</th>
-                <th scope="col">Header</th>
+                <th scope="col">Title</th>
+                <th scope="col">Type</th>
+                <th scope="col">Model</th>
+                <th scope="col">Price</th>
+                <th scope="col">Created at</th>
+                <th scope="col">Updated at</th>
             </tr>
         </thead>
         <tbody>
+            @if (count($dataShop) > 0)
+                @foreach ($dataShop as $d)
+                    <tr>
+                        <td>{{ $d->title }}</td>
+                        <td>{{ $d->type }}</td>
+                        <td>{{ ($d->model == null)? "-" : $d->model; }}</td>
+                        <td>{{ $d->price }}</td>
+                        <td>{{ $d->created_at }}</td>
+                        <td>{{ $d->updated_at }}</td>
+                    </tr>
+                 @endforeach
+            @else
             <tr>
-                <td>1,001</td>
-                <td>random</td>
-                <td>data</td>
-                <td>placeholder</td>
-                <td>text</td>
-            </tr>
-            <tr>
-                <td>1,002</td>
-                <td>placeholder</td>
-                <td>irrelevant</td>
-                <td>visual</td>
-                <td>layout</td>
-            </tr>
-            <tr>
-                <td>1,003</td>
-                <td>data</td>
-                <td>rich</td>
-                <td>dashboard</td>
-                <td>tabular</td>
-            </tr>
-            <tr>
-                <td>1,003</td>
-                <td>information</td>
-                <td>placeholder</td>
-                <td>illustrative</td>
-                <td>data</td>
-            </tr>
-            <tr>
-                <td>1,004</td>
-                <td>text</td>
-                <td>random</td>
-                <td>layout</td>
-                <td>dashboard</td>
-            </tr>
-            <tr>
-                <td>1,005</td>
-                <td>dashboard</td>
-                <td>irrelevant</td>
-                <td>text</td>
-                <td>placeholder</td>
-            </tr>
-            <tr>
-                <td>1,006</td>
-                <td>dashboard</td>
-                <td>illustrative</td>
-                <td>rich</td>
-                <td>data</td>
-            </tr>
-            <tr>
-                <td>1,007</td>
-                <td>placeholder</td>
-                <td>tabular</td>
-                <td>information</td>
-                <td>irrelevant</td>
-            </tr>
-            <tr>
-                <td>1,008</td>
-                <td>random</td>
-                <td>data</td>
-                <td>placeholder</td>
-                <td>text</td>
-            </tr>
-            <tr>
-                <td>1,009</td>
-                <td>placeholder</td>
-                <td>irrelevant</td>
-                <td>visual</td>
-                <td>layout</td>
-            </tr>
-            <tr>
-                <td>1,010</td>
-                <td>data</td>
-                <td>rich</td>
-                <td>dashboard</td>
-                <td>tabular</td>
-            </tr>
-            <tr>
-                <td>1,011</td>
-                <td>information</td>
-                <td>placeholder</td>
-                <td>illustrative</td>
-                <td>data</td>
-            </tr>
-            <tr>
-                <td>1,012</td>
-                <td>text</td>
-                <td>placeholder</td>
-                <td>layout</td>
-                <td>dashboard</td>
-            </tr>
-            <tr>
-                <td>1,013</td>
-                <td>dashboard</td>
-                <td>irrelevant</td>
-                <td>text</td>
-                <td>visual</td>
-            </tr>
-            <tr>
-                <td>1,014</td>
-                <td>dashboard</td>
-                <td>illustrative</td>
-                <td>rich</td>
-                <td>data</td>
-            </tr>
-            <tr>
-                <td>1,015</td>
-                <td>random</td>
-                <td>tabular</td>
-                <td>information</td>
-                <td>text</td>
-            </tr>
+                <td colspan="6" align="center">
+                    <b>Tidak ada data log</b>
+                </td>
+               </tr>
+            @endif
         </tbody>
     </table>
 </div>

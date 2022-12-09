@@ -21,4 +21,7 @@ class CarModel extends Model
     protected $primaryKey = 'id';
     public $timestamp = false;
     //public $fillable = ['id', 'judul','penulis','tanggal','isi'];
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

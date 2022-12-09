@@ -86,7 +86,9 @@
                                         Available for local delivery in {{ $d->delivery }}
                                     </p>
                                     <p class="text-muted"></p>
-                                    <p class="text-muted"></p>
+                                    <p class="text-muted" align="right">Last updated at <br> {{ $d->updated_at }}
+                                        <br>by {{ $d->user->name }}
+                                    </p>
                                 </div>
                             </div>
                         </div>
