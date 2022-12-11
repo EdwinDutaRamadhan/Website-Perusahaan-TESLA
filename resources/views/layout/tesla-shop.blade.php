@@ -12,6 +12,9 @@
     
     <title>Tesla Shop</title>
     <style>
+        body{
+            font-family: sans-serif;
+        }
         .section-image {
             background-repeat: no-repeat;
             background-size: cover;
@@ -42,7 +45,6 @@
     @include('partials.nav-shop-header')
 
     @yield('container')
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"

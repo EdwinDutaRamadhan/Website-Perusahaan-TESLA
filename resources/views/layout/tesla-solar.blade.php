@@ -20,9 +20,8 @@
 </head>
 
 <body>
-    @include('partials.nav-header')
+    @include('partials.nav-blank-center')
     @yield('container')
-    @include('partials.footer-main')
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>

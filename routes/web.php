@@ -24,6 +24,9 @@ use App\Http\Controllers\LandingModelController;
 Route::get('/', [LandingModelController::class, 'index'])->name('home');
 //Custom
 Route::post('/custom/', [CarModelController::class, 'custom']);
+Route::get('/solarpanel', function(){
+    return view('public.home.landing-solar');
+} );
 
 //Inventory
 Route::get('/inventory/', [CarModelController::class, 'index']);

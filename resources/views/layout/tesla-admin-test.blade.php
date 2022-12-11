@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
 
     <style>
+       body{
+            font-family: sans-serif;
+        }
         .bd-placeholder-img {
             font-size: 1.125rem;
             text-anchor: middle;

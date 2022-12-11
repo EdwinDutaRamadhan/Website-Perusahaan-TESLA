@@ -7,7 +7,7 @@
         {{-- Header Section --}}
         <h1 align="center">{{ $d->model }}</h1>
         <div class="m-4 p-2">
-            <h6 align="center">{{ $d->model }} {{ $d->trim }}</h6>
+            <h6 align="center">{{ $d->trim }}</h6>
         </div>
         <div class="d-flex justify-content-evenly">
             <p><b style="font-size: 22px;">{{ $d->range }}</b>mi</p>

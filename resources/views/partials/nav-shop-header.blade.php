@@ -1,29 +1,54 @@
-<nav id="navbar-id" class="navbars navbar navbar-expand-md bg-light navbar-light sticky-top">
+<nav id="navbar-id" class="navbars navbar navbar-expand-lg bg-light navbar-light sticky-top">
     <div class="container-fluid">
         <div>
-            <a class="navbar-brand" href="/">T E S L A </a>
-            <a class="navbar-brand" href="/shop"> Shop </a>
+            <a class="navbar-brand" href="/">
+                <svg width="121" height="25" viewBox="0 0 121 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_1205_172)">
+                        <path
+                            d="M0.105225 6.21087C0.256369 6.80308 0.564198 7.34367 0.99638 7.77585C1.42856 8.20804 1.96915 8.51587 2.56136 8.66701H6.42101L6.59645 8.7021V18.3863H8.98242V8.73718L9.22803 8.63192H13.0877C13.6782 8.47739 14.217 8.16843 14.6487 7.73678C15.0803 7.30513 15.3893 6.76635 15.5438 6.17578L0.105225 6.17578V6.21087ZM83.8245 6.21087H81.4386V18.4214H92.3859C92.9047 18.2253 93.3676 17.9054 93.7346 17.4896C94.1015 17.0738 94.3612 16.5746 94.4912 16.0354H83.8596V6.17578L83.8245 6.21087ZM65.4736 8.59683C66.7368 8.24596 67.7894 7.2635 68.0701 6.17578L54.7017 6.21087V13.4389H65.614V15.9653H57.0526C56.3989 16.1353 55.7888 16.4422 55.2626 16.8656C54.7363 17.289 54.306 17.8193 54 18.4214H68V11.053H57.0526V8.59683H65.4736ZM106.246 18.4214H108.596V13.5091H117.228V18.4214H119.579V11.053H106.246V18.4214ZM30.0351 8.63192H39.1579C39.7582 8.48991 40.308 8.18575 40.7473 7.75263C41.1866 7.31951 41.4986 6.77406 41.6491 6.17578L27.5789 6.17578C27.7266 6.76968 28.0332 7.31212 28.466 7.74486C28.8987 8.17759 29.4412 8.48426 30.0351 8.63192ZM30.0351 13.474H39.1579C39.7582 13.332 40.308 13.0279 40.7473 12.5947C41.1866 12.1616 41.4986 11.6162 41.6491 11.0179H27.5789C27.7266 11.6118 28.0332 12.1542 28.466 12.587C28.8987 13.0197 29.4412 13.3264 30.0351 13.474ZM30.0351 18.4214H39.1579C39.7582 18.2794 40.308 17.9752 40.7473 17.5421C41.1866 17.109 41.4986 16.5635 41.6491 15.9653H27.5789C27.7266 16.5592 28.0332 17.1016 28.466 17.5343C28.8987 17.9671 29.4412 18.2737 30.0351 18.4214ZM108.351 8.63192H117.474C118.068 8.48426 118.61 8.17759 119.043 7.74486C119.475 7.31212 119.782 6.76968 119.93 6.17578L105.895 6.17578C106.042 6.76968 106.349 7.31212 106.782 7.74486C107.215 8.17759 107.757 8.48426 108.351 8.63192Z"
+                            fill="#393C41" />
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_1205_172">
+                            <rect width="120" height="24" fill="white"
+                                transform="translate(0.105225 0.316406)" />
+                        </clipPath>
+                    </defs>
+                </svg>
+            </a>
+            <a class="me-2" href=""><svg width="2" height="15" viewBox="0 0 2 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.1875 14.2949H0.175781V0.294922H1.1875V14.2949Z" fill="#171A20" />
+            </svg></a>
+            <a class="navbar-brand" href="/shop">
+                <svg width="29" height="18" viewBox="0 -2 29 15" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M0.124023 10.6035V9.25C0.278971 9.38672 0.463542 9.50977 0.677734 9.61914C0.896484 9.72852 1.12435 9.82194 1.36133 9.89941C1.60286 9.97233 1.8444 10.0293 2.08594 10.0703C2.32747 10.1113 2.55078 10.1318 2.75586 10.1318C3.46224 10.1318 3.98861 10.002 4.33496 9.74219C4.68587 9.47786 4.86133 9.09961 4.86133 8.60742C4.86133 8.3431 4.80208 8.11296 4.68359 7.91699C4.56966 7.72103 4.41016 7.54329 4.20508 7.38379C4 7.21973 3.75618 7.06478 3.47363 6.91895C3.19564 6.76855 2.89486 6.61133 2.57129 6.44727C2.22949 6.27409 1.91048 6.09863 1.61426 5.9209C1.31803 5.74316 1.06055 5.5472 0.841797 5.33301C0.623047 5.11882 0.44987 4.87728 0.322266 4.6084C0.199219 4.33496 0.137695 4.01595 0.137695 3.65137C0.137695 3.20475 0.235677 2.81738 0.431641 2.48926C0.627604 2.15658 0.885091 1.88314 1.2041 1.66895C1.52311 1.45475 1.88542 1.29525 2.29102 1.19043C2.70117 1.08561 3.11816 1.0332 3.54199 1.0332C4.50814 1.0332 5.21224 1.14941 5.6543 1.38184V2.67383C5.07552 2.27279 4.33268 2.07227 3.42578 2.07227C3.17513 2.07227 2.92448 2.09961 2.67383 2.1543C2.42318 2.20443 2.19987 2.28874 2.00391 2.40723C1.80794 2.52572 1.64844 2.67839 1.52539 2.86523C1.40234 3.05208 1.34082 3.27995 1.34082 3.54883C1.34082 3.79948 1.38639 4.01595 1.47754 4.19824C1.57324 4.38053 1.71224 4.54688 1.89453 4.69727C2.07682 4.84766 2.29785 4.99349 2.55762 5.13477C2.82194 5.27604 3.125 5.43099 3.4668 5.59961C3.81771 5.77279 4.15039 5.95508 4.46484 6.14648C4.7793 6.33789 5.05501 6.5498 5.29199 6.78223C5.52897 7.01465 5.71582 7.27214 5.85254 7.55469C5.99382 7.83724 6.06445 8.16081 6.06445 8.52539C6.06445 9.00846 5.96875 9.41862 5.77734 9.75586C5.59049 10.0885 5.33529 10.3597 5.01172 10.5693C4.69271 10.779 4.32357 10.9294 3.9043 11.0205C3.48503 11.1162 3.04297 11.1641 2.57812 11.1641C2.42318 11.1641 2.23177 11.1504 2.00391 11.123C1.77604 11.1003 1.54362 11.0638 1.30664 11.0137C1.06966 10.9681 0.844076 10.9111 0.629883 10.8428C0.420247 10.7699 0.251628 10.6901 0.124023 10.6035ZM13.0797 11H11.9586V6.9668C11.9586 5.50846 11.4163 4.7793 10.3316 4.7793C9.78477 4.7793 9.32448 4.99121 8.95078 5.41504C8.57708 5.83431 8.39023 6.37435 8.39023 7.03516V11H7.26914V0.636719H8.39023V5.16211H8.41758C8.95534 4.27799 9.72096 3.83594 10.7145 3.83594C12.2913 3.83594 13.0797 4.78613 13.0797 6.68652V11ZM17.5246 11.1641C16.4901 11.1641 15.663 10.8382 15.0432 10.1865C14.4279 9.53027 14.1203 8.66211 14.1203 7.58203C14.1203 6.40625 14.4416 5.48796 15.0842 4.82715C15.7268 4.16634 16.5949 3.83594 17.6887 3.83594C18.7323 3.83594 19.5458 4.15723 20.1291 4.7998C20.717 5.44238 21.0109 6.33333 21.0109 7.47266C21.0109 8.58919 20.6942 9.4847 20.0607 10.1592C19.4318 10.8291 18.5865 11.1641 17.5246 11.1641ZM17.6066 4.7793C16.8866 4.7793 16.3169 5.02539 15.8977 5.51758C15.4784 6.00521 15.2688 6.67969 15.2688 7.54102C15.2688 8.37044 15.4807 9.02441 15.9045 9.50293C16.3283 9.98145 16.8957 10.2207 17.6066 10.2207C18.3313 10.2207 18.8872 9.986 19.2746 9.5166C19.6665 9.0472 19.8625 8.37956 19.8625 7.51367C19.8625 6.63867 19.6665 5.96419 19.2746 5.49023C18.8872 5.01628 18.3313 4.7793 17.6066 4.7793ZM23.3504 9.98828H23.323V14.2197H22.202V4H23.323V5.23047H23.3504C23.9018 4.30078 24.7085 3.83594 25.7703 3.83594C26.6727 3.83594 27.3768 4.15039 27.8826 4.7793C28.3885 5.40365 28.6414 6.24219 28.6414 7.29492C28.6414 8.46615 28.3566 9.40495 27.7869 10.1113C27.2173 10.8132 26.438 11.1641 25.449 11.1641C24.5421 11.1641 23.8426 10.7721 23.3504 9.98828ZM23.323 7.16504V8.14258C23.323 8.72135 23.5099 9.21354 23.8836 9.61914C24.2618 10.0202 24.7404 10.2207 25.3191 10.2207C25.9982 10.2207 26.5291 9.96094 26.9119 9.44141C27.2993 8.92188 27.493 8.19954 27.493 7.27441C27.493 6.49512 27.313 5.88444 26.9529 5.44238C26.5929 5.00033 26.1053 4.7793 25.49 4.7793C24.8383 4.7793 24.3143 5.00716 23.9178 5.46289C23.5213 5.91406 23.323 6.48145 23.323 7.16504Z"
+                        fill="#171A20" />
+                </svg>
+
+            </a>
         </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-center" id="collapsibleNavbar">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item ms-2 me-2">
-                    <a class="nav-link" href="/shop/category/charging">Charging</a>
+        <div class="collapse navbar-collapse justify-content-center"  id="collapsibleNavbar">
+            <ul class="navbar-nav ms-auto" >
+                <li class="nav-item ms-0 me-2">
+                    <a class="nav-link" href="/shop/category/charging"><b>Charging</b></a>
                 </li>
                 <li class="nav-item ms-2 me-2">
-                    <a class="nav-link" href="/shop/category/vehicle-accessories">Vehicle Accessories</a>
+                    <a class="nav-link" href="/shop/category/vehicle-accessories"><b>Vehicle Accessories</b></a>
                 </li>
                 <li class="nav-item ms-2 me-2">
-                    <a class="nav-link" href="/shop/category/apparel">Apparel</a>
+                    <a class="nav-link" href="/shop/category/apparel"><b>Apparel</b></a>
                 </li>
-                <li class="nav-item ms-2 me-2">
-                    <a class="nav-link" href="/shop/category/lifestyle">Lifestyle</a>
+                <li class="nav-item ms-2 me-5">
+                    <a class="nav-link" href="/shop/category/lifestyle"><b>Lifestyle</b></a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
-                @if(isset(auth()->user()->role) and auth()->user()->role == 'User')
+                @if (isset(auth()->user()->role) and auth()->user()->role == 'User')
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
@@ -31,8 +56,15 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="#"><i class="bi bi-person"> </i>My Account</a></li>
-                            <li><a class="dropdown-item" href="/shop/cart/{{ Crypt::encryptString(auth()->user()->id) }}"><i class="bi bi-cart">  </i>Cart <span class="badge bg-primary rounded-pill ms-1">{{ (count(auth()->user()->carts) == 0)? "": count(auth()->user()->carts); }}</span></a></li>
-                            <li><a href="/shop/order/{{ Crypt::encryptString(auth()->user()->id) }}" class="dropdown-item"><i class="bi bi-bag"> </i>Order <span class="badge bg-primary rounded-pill ms-1">{{ (count(auth()->user()->orders) == 0)? "": count(auth()->user()->orders); }}</span></a></li>
+                            <li><a class="dropdown-item"
+                                    href="/shop/cart/{{ Crypt::encryptString(auth()->user()->id) }}"><i
+                                        class="bi bi-cart"> </i>Cart <span
+                                        class="badge bg-primary rounded-pill ms-1">{{ count(auth()->user()->carts) == 0 ? '' : count(auth()->user()->carts) }}</span></a>
+                            </li>
+                            <li><a href="/shop/order/{{ Crypt::encryptString(auth()->user()->id) }}"
+                                    class="dropdown-item"><i class="bi bi-bag"> </i>Order <span
+                                        class="badge bg-primary rounded-pill ms-1">{{ count(auth()->user()->orders) == 0 ? '' : count(auth()->user()->orders) }}</span></a>
+                            </li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -48,7 +80,7 @@
                     </li>
                 @else
                     <li class="nav-item ms-2 me-2">
-                        <a class="nav-link" href="/shop/login">login</a>
+                        <a class="nav-link" href="/shop/login"><b>login</b></a>
                     </li>
                 @endif
             </ul>

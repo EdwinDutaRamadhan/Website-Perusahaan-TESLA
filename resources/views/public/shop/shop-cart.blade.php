@@ -43,7 +43,7 @@
                                             {{-- <a class="ms-4"
                                                 href="/shop/cart/remove/{{ Crypt::encryptString($d->id) }}" >Remove</a> --}}
                                             <button type="button" class="btn btn-link-secondary" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal">
+                                                data-bs-target="#exampleModal{{ $d->id }}">
                                                 Remove
                                             </button>
                                         </div>
@@ -53,7 +53,7 @@
                         </div>
                     </div>
                     <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    <div class="modal fade" id="exampleModal{{ $d->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
                         aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered modal-lg">
                             <div class="modal-content">

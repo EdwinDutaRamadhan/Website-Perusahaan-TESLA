@@ -1,11 +1,11 @@
 <div class="container-fluid">
     <div class="container ms-2 ps-4">
-        <a href="/inventory/detail/{{ $d->id }}" style="text-decoration: none;color:black;font-size:15px;">&#8617;
+        <a href="/inventory/detail/{{ Crypt::encryptString($d->id) }}" style="text-decoration: none;color:black;font-size:15px;">&#8617;
             Go Back</a>
-        <h2 class="mt-4" align="center">Your {{ $d->model }}</h2>
+        <h2 class="mt-4 text-center">Your {{ $d->model }}</h2>
 
         <div class="m-2 p-2">
-            <p>{{ $d->model }} {{ $d->trim }}</p>
+            <p>{{ $d->trim }}</p>
             <p style="margin-top: -10px;">{{ $d->color }}</p>
             <p style="margin-top: -10px;">{{ $d->wheels }}</p>
             <p style="margin-top: -10px;">{{ $d->internal }}</p>

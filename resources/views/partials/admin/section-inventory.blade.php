@@ -147,7 +147,7 @@
                                                 </form>
                                             </div>
                                             <div>
-                                                <a href="/inventory/detail/{{ $d->id }}"
+                                                <a href="/inventory/detail/{{ Crypt::encryptString($d->id) }}"
                                                     class="btn btn-outline-dark ps-5 pe-5">Details</a>
                                             </div>
                                             <div class="">

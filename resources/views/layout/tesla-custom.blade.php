@@ -11,8 +11,7 @@
     <link rel="stylesheet" href="css/app.css">
     <style>
         body{
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: white;
+            font-family: sans-serif;
         }
         .name-size {
             font-size: 15px;
