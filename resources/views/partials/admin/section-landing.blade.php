@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <form action="/admin/landing/update" method="post">
+                    <form action="/admin/landing/update" method="post" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="image_kw" value="{{ $d->image }}">
                         <input type="hidden" name="id" value="{{ $d->id }}">
@@ -44,17 +44,11 @@
                         <div class="row p-4">
                             <div class="col-2 mt-1">
                                 <label style="font-size: 18px;" for="note" class="form-label mb-3">Note : </label>
-                                <label style="font-size: 18px;" for="img" class="form-label mb-3">Image </label>
-
                             </div>
                             <div class="col-10">
                                 <div class="input-group input-group-sm mb-3">
                                     <input type="text" class="form-control" id="note" name="note"
                                         value="{{ $d->note }}">
-                                </div>
-                                <div class="input-group input-group-sm mb-3">
-                                    <input type="file" class="form-control" id="img" name="img"
-                                        value="{{ $d->image }}">
                                 </div>
                                 <div class="d-grid gap-2 col-6 mx-auto">
                                     <input class="btn btn-primary" type="submit" value="Update">

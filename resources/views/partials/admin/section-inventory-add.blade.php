@@ -5,6 +5,7 @@
         <div class="modal-content">
             <form action="/admin/inventory/store" method="post" enctype="multipart/form-data">
                 @csrf
+                
                 <div class="modal-header">
                     <input type="hidden" name="user_id" value="1">
                     <h5 class="modal-title" id="exampleModalLabel">T E S L A | Insert Data</h5>
@@ -216,7 +217,7 @@
                             <div class="mb-3">
                                 <label for="image" class="form-label">Image</label>
                                 <input required type="file" class="form-control" id="image"
-                                    name="image"placeholder="Image">
+                                    name="image" placeholder="Image">
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -234,7 +235,6 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <input type="hidden" name="section" value="Inventory Insert">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Insert Car</button>
                 </div>

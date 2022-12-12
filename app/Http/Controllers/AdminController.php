@@ -7,6 +7,7 @@ use App\Models\LandingModel;
 use App\Models\CarModel;
 use App\Models\Shop;
 use App\Models\User;
+use App\Models\Order;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Auth;
 class AdminController extends Controller
@@ -39,6 +40,14 @@ class AdminController extends Controller
                         $active = "shop";
                         $data = Shop::with(['user', 'category'])->paginate(10); //Obj 
                         break;
+                    case 'order':
+                        $active = "order";
+                        $data = Order::where('payment', 1)->get(); //Obj 
+                        break;
+                    case 'ongoingorder':
+                        $active = "ongoingorder";
+                        $data = Order::where('payment', 0)->get(); //Obj 
+                        break;
                     default:
                         
                         $data = null;
@@ -58,6 +67,7 @@ class AdminController extends Controller
     public function inventory(Request $req){
         switch ($req->action) {
             case 'store':
+                @ddd($req->image);
                 CarModel::create([
                     'model' => $req->model,
                     'name' => $req->name,
@@ -78,6 +88,7 @@ class AdminController extends Controller
                     'image' => $req->file('image')->store('inventory-images'),
                     'trial' => $req->trial
                 ]);
+                
                 return redirect('/admin/inventory')->with('create', 'Insert data '.$req->name.' successfully!');
                 break;
             case 'delete':
@@ -86,7 +97,12 @@ class AdminController extends Controller
                 return redirect('/admin/inventory')->with('delete', 'Delete data successfully!');
                 break;
             case 'update':
-                ($req->image == null) ? $image = $req->image_kw : $image = $req->image;
+               @ddd($req);
+                if($req->image == null){
+                    $image = $req->image_kw;
+                }else{
+                    $image = $req->file('image')->store('inventory-images');
+                }
                 $id = Crypt::decryptString($req->id);
                 CarModel::where('id', $id)->update([
                     'user_id' => Auth::user()->id,
@@ -164,7 +180,7 @@ class AdminController extends Controller
         }
     }
     public function landing(Request $req){
-        ($req->image == null) ? $image = $req->image_kw : $image = $req->image;
+        ($req->image == null) ? $image = $req->image_kw : $image = $req->file('img')->store('landing-images');
         LandingModel::where('id', $req->id)->update([
             'model_id' => $req->model_id,
             'model' => $req->model,

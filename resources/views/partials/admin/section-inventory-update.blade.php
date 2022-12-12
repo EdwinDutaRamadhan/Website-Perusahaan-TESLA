@@ -4,10 +4,9 @@
     <div class="modal-dialog modal-lg">
 
         <div class="modal-content">
-            <form action="/admin/inventory/" method="post" enctype="multipart/form-data">
+            <form action="/admin/inventory/update" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header">
-
                     <h5 class="modal-title" id="exampleModalLabel">T E S L A | Update Data</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -268,10 +267,8 @@
                         </div>
                         <div class="col-md-5">
                             <div class="mb-3">
-
                                 <label for="image" class="form-label">Image</label>
-                                <input type="file" class="form-control" id="image"
-                                    name="image"placeholder="Image">
+                                <input required type="file" class="form-control"                            name="image">
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -294,7 +291,7 @@
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Update Car</button>
                 </div>
-        </div>
+            </div>
         </form>
     </div>
 </div>

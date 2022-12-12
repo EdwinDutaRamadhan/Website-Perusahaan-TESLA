@@ -19,6 +19,12 @@
                     @case('shop')
                         @include('partials.admin.section-shop')
                         @break
+                    @case('order')
+                        @include('partials.admin.admin-section-order')
+                        @break
+                    @case('ongoingorder')
+                        @include('partials.admin.admin-section-order')
+                        @break
                     @default    
                 @endswitch
             </main>

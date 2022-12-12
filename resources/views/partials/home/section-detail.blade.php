@@ -60,7 +60,7 @@
                 </ul>
 
                 <div class="d-flex justify-content-center">
-                    <input  onclick="repeaterEA();" type="checkbox" name="enchanced" value="true" class="btn-check" id="btn-check-2-outlined" checked autocomplete="off">
+                    <input  onclick="repeaterEA();" type="checkbox" name="enchanced" value="true" class="btn-check" id="btn-check-2-outlined" autocomplete="off">
                     <label id="EA" class="btn btn-outline-primary" style="width: 50%" for="btn-check-2-outlined">Add</label><br>
                     <a href=""></a>
                     <a class="btn btn-light" data-bs-toggle="modal" href="#modal1" role="button">Feature Details</a>
@@ -85,7 +85,7 @@
                 </ul>
                 {{-- @include('partials.landing-detail.section-modal') --}}
                 <div class="d-flex justify-content-center">
-                    <input  onclick="repeaterFS();" type="checkbox" name="capability" value="true" class="btn-check" id="btn-check-3-outlined" checked autocomplete="off">
+                    <input  onclick="repeaterFS();" type="checkbox" name="capability" value="true" class="btn-check" id="btn-check-3-outlined" autocomplete="off">
                     <label id="FS" class="btn btn-outline-primary" style="width: 50%" for="btn-check-3-outlined">Add</label><br>
                     <a href=""></a>
                     <a class="btn btn-light" data-bs-toggle="modal" href="#modal1" role="button">Feature Details</a>
@@ -98,7 +98,7 @@
                 <div class="d-flex justify-content-around p-3">
                     <p>
                         <input style="width: 22px;height: 22px;margin-top:2px;" class="form-check-input" type="checkbox"
-                            name="charging" value="400" id="flexCheckDefault">
+                            name="charging" value="true" id="flexCheckDefault">
                         <label class="form-check-label" for="flexCheckDefault">
                             &nbsp;&nbsp;Wall Connector
                         </label>

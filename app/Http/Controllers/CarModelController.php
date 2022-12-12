@@ -48,15 +48,17 @@ class CarModelController extends Controller
     }
     public function payments(Request $req){
         $payments = $req->payments;
-        ($req->enhanced)? $enchanced = true : $enchanced = false;
-        ($req->capability)? $capability = true : $capability = false;
-        ($req->charging)? $charging = true : $charging = false;
+        $adding = 0;
+        ($req->enchanced == "true") ? $adding += 6000 : $adding +=0;
+        ($req->capability == "true") ? $adding += 15000 : $adding +=0;
+        ($req->charging == "true") ? $adding += 400 : $adding +=0;
         return view('public.home.landing-detail', [
             'data' => CarModel::where('id', $req->id)->get(),
-            'enchanced' => $enchanced,
-            'capability' => $capability,
-            'charging' => $charging,
-            'payments' => $payments
+            'enchanced' => $req->enchanced,
+            'capability' => $req->capability,
+            'charging' => $req->charging,
+            'payments' => $payments,
+            'adding' => $adding,
         ]);
     }
     /**
