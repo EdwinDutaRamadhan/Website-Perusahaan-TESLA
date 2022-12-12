@@ -60,6 +60,13 @@
                                     <input type="hidden" name="image_kw" value="{{ $d->image }}">
                                   <label for="image" class="form-label">Default file input example</label>
                                   <input name="image" class="form-control" type="file" id="image">
+                                  <div class="mt-2">
+                                    @if ($d->image)
+                                        <img src="{{ asset('storage/'.$d->image) }}" alt="" class="img-preview img-fluid mb-3">
+                                    @else
+                                    <img class="img-preview img-fluid mb-3 col-sm-5">
+                                    @endif
+                                  </div>
                               </div>
                           </div>
                       </div>

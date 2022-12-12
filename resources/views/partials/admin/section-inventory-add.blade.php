@@ -18,7 +18,7 @@
                                 <label for="model" class="form-label">Tesla Model</label>
                                 <select required class="form-select" id="model" name="model"
                                     aria-label="Default select example">
-                                    <option selected>Select Model</option>
+                                    <option value="">Select Model</option>
                                     <option value="Model S">Model S</option>
                                     <option value="Model 3">Model 3</option>
                                     <option value="Model X">Model X</option>
@@ -66,7 +66,7 @@
                                 <label for="trim" class="form-label">Trim</label>
                                 <select required class="form-select" id="trim" name="trim"
                                     aria-label="Default select example">
-                                    <option selected>Select Trim</option>
+                                    <option value="">Select Trim</option>
                                     <option value="Model S Plaid">Model S Plaid</option>
                                     <option value="Model S Dual Motor All-Wheel Drive">Model S Dual Motor All-Wheel Drive</option>
                                     <option value="Model 3 Performance Dual Motor All-Wheel Drive">Model 3 Performance Dual Motor All-Wheel Drive</option>
@@ -88,7 +88,7 @@
                                 <label for="color" class="form-label">Car Color</label>
                                 <select required class="form-select" id="color" name="color"
                                     aria-label="Default select example">
-                                    <option selected>Select Exterior Color</option>
+                                    <option value="">Select Exterior Color</option>
                                     <option value="Pearl White Multi-Coat">Pearl White Multi-Coat</option>
                                     <option value="Pearl White Paint">Pearl White Paint</option>
                                     <option value="Pearl White Multi-Coat Paint">Pearl White Multi-Coat Paint</option>
@@ -109,7 +109,7 @@
                                 <label for="internal" class="form-label">Interior Color</label>
                                 <select required class="form-select" id="internal" name="internal"
                                     aria-label="Default select example">
-                                    <option selected>Select Interior Color</option>
+                                    <option value="">Select Interior Color</option>
                                     <option value="All Black Premium Interior">All Black Premium Interior</option>
                                     <option value="All Black Premium Interior with Carbon Fiber Décor">All Black Premium Interior with Carbon Fiber Décor</option>
                                     <option value="All Black Premium Interior with Ebony Décor">All Black Premium
@@ -129,7 +129,7 @@
                                 <label for="wheels" class="form-label">Wheels Size</label>
                                 <select required class="form-select" id="wheels" name="wheels"
                                     aria-label="Default select example">
-                                    <option selected>Select Wheels</option>
+                                    <option value="">Select Wheels</option>
                                     <option value="18'' Aero Wheels">18'' Aero Wheels</option>
                                     <option value="19'' Gemini Wheels">19'' Gemini Wheels</option>
                                     <option value="19'' Sport Wheels">19'' Sport Wheels</option>
@@ -154,7 +154,7 @@
                                 <label for="autopilot" class="form-label">Autopilot</label>
                                 <select class="form-select" id="autopilot" name="autopilot"
                                     aria-label="Default select example">
-                                    <option selected>Select Autopilot</option>
+                                    <option value="">Select Autopilot</option>
                                     <option value="Autopilot">Autopilot</option>
                                     <option value="Enhanced Autopilot">Enhanced Autopilot</option>
                                     <option value="Full Self Driving">Full Self Driving</option>
@@ -172,7 +172,7 @@
                             <label for="additional" class="form-label">Additional</label>
                                 <select class="form-select" id="additional" name="additional"
                                     aria-label="Default select example">
-                                    <option selected>Select Additional</option>
+                                    <option value="">Select Additional</option>
                                     <option value="Performance Upgrade">Performance Upgrade</option>
                                     <option value="Rear Heated Seats">Rear Heated Seats</option>
                                     <option value="Tow Hitch">Tow Hitch</option>
@@ -222,9 +222,9 @@
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <label for="trial" class="form-label">Trial Time</label>
-                                <select class="form-select" id="trial" name="trial"
+                                <select required class="form-select" id="trial" name="trial"
                                     aria-label="Default select example">
-                                    <option selected>Select Trial</option>
+                                    <option value="">Select Trial</option>
                                     <option value="30-Day">30-Day</option>
                                     <option value="6-Month">6-Month</option>
                                     <option value="1-Year">1-Year</option>

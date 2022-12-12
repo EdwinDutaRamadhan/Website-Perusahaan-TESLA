@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,11 +9,11 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     {{-- Boostrap Icons --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
-
     <style>
-       body{
+        body {
             font-family: sans-serif;
         }
+
         .bd-placeholder-img {
             font-size: 1.125rem;
             text-anchor: middle;
@@ -29,8 +28,6 @@
             }
         }
     </style>
-
-
     <!-- Custom styles for this template -->
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
 </head>
@@ -38,7 +35,6 @@
 <body>
     @include('partials.nav-admin')
     @yield('container')
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
         integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous">
@@ -48,19 +44,62 @@
     </script>
     <script src="{{ asset('/js/dashboard.js') }}"></script>
     <script>
-        function previewImage() {
-            const image = document.querySelector('#image');
-            const imgPreview = document.querySelector('.image-preview');
+        function previewImageCharging() {
+            const image = document.querySelector('#imageCharging');
+            const imgPreview = document.querySelector('.image-preview-charging');
 
             imgPreview.style.display = 'block';
 
-            const ofReader = new FileReader();
-            ofReader.readAsDataURL(image.files[0]);
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+            console.log(image.files[0]);
 
-            ofReader.onload = function(oFREvent){
-              imgPreview.src = oFREvent.target.result;
+            oFReader.onload = function(oFREvent) {
+                imgPreview.src = oFREvent.target.result;
+                console.log(oFREvent.target.result);
+            }
+            
+        }
+        function previewImageApparell(){
+            const image = document.querySelector('#imageApparell');
+            const imgPreview = document.querySelector('.image-preview-apparel');
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+            console.log(image.files[0]);
+
+            oFReader.onload = function(oFREvent) {
+                imgPreview.src = oFREvent.target.result;
+                console.log(oFREvent.target.result);
+            }
+        }
+        function previewImageLifestyle(){
+            const image = document.querySelector('#imageLifestyle');
+            const imgPreview = document.querySelector('.image-preview-lifestyle');
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+            console.log(image.files[0]);
+
+            oFReader.onload = function(oFREvent) {
+                imgPreview.src = oFREvent.target.result;
+                console.log(oFREvent.target.result);
+            }
+        }
+        function previewImageVehicle(){
+            const image = document.querySelector('#imageVehicle');
+            const imgPreview = document.querySelector('.image-preview-vehicle');
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+            console.log(image.files[0]);
+
+            oFReader.onload = function(oFREvent) {
+                imgPreview.src = oFREvent.target.result;
+                console.log(oFREvent.target.result);
             }
         }
     </script>
 </body>
+
 </html>

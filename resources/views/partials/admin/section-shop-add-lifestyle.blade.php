@@ -16,7 +16,7 @@
                               <label for="type">Item Type</label>
                               <select required name="type" id="type" class="form-select"
                                   aria-label="Floating label select example">
-                                  <option selected>Select Type</option>
+                                  <option value="">Select Type</option>
                                   <option value="Bags">Bags</option>
                                   <option value="Socks">Socks</option>
                                   <option value="Drinkware">Drinkware</option>
@@ -43,7 +43,8 @@
                           </div>
                           <div class="col-md-4">
                               <label for="image" class="form-label">Default file input example</label>
-                              <input name="image" class="form-control" type="file" id="image">
+                              <input name="image" class="form-control" type="file" id="imageLifestyle" onchange="previewImageLifestyle()">
+                              <img class="image-preview-lifestyle img-fluid">
                           </div>
                       </div>
                   </div>

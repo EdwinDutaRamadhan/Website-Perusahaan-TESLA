@@ -35,7 +35,7 @@
                       <div class="row mb-3">
                           <div class="col-md-8">
                               <label for="floatingTextarea">Item Description</label>
-                              <textarea name="desc" class="form-control" placeholder="Leave a description here" id="floatingTextarea"
+                              <textarea required name="desc" class="form-control" placeholder="Leave a description here" id="floatingTextarea"
                                   style="width: 100%;height: 200px;">{{ $d->desc }}</textarea>
                           </div>
                           <input type="hidden" name="image_kw" value="{{ $d->image }}">
